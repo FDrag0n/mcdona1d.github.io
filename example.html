@@ -1,0 +1,458 @@
+<!DO@CTYPE html>
+<html lang="zh">
+<head>
+        <title>Kele's blog</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link href="http://blog.michiru.me/atom.xml" type="application/atom+xml" rel="alternate" title="Kele's blog Full Atom Feed" />
+
+        <!-- Bootstrap CSS, theme 'Paper' (http://bootswatch.com/paper/) -->
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <!-- My CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+        <!-- Monkai pygments theme (https://github.com/richleland/pygments-css/blob/master/monokai.css) -->
+        <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Nav bar -->
+                <div class="navbar navbar-inverse">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Kele's
+                            <ruby>
+                                Blog<rp>(</rp><rt>自娱自乐</rt><rp>)</rp>
+                            </ruby>
+
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse navbar-responsive-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a href="/">主页</a>
+                            </li>
+                            <li class="">
+                                <a href="/tags.html">标签</a>
+                            </li>
+                            <li class="">
+                                <a href="/categories.html">分类</a>
+                            </li>
+                            <li class="">
+                                <a href="/archives.html">存档</a>
+                            </li>
+                            <li>
+                                <a href="/atom.xml" target="_blank">订阅 <i class="glyphicon glyphicon-new-window"></i></a>
+                            </li>
+                        </ul>
+                        <!-- using google search -->
+                        <form class="navbar-form navbar-right" role="search" action="//www.google.com/search" method="get" accept-charset="UTF-8">
+                            <input type="text" name="q" class="form-control col-lg-8" placeholder="Search">
+                            <input type="hidden" name="q" value="site:http://blog.michiru.me">
+                        </form>
+                    </div>
+                </div>
+
+            <!-- end of Nav bar -->
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+<div id="content">
+    <div id="post-list" class="post-list">
+        <div class="post">
+            <article class="entry">
+<header>
+    <h2 class="entry-title">
+        <a href="http://blog.michiru.me/choco-may-be-a-little-helpful.html" rel="bookmark" title="Permalink to Chocolatey或许有那么一点用">Chocolatey或许有那么一点用</a>
+    </h2>
+</header>
+<footer class="post-info">
+
+    <span class="glyphicon glyphicon-time"></span>
+    <time class="published" datetime="2015-05-19T13:50:00+08:00">2015/05/19 13:50:00</time>
+
+        <span class="glyphicon glyphicon-tags"></span>
+        <a class="label label-info" href="http://blog.michiru.me/tag/windows.html">
+            windows
+        </a>
+        <a class="label label-info" href="http://blog.michiru.me/tag/chocolatey.html">
+            chocolatey
+        </a>
+
+        <span class="glyphicon glyphicon-duplicate"></span>
+        <a class="label label-info" href="http://blog.michiru.me/category/misc.html">Misc</a>
+
+</footer>                <div class="entry-content">
+                    <p> 最开始听到 Chocolatey 这个玩意儿是说有人写了个 Win 的 “ 包管理器 ”，当然我以为 Windows 就没有 “ 包 ” 这个概念，大部分的软件都是自给自足，顶多是缺一些奇怪的 DLL，一般是 DirectX 和 MSVC20xx。在实际用了 Chocolatey 之后，我依旧觉得这玩意儿就是一个 “ 下载安装包然后自动装好 ” 的自动化工具。这种功能的软件 <del> 我国的企鹅 360 果然是领先世界的 </del>。</p>
+<p>Chocolatey 的安装只需要在管理员 cmd 或者 powershell 下运行它的安装脚本即可（具体参照 <a href="https://chocolatey.org/"> 官方主页 </a>）。使用起来就是简单的 </p>
+<div class="codehilite"><pre>choco install git
+</pre></div>
+
+
+<p> 类似的命令，当然，也需要管理员权限。执行上面的指令会自动在默认目录下安装好 Git，看起来一切都是那么简单。但也许你马上就会发现问题：Git 安装程序默认添加 Explorer ...</p>
+                        <p><a role="button" class="btn btn-default" href="http://blog.michiru.me/choco-may-be-a-little-helpful.html">READ MORE</a></p>
+                </div>
+            </article>
+        </div>
+        <div class="post">
+            <article class="entry">
+<header>
+    <h2 class="entry-title">
+        <a href="http://blog.michiru.me/ar8161-fix.html" rel="bookmark" title="Permalink to 修复AR8161在Arch下无法上网的问题">修复AR8161在Arch下无法上网的问题</a>
+    </h2>
+</header>
+<footer class="post-info">
+
+    <span class="glyphicon glyphicon-time"></span>
+    <time class="published" datetime="2015-05-10T20:41:00+08:00">2015/05/10 20:41:00</time>
+
+        <span class="glyphicon glyphicon-tags"></span>
+        <a class="label label-info" href="http://blog.michiru.me/tag/ar8161.html">
+            ar8161
+        </a>
+        <a class="label label-info" href="http://blog.michiru.me/tag/bug_fix.html">
+            bug_fix
+        </a>
+
+        <span class="glyphicon glyphicon-duplicate"></span>
+        <a class="label label-info" href="http://blog.michiru.me/category/linux.html">Linux</a>
+
+</footer>                <div class="entry-content">
+                    <p> 稍早之前又（我为什么要说又）装上 Arch，这次碰到的问题是有线网卡：刚连接上网线的时候一切正常，但稍过一会儿，所有的网络链接，包括浏览器、pacman 都会卡住。在插拔网线、或者 down/up 网卡之后会重复上面的过程。明显是网卡的问题，但是考虑到在 Win 里没有这种问题，应该是内核 / 驱动的锅。</p>
+<p> 我的有线网卡型号是 AR8161，是个麻烦主，记得刚买的时候还费了功夫自己找驱动装上才能用。</p>
+<div class="codehilite"><pre><span class="nv">$ </span>lspci <span class="p">|</span> grep -i ethernet
+01:00.0 Ethernet controller: Qualcomm Atheros AR8161 Gigabit Ethernet <span class="o">(</span>rev 08<span class="o">)</span>
+</pre></div>
+
+
+<p> 一个月前碰到这个问题的时候搜到有人说是内核升级到 3.19 之后出现的，寻思着应该马上会有修吧就用着无线网卡。结果现在内核都 4.x ...</p>
+                        <p><a role="button" class="btn btn-default" href="http://blog.michiru.me/ar8161-fix.html">READ MORE</a></p>
+                </div>
+            </article>
+        </div>
+        <div class="post">
+            <article class="entry">
+<header>
+    <h2 class="entry-title">
+        <a href="http://blog.michiru.me/disqus-is-back.html" rel="bookmark" title="Permalink to 让人超烦躁的Disqus">让人超烦躁的Disqus</a>
+    </h2>
+</header>
+<footer class="post-info">
+
+    <span class="glyphicon glyphicon-time"></span>
+    <time class="published" datetime="2015-03-24T11:39:00+08:00">2015/03/24 11:39:00</time>
+
+        <span class="glyphicon glyphicon-tags"></span>
+        <a class="label label-info" href="http://blog.michiru.me/tag/disqus.html">
+            Disqus
+        </a>
+        <a class="label label-info" href="http://blog.michiru.me/tag/blog.html">
+            blog
+        </a>
+
+        <span class="glyphicon glyphicon-duplicate"></span>
+        <a class="label label-info" href="http://blog.michiru.me/category/misc.html">Misc</a>
+
+</footer>                <div class="entry-content">
+                    <p> 其实一开始我是不大清楚第三方评论系统哪个更好用的，只是跟风用了 Disqus。过了这么久，不得不说这玩意儿不是很好用。下面是我碰到的一些问题，和我的解决方法：</p>
+<h2 id="_1"> 本地测试 </h2>
+<p>Disqus 用起来很简单，它会给你一段 js，让你加入你的网站，用来加载他的系统。第一个碰到的问题就是，在做本地测试的时候不小心跑了这个 js。结果就是，在管理面板就可以看到生成的无用的 Discussion Thread，它们的链接地址是 <code>http://127.0.0.1:4000/*</code>…… 这让人很无语，不过是我的问题。于是我在管理页的编辑面板看看怎么删掉它们。可是，答案是不能删除！其名字、链接等都是可以编辑的，却没有删除按钮，看来这些恼人的数据要永远留在这里了。</p>
+<p> 预防措施：</p>
+<ol>
+<li>
+<p> 做本地测试的时候不加载 Disqus 的 js。</p>
+</li>
+<li>
+<p> 如果确实想看看 Disqus 加在页面上的样子，应该换个 <a href="https://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables#disqus_shortname">shortname</a>：</p>
+</li>
+</ol>
+<div class="codehilite"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">localhost</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var ...</span></pre></div>
+                        <p><a role="button" class="btn btn-default" href="http://blog.michiru.me/disqus-is-back.html">READ MORE</a></p>
+                </div>
+            </article>
+        </div>
+        <div class="post">
+            <article class="entry">
+<header>
+    <h2 class="entry-title">
+        <a href="http://blog.michiru.me/logitech-g502-get.html" rel="bookmark" title="Permalink to 罗技G502入手">罗技G502入手</a>
+    </h2>
+</header>
+<footer class="post-info">
+
+    <span class="glyphicon glyphicon-time"></span>
+    <time class="published" datetime="2015-03-02T22:38:00+08:00">2015/03/02 22:38:00</time>
+
+        <span class="glyphicon glyphicon-tags"></span>
+        <a class="label label-info" href="http://blog.michiru.me/tag/g502.html">
+            g502
+        </a>
+        <a class="label label-info" href="http://blog.michiru.me/tag/logitech.html">
+            logitech
+        </a>
+        <a class="label label-info" href="http://blog.michiru.me/tag/mouse.html">
+            mouse
+        </a>
+
+        <span class="glyphicon glyphicon-duplicate"></span>
+        <a class="label label-info" href="http://blog.michiru.me/category/misc.html">Misc</a>
+
+</footer>                <div class="entry-content">
+                    <p> 之前我是在用 MX518 的，不得不说那玩意儿真不愧是罗技 10 年前的看家货，在我手下受蹂躏 7 年还全功能正常。期间解体过 3 次清理灰尘，拆解相当容易，但非常伤脚垫，几乎拆一次就得换一次脚垫。但它毕竟用太久，三主按键手感已经有些软，次按键更是有些回弹无力。另外因为那黏糊糊的塑料壳很脏，被我用砂纸打磨成了磨砂，现在真是相当难看。于是我寻思物色下一个玩物，最终选定了罗技的 G502。</p>
+<p><img alt=" 罗技 G502" src="/images/logitech-g502.jpg" /></p>
+<p> 选择这个型号还是因为我习惯了 MX518 这个大块头。MX518 的重置版本有 G400(s) 和 G500(s) 两个系列，都和 MX518 外形差不多。后来也许是罗技觉得这确实没必要，所以 G500s 被 G502 取代，设计了新外形（但是尺寸没有改变），留下了 G400s 还在卖。于是我在 ...</p>
+                        <p><a role="button" class="btn btn-default" href="http://blog.michiru.me/logitech-g502-get.html">READ MORE</a></p>
+                </div>
+            </article>
+        </div>
+        <div class="post">
+            <article class="entry">
+<header>
+    <h2 class="entry-title">
+        <a href="http://blog.michiru.me/raspberrypi-2-get.html" rel="bookmark" title="Permalink to Raspberry Pi 2 到手">Raspberry Pi 2 到手</a>
+    </h2>
+</header>
+<footer class="post-info">
+
+    <span class="glyphicon glyphicon-time"></span>
+    <time class="published" datetime="2015-02-20T02:44:00+08:00">2015/02/20 02:44:00</time>
+
+        <span class="glyphicon glyphicon-tags"></span>
+        <a class="label label-info" href="http://blog.michiru.me/tag/raspberry-pi.html">
+            raspberry-pi
+        </a>
+        <a class="label label-info" href="http://blog.michiru.me/tag/board.html">
+            Board
+        </a>
+
+        <span class="glyphicon glyphicon-duplicate"></span>
+        <a class="label label-info" href="http://blog.michiru.me/category/hwdev.html">HWDev</a>
+
+</footer>                <div class="entry-content">
+                    <p><img alt=" 树莓派 2" src="/images/raspberrypi2-1.jpg" /></p>
+<p> 树莓派 2 已经拿到手了，让我们看看有什么有趣的事情，以及如何折腾它。</p>
+<h2 id="_1"> 入手 </h2>
+<p> 从照片已经可以看出来，这个树莓派 2 是从 <a href="http://cn.element14.com/">element14</a> 买到的。我是 2 月 4 日想到要入个这玩意儿，因为微软说会为它做一个 Win10。去 element14 下单，网站上的标价是 ￥240，可以货到付款就没折腾网上支付。9 日收到了确认订单的邮件，顺便告诉我要加 ￥40.80 的税，总价格是 ￥280.80。最终 18 日顺丰送到手上，也算是比较快。虽然 10 日左右某宝就宣称有现货了。</p>
+<p> 关于价格，这玩意儿的原价是 $35，按照汇率算下来大概是￥220。element14 加价￥20 算是运费 ...</p>
+                        <p><a role="button" class="btn btn-default" href="http://blog.michiru.me/raspberrypi-2-get.html">READ MORE</a></p>
+                </div>
+            </article>
+        </div>
+        <div class="post">
+            <article class="entry">
+<header>
+    <h2 class="entry-title">
+        <a href="http://blog.michiru.me/zedboard-simple-dma.html" rel="bookmark" title="Permalink to ZedBoard简易DMA教程">ZedBoard简易DMA教程</a>
+    </h2>
+</header>
+<footer class="post-info">
+
+    <span class="glyphicon glyphicon-time"></span>
+    <time class="published" datetime="2015-01-29T19:33:00+08:00">2015/01/29 19:33:00</time>
+
+        <span class="glyphicon glyphicon-tags"></span>
+        <a class="label label-info" href="http://blog.michiru.me/tag/zedboard.html">
+            ZedBoard
+        </a>
+        <a class="label label-info" href="http://blog.michiru.me/tag/soc.html">
+            soc
+        </a>
+
+        <span class="glyphicon glyphicon-duplicate"></span>
+        <a class="label label-info" href="http://blog.michiru.me/category/hwdev.html">HWDev</a>
+
+</footer>                <div class="entry-content">
+                    <p> 最近需要在我那块 ZedBoard 上折腾 DMA，就简单说下磕了几份文档的成果吧。写好范例工程文件可以在 <a href="https://github.com/Kokxer/zedboard_simple_dma_loop"> 这里 </a> 找到。</p>
+<h2 id="0-dma">0. 什么是 DMA</h2>
+<p> 所谓的 Direct memory access（DMA），是指让外设能够不经过 CPU 而直接访问内存。其目的是让 CPU 和外设之间交换数据。相比于 CPU 主动去读总线，然后把数据放进内存，其好处在于传输速度比较快，外设读写内存期间 CPU 是闲着的，可以做些别的事情。DMA 核心就是 DMA 控制器和总线，简单来说，DMA 控制器负责操作总线，将数据写入内存，或者将数据从内存读出。</p>
+<h2 id="1-zedboarddma">1. ZedBoard 上的 DMA</h2>
+<p>ZedBoard 的核心是 zynq XC7020 SoC，其 ...</p>
+                        <p><a role="button" class="btn btn-default" href="http://blog.michiru.me/zedboard-simple-dma.html">READ MORE</a></p>
+                </div>
+            </article>
+        </div>
+        <div class="post">
+            <article class="entry">
+<header>
+    <h2 class="entry-title">
+        <a href="http://blog.michiru.me/mahou-tsukai-no-yoru.html" rel="bookmark" title="Permalink to 魔法使之夜">魔法使之夜</a>
+    </h2>
+</header>
+<footer class="post-info">
+
+    <span class="glyphicon glyphicon-time"></span>
+    <time class="published" datetime="2015-01-10T19:33:00+08:00">2015/01/10 19:33:00</time>
+
+        <span class="glyphicon glyphicon-tags"></span>
+        <a class="label label-info" href="http://blog.michiru.me/tag/mahou_tsukai_no_yoru.html">
+            mahou_tsukai_no_yoru
+        </a>
+
+        <span class="glyphicon glyphicon-duplicate"></span>
+        <a class="label label-info" href="http://blog.michiru.me/category/games.html">Games</a>
+
+</footer>                <div class="entry-content">
+                    <p><img alt=" 青子 1" src="/images/mahoyo1.jpg" /></p>
+<p>《魔法使之夜》推完撒花 ~</p>
+<p> 这游戏刚出试玩版，我就去推了，依稀记得当时汉化超快。不过正式版出来之后，却很奇怪的迟迟没有什么正经的汉化组做出来，于是我也就忘记了这回事儿。直到最近基友问起我有没有推《魔夜》，我才想起来找到了汉化。虽然问题多多，不尽如人意，但能推完就该谢天谢地了。</p>
+<p> 这部《魔夜》原作应该是奈须蘑菇没有发表的同名小说，主角是苍崎青子（也出现在《空境》中），讲述是青子年轻时候，成为 “ 魔法使 ” 之前的故事。但坑的是似乎只游戏化了其中一部分，剧情很短，有很多坑没有填。也不知道现在快乐的炒着 Fate 冷饭的 Type-Moon 什么时候打算把蘑菇的作品都拿出来。</p>
+<p> 剧情很简单，铺垫日常之外，大概可以概括为青子的姐姐橙子处心积虑 20 年，终于找到机会能找妹妹的麻烦，结果却被狂扁一堆，这样的故事。在最终章之前，主角团队（H）与 Boss（B）团队的实力对比大概是这样：</p>
+<blockquote>
+<p> 静希草十郎（H ...</p></blockquote>
+                        <p><a role="button" class="btn btn-default" href="http://blog.michiru.me/mahou-tsukai-no-yoru.html">READ MORE</a></p>
+                </div>
+            </article>
+        </div>
+        <div class="post">
+            <article class="entry">
+<header>
+    <h2 class="entry-title">
+        <a href="http://blog.michiru.me/intel-edison-get.html" rel="bookmark" title="Permalink to Intel Edison 到手">Intel Edison 到手</a>
+    </h2>
+</header>
+<footer class="post-info">
+
+    <span class="glyphicon glyphicon-time"></span>
+    <time class="published" datetime="2014-12-01T20:56:00+08:00">2014/12/01 20:56:00</time>
+
+        <span class="glyphicon glyphicon-tags"></span>
+        <a class="label label-info" href="http://blog.michiru.me/tag/intel-edison.html">
+            Intel Edison
+        </a>
+        <a class="label label-info" href="http://blog.michiru.me/tag/board.html">
+            Board
+        </a>
+
+        <span class="glyphicon glyphicon-duplicate"></span>
+        <a class="label label-info" href="http://blog.michiru.me/category/hwdev.html">HWDev</a>
+
+</footer>                <div class="entry-content">
+                    <p> 上个月早先的时候，从亚马逊米国购入的 Intel Edison + Breakout Board 已经拿到手。按照官方论坛的教程点亮板子，然后发现板子里的 Yocto Linux 版本太低就顺碧更新一下，之后就放置 Play 了。</p>
+<p><img alt="Intel Edison" src="\images\intel_edison.jpg" /></p>
+<p>Edison 本身更像是块芯片，没有外围扩展板几乎跑不起来（供电接口都没有），所以还得搭一块开发板。目前可以直接买到的开发板大概有：</p>
+<ul>
+<li>Intel Edison kit for Arduino*</li>
+<li>Intel Edison breakout board</li>
+<li>SparkFun blocks for Intel Edison module</li>
+</ul>
+<p>Arduino Board 是一块外设齐全的板子，SparkFun blocks 则是一系列模块化的各种功能板，而 Break Board 则是最简单最基本的扩展板，甚至不比 Edison 本身大多少。Break ...</p>
+                        <p><a role="button" class="btn btn-default" href="http://blog.michiru.me/intel-edison-get.html">READ MORE</a></p>
+                </div>
+            </article>
+        </div>
+        <div class="post">
+            <article class="entry">
+<header>
+    <h2 class="entry-title">
+        <a href="http://blog.michiru.me/using-google-domains.html" rel="bookmark" title="Permalink to 把域名搬到了Google Domains">把域名搬到了Google Domains</a>
+    </h2>
+</header>
+<footer class="post-info">
+
+    <span class="glyphicon glyphicon-time"></span>
+    <time class="published" datetime="2014-11-05T21:20:00+08:00">2014/11/05 21:20:00</time>
+
+        <span class="glyphicon glyphicon-tags"></span>
+        <a class="label label-info" href="http://blog.michiru.me/tag/domains.html">
+            Domains
+        </a>
+        <a class="label label-info" href="http://blog.michiru.me/tag/google.html">
+            Google
+        </a>
+
+        <span class="glyphicon glyphicon-duplicate"></span>
+        <a class="label label-info" href="http://blog.michiru.me/category/misc.html">Misc</a>
+
+</footer>                <div class="entry-content">
+                    <p> 前两天 Godaddy 发来邮件，提醒我 michiru.me 要续费了。正感慨着转眼就快一年了的时候，突然想起来老早拿到的 Google Domains 的邀请。当时不能注册和转入 .me 的域名，就没有理睬。今天去看果然已经可以了。于是本着不折腾不舒服的理念，我把这个域名转到了 Google 下面。转移挺方便：</p>
+<ol>
+<li> 首先去 Godaddy 的控制面板解锁域名，然后让它用邮件发给你一个需要验证码。</li>
+<li> 把验证码告诉 Google，点击转移，Google 就会找 Godaddy 要这个域名了。</li>
+<li> 最后再去 Godaddy 的控制面板确认这次转移。</li>
+</ol>
+<p> 唯一的问题是 Google 需要地址信息，填我的中国地址时，碰到了一点问题：</p>
+<blockquote>
+<p>Invaild State</p>
+</blockquote>
+<p> 填 <code>Beijing</code> 或者 <code> 北京 </code> 都没救，弄得最后只能填了个不存在的米国的地址。</p>
+<p><img alt="Email forwarding" src="/images/google_domains_email_forwarding.png" /></p>
+<p> 使用 ...</p>
+                        <p><a role="button" class="btn btn-default" href="http://blog.michiru.me/using-google-domains.html">READ MORE</a></p>
+                </div>
+            </article>
+        </div>
+    </div>
+    <div class="text-center">
+<div class="paginator">
+    <ul class="pager">
+        <li class="previous disabled ">
+            <a href="http://blog.michiru.me/">
+                <span class="mdi-navigation-chevron-left"></span>
+                上一页
+            </a>
+        </li>
+
+        <li>
+            <span href="">1 / 4</span>
+        </li>
+
+        <li class="next ">
+            <a href="http://blog.michiru.me/index2.html">
+                下一页
+                <span class="mdi-navigation-chevron-right"></span>
+            </a>
+        </li>
+    </ul>
+</div>
+    </div>
+</div>
+            </div>
+            <div class="col-md-3">
+<div class="sidebar row">
+    <div class="blogroll col-md-12 col-xs-6">
+        <div id="contentinfo" class="text-center">
+            <img height="128" width="128" class="avatar img-circle" alt="Head" src="/img/head.jpg">
+            <p class="quote">哼，人家才不是恋物癖呢。</p>
+        </div>
+    </div>
+    <div class="blogroll col-md-12 col-xs-6">
+        <h3>友情链接</h3>
+        <div>
+            <p><a href="http://herringtondarkholme.github.io/">Hchan's Note</a></p>
+            <p><a href="http://blog.phoenixlzx.com/">Phoenix's island</a></p>
+            <p><a href="http://plumz.me/">plum's blog</a></p>
+            <p><a href="http://blog.icehoney.me/">IceHoney!</a></p>
+            <p><a href="http://blog.acgpl.us/">liliclinton's blog</a></p>
+            <p><a href="http://otakuchiyan.github.io/">Otakuchiyan's Repo/Lab</a></p>
+            <p><a href="http://tnt.wicast.tk/">wicast's TNT</a></p>
+        </div>
+    </div>
+</div>            </div>
+        </div>
+    </div>
+    <div class="container-fuid">
+        <!-- footer -->
+        <address class="footer text-center">
+            <span class="glyphicon glyphicon-copyright-mark"></span>
+            2015 <a href="https://plus.google.com/+MichiruMorishita/">Kele</a> /
+            Hosted on <a href="https://github.com/Kokxer/">Github</a> /
+            Theme <a href="http://bootswatch.com/paper/">Paper</a>
+        </address>
+        <!-- end of footer -->
+    </div>
+
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/main.js"></script>
+</body>
+</html>
