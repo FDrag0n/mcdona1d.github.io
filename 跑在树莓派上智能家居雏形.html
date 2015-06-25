@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>跑在树莓派上智能家居雏形 - mcdona1d's blog</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href="/images/favicon.png" rel="icon">
+
+<link rel="canonical" href="/跑在树莓派上智能家居雏形.html">
+
+        <meta name="author" content="mcdona1d" />
+        <meta name="keywords" content="RaspberryPi,Sensor,Wechat" />
+        <meta name="description" content="本篇为对树莓派折腾的一个综合，实现了微信端控制，树莓派实现的一个简单的智能家居概念" />
+
+        <meta property="og:site_name" content="mcdona1d's blog" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="跑在树莓派上智能家居雏形"/>
+        <meta property="og:url" content="/跑在树莓派上智能家居雏形.html"/>
+        <meta property="og:description" content="本篇为对树莓派折腾的一个综合，实现了微信端控制，树莓派实现的一个简单的智能家居概念"/>
+        <meta property="article:published_time" content="2015-05-06" />
+            <meta property="article:section" content="tech" />
+            <meta property="article:tag" content="RaspberryPi" />
+            <meta property="article:tag" content="Sensor" />
+            <meta property="article:tag" content="Wechat" />
+            <meta property="article:author" content="mcdona1d" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link href="/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="mcdona1d's blog ATOM Feed"/>
+
+
+
+        <link href="/feeds/tech.atom.xml" type="application/atom+xml" rel="alternate"
+              title="mcdona1d's blog tech ATOM Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+mcdona1d's blog            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                
+                        <li class="active">
+                            <a href="/category/tech.html">Tech</a>
+                        </li>
+                    <li><a href="http://mcdona1d.me/tags.html">Tags</a></li>
+                         <li><a href="/aboutme.html">
+                             About me
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">归档</span></a></li>
+              <li><span>
+                <form class="navbar-search" action="/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+			</ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/跑在树莓派上智能家居雏形.html"
+                       rel="bookmark"
+                       title="Permalink to 跑在树莓派上智能家居雏形">
+                        跑在树莓派上智能家居雏形
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-05-06T11:11:00+08:00"> 2015-05-06 11:11</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="/category/tech.html">tech</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/raspberrypi.html">RaspberryPi</a>
+        /
+	<a href="/tag/sensor.html">Sensor</a>
+        /
+	<a href="/tag/wechat.html">Wechat</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <hr />
+<h2>简介</h2>
+<p><img alt="Alt text" src="./images/下载.png" />
+一个以微信为终端的好玩的小东西</p>
+<h3>可以实现的功能</h3>
+<p>可以实现以手机微信端对树莓派终端进行实时监控、摄像头云台操纵、闯入报警、温度检测、灯光控制、自动光线控制等功能</p>
+<h3>设备图片</h3>
+<p><img alt="Alt text" src="./images/IMG_1359.JPG" />
+<img alt="Alt text" src="./images/IMG_1360.JPG" />
+<img alt="Alt text" src="./images/IMG_1363.JPG" /></p>
+<h3>运行截图</h3>
+<p><img alt="Alt text" src="./images/QQ截图20150417153314.png" />
+<img alt="Alt text" src="./images/21.jpg" />
+<img alt="Alt text" src="./images/IMG_1365.PNG" /></p>
+<h2>需要用到的所有硬件</h2>
+<ul>
+<li>路由器</li>
+<li>树莓派主板</li>
+<li>树莓派电源（5V 2A）</li>
+<li>至少 8g tf卡 （推荐class 10，8g足矣）</li>
+<li>支持ouv的摄像头（罗技C170）</li>
+<li>花生棒及电源（或用<strong>花生壳内网版</strong>代替）</li>
+<li>乐高积木（小颗粒）</li>
+<li>两根网线</li>
+<li>温度传感器（DHT11）</li>
+<li>光线传感器（光敏<strong>电阻</strong>模块）</li>
+<li>人体红外传感器（HC-SR501）</li>
+<li>继电器（5V低电平触发）</li>
+<li>步进电机（28BYJ-48-5V）</li>
+<li>步进电机驱动板（UL2003型）</li>
+<li>GPIO连接线若干</li>
+</ul>
+<h2>需要安装的所有软件</h2>
+<h3>Windows端</h3>
+<ul>
+<li>Putty（0.63）</li>
+<li>WinSCP（5.1.7）</li>
+<li>Win32DiskImager（0.9.5）</li>
+<li>Notepad++</li>
+</ul>
+<h3>Raspberry Pi端</h3>
+<ul>
+<li>
+<p>RASPBIAN 系统</p>
+<blockquote>
+<ul>
+<li>下载链接：https://www.raspberrypi.org/downloads/</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>webpy</p>
+</li>
+<li>
+<p>python-lxml </p>
+</li>
+<li>
+<p>python-memcache</p>
+</li>
+<li>
+<p>apache2</p>
+</li>
+<li>
+<p>mjpg-streamer</p>
+</li>
+<li>
+<p>RPI.GPIO</p>
+</li>
+<li>
+<p><strong>此程序的全部源码</strong></p>
+<blockquote>
+<ul>
+<li>源码地址： https://github.com/329703622/wechatpi</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2>配置过程</h2>
+<h3>初始化树莓派</h3>
+<p>使用Putty登陆树莓派
+Username：pi
+Password：raspberry</p>
+<h4>获取root权限</h4>
+<p><code>sudo passwd root</code>
+（需要输入两次你想设置的root密码）
+ <code>sudo passwd --unlock root</code>
+ 设置完成后重启Putty，以root身份登陆</p>
+<h4>释放空间及设置时区</h4>
+<p>以root身份登录后会自动弹出raspi-config设置工具，也可直接输入<code>raspi-config</code>调出
+1. 执行第一项，一直选择ok即可
+2. 选择第四项，然后选择第二项，进入时区设置
+3. 分别选择Asia——Shanghai，确定，即可改为+8时区</p>
+<p><img alt="Alt text" src="./images/raspi-config.png" />
+<img alt="Alt text" src="./images/timezone.png" /></p>
+<h4>设置静态ip</h4>
+<p><code>sudo nano /etc/network/interfaces</code>
+  把这一行 
+<code>iface eth0 inet dhcp</code>
+替换为 
+<code>iface eth0 inet static 
+address 192.168.1.101 
+netmask 255.255.255.0 
+gateway 192.168.1.1 
+dns-nameservers 114.114.114.114</code>
+修改resolv.config文件 
+<code>sudo nano /etc/resolv.conf</code>
+修改为 
+<code>nameserver 114.114.114.114</code>
+<strong>否则不能解析域名</strong></p>
+<h4>更新软件源</h4>
+<p><code>nano /etc/apt/sources.list</code>
+删除原文件所有内容，用以下内容取代： 
+<code>deb http://mirror.sysu.edu.cn/raspbian/raspbian/ wheezy main contrib non-free 
+deb-src http://mirror.sysu.edu.cn/raspbian/raspbian/ wheezy main contrib non-free</code>
+Ps：树莓派官方提供的软件源列表 http://www.raspbian.org/RaspbianMirrors
+Ps2：国内的几个软件源</p>
+<blockquote>
+<p>中山大学 
+http://mirror.sysu.edu.cn/raspbian/raspbian/
+中国科学技术大学 
+http://mirrors.ustc.edu.cn/raspbian/raspbian/
+清华大学 
+http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/
+华中科技大学 
+http://mirrors.hustunique.com/raspbian/raspbian/
+大连东软信息学院源（北方用户） 
+http://mirrors.neusoft.edu.cn/raspbian/raspbian/
+重庆大学源（中西部用户） 
+http://mirrors.cqu.edu.cn/Raspbian/raspbian/</p>
+</blockquote>
+<ul>
+<li><strong>更新缓存并升级软件</strong>
+<code>sudo apt-get update &amp;&amp; apt-get upgrade</code></li>
+</ul>
+<h3>安装及配置</h3>
+<p>安装所需要的所有软件，将必须的软件包安装完毕，并且调试成功
+调试过程如果有问题可以参见本博客（附录）中的其他文章，或欢迎留言讨论</p>
+<h4>安装软件</h4>
+<ul>
+<li>
+<p>webpy</p>
+<blockquote>
+<p><code>git clone git://github.com/webpy/webpy.git
+ln -s `pwd`/webpy/web
+cd /root/webpy
+sudo python setup.py install</code></p>
+</blockquote>
+</li>
+<li>
+<p>RPI.GPIO
+（安装RPI.GPIO  首先需要安装RPi.GPIO所需的Python Development Toolkit）</p>
+<blockquote>
+<p><code>sudo apt-get install python-dev</code>
+<code>sudo apt-get install python-pip</code>
+<code>sudo pip install rpi.gpio</code></p>
+</blockquote>
+</li>
+<li>
+<p>python-lxml </p>
+<blockquote>
+<p><code>sudo apt-get install python-lxml</code></p>
+</blockquote>
+</li>
+<li>
+<p>python-memcache</p>
+<blockquote>
+<p><code>sudo apt-get install python-memcache</code></p>
+</blockquote>
+</li>
+<li>
+<p>apache2</p>
+<blockquote>
+<p><code>sudo apt-get install apache2</code></p>
+</blockquote>
+</li>
+<li>
+<p>mjpg-streamer
+（安装mjpg-streamer  首先需要安装一下几个依赖包）</p>
+<blockquote>
+<p>依赖包：
+<code>sudo apt-get install subversion</code>
+<code>sudo apt-get install libv4l-dev</code>
+<code>sudo apt-get install libjpeg8-dev</code>
+<code>sudo apt-get install imagemagick</code>
+（编译安装mjpg-steamer）
+<code>wget http://sourceforge.net/code-snapshots/svn/m/mj/mjpg-streamer/code/mjpg-streamer-code-182.zip</code>
+<code>unzip mjpg-streamer-code-182.zip</code>
+<code>cd mjpg-streamer-code-182/mjpg-streamer</code>
+<code>make USE_LIBV4L2=true clean all</code>
+<code>make DESTDIR=/usr install</code></p>
+</blockquote>
+</li>
+</ul>
+<h4>配置路由器</h4>
+<p>在路由器设置界面内，为树莓派设置好静态ip，或者在树莓派端设置静态ip，记住此ip</p>
+<h4>配置花生棒（或<strong>花生壳内网版</strong>）</h4>
+<p>如果网络环境拥有公网ip，则可以在路由器上设置ddns（ddns可以搜索其他相关文章），如果不具备此环境，则需要花生壳内网版（软件）或花生棒（硬件）来实现公网地址从而与微信公众平台对接。
+首先申请一个花生壳域名，然后登陆花生棒管理端页面（http://hsk.oray.com/bang/）
+选择内网映射添加映射，填入树莓派静态ip，将树莓派的80端口映射到域名上，并且<strong>勾选使用外网80端口</strong>（非常重要，否则无法完成对接）
+申请另外一个花生壳域名，将此域名映射为树莓派的8080端口，依然<strong>勾选使用外网80端口</strong></p>
+<p>Ps：关于花生壳内网版的获取，可以在
+http://www.oray.com/activity/140902/?icn=oray_140902&amp;ici=hsk_home-grid
+中缴纳一元认证费开通免费级服务
+花生壳内网版的设置与花生棒大同小异，需要注意的是需要如果使用花生壳内网版则在工作前需要确认花生壳内网版正常工作并能正常解析</p>
+<h4>配置apache2</h4>
+<p>因为我的80端口需要被微信公众平台占用，所以我不能让网页走80端口，需要更改端口
+<code>nano /etc/apache2/ports.conf</code>
+将Listen 80改为Listen 8080</p>
+<h4>调试摄像头</h4>
+<p>运行考入树莓派中的Git包目录中testcam文件夹中的“stream.sh”文件：
+<code>sudo chmod +x stream.sh</code>（先编译脚本文件，才能用./filename 来运行）
+<code>sudo ./stream.sh</code>
+<img alt="Alt text" src="./images/1429104574052.png" /></p>
+<p>在运行程序时，如果发生错误，可能是之前由于运行过，进程仍然在工作，导致没法再运行，可以先运行ps -A，查看运行中的进程和进程ID号，再使用“<code>kill id号</code>”杀掉进程</p>
+<p><img alt="Alt text" src="./images/1429104610621.png" /></p>
+<p>在pc上运行Git包中的“testcam.html”文件，右击编辑index.html，将<code>树莓派ip</code>换成你的树莓派固定ip，保存，双击打开testcam.html</p>
+<p><img alt="Alt text" src="./images/1429104684011.png" /></p>
+<p>看到摄像头输出图像，说明摄像头工作正常。</p>
+<h3>申请及配置公众平台测试账号</h3>
+<ol>
+<li>打开页面 http://mp.weixin.qq.com/wiki/home/index.html 申请一个公共平台的测试账号</li>
+<li>在左侧选择 <strong>测试号申请|在线调试</strong>选择接口测试号申请</li>
+<li>申请成功后，进入管理界面</li>
+<li>在接口配置信息的URL处输入你在花生壳申请的域名，后面加上<code>/weixin</code>
+Token中填上你自己喜欢的一串字母，完成后不要点击提交
+（此时可以先下载我之前的微信公众平台基础模板进行对接，可以对接成功后在进行接下来的工作，以测试网络环境是否配置完毕
+文章地址：http://blog.csdn.net/u010027419/article/details/40835963）</li>
+</ol>
+<h3>下载及配置主程序</h3>
+<ul>
+<li>在此Github中下载完整代码包，解压后进行编辑
+（Git：https://github.com/329703622/wechatpi）</li>
+<li>填入刚才自己设置的的Token以及测试号提供的appID和appsecret（yeekey稍后提到）</li>
+<li>填入自己的所有传感器对应的GPIO接口
+（传感器调试参考此博客（或附录）其他文章）</li>
+<li>设置完毕之后使用WinSCP放入树莓派文件目录</li>
+<li>使用Putty登录树莓派</li>
+<li>在刚在文件所在目录执行<code>chmod +x start.sh</code> 更改文件权限</li>
+<li>执行 <code>./start.sh</code></li>
+<li>如果出现如图所示信息，则程序正确运行</li>
+<li>
+<p><img alt="Alt text" src="./images/QQ截图20150417153314.png" /></p>
+</li>
+<li>
+<p>此时在微信公众平台测试账号的网页上点击提交，如果提示成功，则整套系统基本配置成功</p>
+</li>
+</ul>
+<h3>部署web页面</h3>
+<ol>
+<li>编辑Git包中的文件中的index.html，在<strong>你的树莓派ip</strong>处改为树莓派的ip地址</li>
+<li>将index.html上传到<code>/var/www</code>目录下了，替换之前的index.html</li>
+<li>在浏览器中输入 <code>http://你的树莓派局域网ip:8080/</code>尝试一下能否访问
+如果成功出现页面，则web页面部署成功
+<img alt="Alt text" src="./images/QQ截图20150415164040.png" /></li>
+</ol>
+<h3>设置微信公众账号菜单</h3>
+<ol>
+<li>在微信公众平台管理测试账号下方选择<strong>获取access token</strong></li>
+<li>在左侧菜单选择 <strong> 基础接口  获取access token</strong></li>
+<li>在右侧最下方选择 <strong>使用网页调试工具调试该接口</strong></li>
+<li>首先获得access token
+在appid和secret中填上之前管理测试账号页面提供的数据，点击检查问题</li>
+<li>下方蓝色的<strong>access_token</strong>就是一会提交菜单要用到的<strong>access_token</strong>，复制此token</li>
+<li>分别在接口类型选择<strong>自定义菜单</strong>和在接口列表选择<strong>自定义菜单创建接口</strong>。进入如下界面，填入刚才的<strong>access_token</strong>（<strong>access_token</strong>具有一定的时效性，时间过长后需重新获取）</li>
+<li>在body中填入Git包中的menu.txt内的内容，点击检查问题</li>
+<li>若显示<strong>Request successful</strong>即为菜单创建成功。</li>
+</ol>
+<p>Ps：取消关注微信号重新关注即可直接查看效果。否则受限于微信限制，需要24小时后缓存刷新方可查看。
+Ps2：<strong>参数说明</strong>
+|参数 |是否必须   |说明|
+| ------------- |:-------------:|:-----|
+|button |是| 一级菜单数组，个数应为1~3个|
+|sub_button|    否   |二级菜单数组，个数应为1~5个|
+|type   |是| 菜单的响应动作类型|
+|name   |是| 菜单标题，不超过16个字节，子菜单不超过40个字节|
+|key|   click等点击类型必须|   菜单KEY值，用于消息接口推送，不超过128字节|
+|url    |view类型必须|  网页链接，用户点击菜单可打开链接，不超过256字节|</p>
+<h3>申请Yeelink物联网服务</h3>
+<ol>
+<li>打开 http://www.yeelink.net/ 注册账号</li>
+<li>登陆后在管理首页上，您的API Key  即为yeekey</li>
+<li>添加一个新设备</li>
+<li>添加完毕后记住自己的设备ID</li>
+<li>在程序中填入自己的设备id以及yeekey，并将附近<code>自己的yeelink页面</code>改为自己的页面</li>
+</ol>
+<h2>结尾&amp;心得</h2>
+<ul>
+<li>接触了Python，一门非常棒的语言</li>
+<li>学会了MarkDown写博客，太方便了</li>
+<li>玩了树莓派</li>
+<li>过了买东西剁手的瘾</li>
+<li>无聊了有事情干</li>
+</ul>
+<h2>附录</h2>
+<blockquote>
+<ul>
+<li>
+<p>python的微信公众平台基础代码
+https://github.com/329703622/raspchat</p>
+</li>
+<li>
+<p>传感器单独调试代码
+https://github.com/329703622/Sensor</p>
+</li>
+<li>
+<p>树莓派，玩转微信公共平台--初级篇
+http://tieba.baidu.com/p/3232803694?qq-pf-to=pcqq.discussion</p>
+</li>
+<li>
+<p>树莓派，玩转微信公共平台--中级篇
+http://tieba.baidu.com/p/3477722264</p>
+</li>
+<li>
+<p>使用树莓派与微信公众平台对接(python)
+http://blog.csdn.net/u010027419/article/details/40835963</p>
+</li>
+<li>
+<p>微信公众平台按钮及菜单创建
+http://blog.csdn.net/u010027419/article/details/40949065</p>
+</li>
+<li>
+<p>树莓派的摄像头与监控相关
+http://blog.csdn.net/u010027419/article/details/41123709</p>
+</li>
+<li>
+<p>树莓派通过GPIO控制步进电机(python)
+http://blog.csdn.net/u010027419/article/details/41518321</p>
+</li>
+<li>
+<p>树莓派连接dht11温度传感器获取温度(python)
+http://blog.csdn.net/u010027419/article/details/41722261</p>
+</li>
+<li>
+<p>树莓派架设http服务器挂载网页
+http://blog.csdn.net/u010027419/article/details/42343057</p>
+</li>
+<li>
+<p>html网页兼容手机浏览器（解决显示页面很小的问题）
+http://blog.csdn.net/u010027419/article/details/44857827</p>
+</li>
+</ul>
+</blockquote>
+            </div>
+            <!-- /.entry-content -->
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'mcdona1d'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = '跑在树莓派上智能家居雏形';
+                var disqus_url = '/跑在树莓派上智能家居雏形.html';
+
+            var disqus_config = function () {
+                this.language = "zh_cn";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<div id="aboutme">
+        <p>
+            <img width="100%" class="img-thumbnail" src="avatar.jpg"/>
+        </p>
+    <p>
+        <strong>关于 mcdona1d</strong><br/>
+        <h3 style="text-align:center">
+<a href="http://weibo.com/234773130"                     target="_blank">
+<i class="fa fa-weibo" style="text-align:center"></i></a>
+<a href="https://github.com/329703622"                   target="_blank">
+<i class="fa fa-github" style="text-align:center"></i></a>
+<a href="https://www.facebook.com/mcdona1d"              target="_blank">
+<i class="fa fa-facebook" style="text-align:center"></i></a>
+<a href="https://twitter.com/329703622"                  target="_blank">
+<i class="fa fa-twitter" style="text-align:center"></i></a>
+<a href="https://plus.google.com/107873610420713613724/posts" target="_blank">
+<i class="fa fa-google-plus" style="text-align:center"></i></a>
+<a href="mailto:q329703622@hotmail.com" target="_blank">
+<i class="mdi-communication-email" style="text-align:center"></i></a>
+</h3>
+
+    </p>
+</div>
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">社交网络</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="http://blog.csdn.net/u010027419"><i class="fa fa-csdn-blog-square fa-lg"></i> CSDN Blog</a></li>
+                <li class="list-group-item"><a href="https://cn.linkedin.com/pub/%E9%AA%9E-%E5%BC%A0/b4/172/432"><i class="fa fa-linkedin-square fa-lg"></i> linkedin</a></li>
+                <li class="list-group-item"><a href="https://github.com/329703622"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+              </ul>
+            </li>
+
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">近期发布</span></h4>
+                <ul class="list-group" id="recentposts">
+                    <li class="list-group-item">
+                        <a href="/CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度.html">
+                            CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化.html">
+                            DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/Sublime Text 2 配置记录.html">
+                            Sublime Text 2 配置记录
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/树莓派替我玩Timberman.html">
+                            树莓派替我玩Timberman
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/利用Sina App Engine突破限制进行国内代理.html">
+                            利用Sina App Engine突破限制进行国内代理
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">标签云</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                </ul>
+            </li>
+
+
+
+    <li class="list-group-item"><h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub 仓库</span></h4>
+        <div id="gh_repos">
+            <p class="list-group-item">Status updating...</p>
+        </div>
+            <a href="https://github.com/329703622">@329703622</a> on GitHub
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2015 mcdona1d
+            &middot; 通过 <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a> 生成              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+    <script src="/theme/js/bodypadding.js"></script>
+    <!-- GitHub JS -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = '/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: '329703622',
+                count: 5,
+                skip_forks: true,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="/theme/js/github.js" type="text/javascript"></script>
+    <!-- End GitHub JS Code -->
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'mcdona1d'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-64307172-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+</body>
+</html>
