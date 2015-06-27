@@ -1,36 +1,193 @@
 <!DOCTYPE html>
-<html lang="zh_cn" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<html lang="zh" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Tags - mcdona1d's blog</title>
+    <title>Tags - mcdona1d's Blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <link href="/images/favicon.png" rel="icon">
+
+
+<style type="text/css">
+
+/*some stuff for output/input prompts*/
+div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.cell.selected{border-radius:4px;border:thin #ababab solid}
+div.cell.edit_mode{border-radius:4px;border:thin #008000 solid}
+div.cell{width:100%;padding:5px 5px 5px 0;margin:0;outline:none}
+div.prompt{min-width:11ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}
+@media (max-width:480px){div.prompt{text-align:left}}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;line-height:1.21429em}
+div.prompt:empty{padding-top:0;padding-bottom:0}
+div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;}
+div.inner_cell{width:90%;}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;}
+div.input_prompt{color:navy;border-top:1px solid transparent;}
+div.output_wrapper{margin-top:5px;position:relative;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:4px;-webkit-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);-moz-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);}
+div.output_collapsed{margin:0px;padding:0px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.out_prompt_overlay{height:100%;padding:0px 0.4em;position:absolute;border-radius:4px;}
+div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000000;-moz-box-shadow:inset 0 0 1px #000000;box-shadow:inset 0 0 1px #000000;background:rgba(240, 240, 240, 0.5);}
+div.output_prompt{color:darkred;}
+
+a.anchor-link:link{text-decoration:none;padding:0px 20px;visibility:hidden;}
+h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible;}
+/* end stuff for output/input prompts*/
+
+
+.highlight-ipynb .hll { background-color: #ffffcc }
+.highlight-ipynb  { background: #f8f8f8; }
+.highlight-ipynb .c { color: #408080; font-style: italic } /* Comment */
+.highlight-ipynb .err { border: 1px solid #FF0000 } /* Error */
+.highlight-ipynb .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight-ipynb .o { color: #666666 } /* Operator */
+.highlight-ipynb .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight-ipynb .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight-ipynb .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight-ipynb .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight-ipynb .gd { color: #A00000 } /* Generic.Deleted */
+.highlight-ipynb .ge { font-style: italic } /* Generic.Emph */
+.highlight-ipynb .gr { color: #FF0000 } /* Generic.Error */
+.highlight-ipynb .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight-ipynb .gi { color: #00A000 } /* Generic.Inserted */
+.highlight-ipynb .go { color: #888888 } /* Generic.Output */
+.highlight-ipynb .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight-ipynb .gs { font-weight: bold } /* Generic.Strong */
+.highlight-ipynb .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight-ipynb .gt { color: #0044DD } /* Generic.Traceback */
+.highlight-ipynb .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight-ipynb .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight-ipynb .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight-ipynb .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight-ipynb .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight-ipynb .kt { color: #B00040 } /* Keyword.Type */
+.highlight-ipynb .m { color: #666666 } /* Literal.Number */
+.highlight-ipynb .s { color: #BA2121 } /* Literal.String */
+.highlight-ipynb .na { color: #7D9029 } /* Name.Attribute */
+.highlight-ipynb .nb { color: #008000 } /* Name.Builtin */
+.highlight-ipynb .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight-ipynb .no { color: #880000 } /* Name.Constant */
+.highlight-ipynb .nd { color: #AA22FF } /* Name.Decorator */
+.highlight-ipynb .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight-ipynb .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight-ipynb .nf { color: #0000FF } /* Name.Function */
+.highlight-ipynb .nl { color: #A0A000 } /* Name.Label */
+.highlight-ipynb .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight-ipynb .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight-ipynb .nv { color: #19177C } /* Name.Variable */
+.highlight-ipynb .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight-ipynb .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight-ipynb .mf { color: #666666 } /* Literal.Number.Float */
+.highlight-ipynb .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight-ipynb .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight-ipynb .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight-ipynb .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight-ipynb .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight-ipynb .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight-ipynb .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight-ipynb .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight-ipynb .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight-ipynb .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight-ipynb .sx { color: #008000 } /* Literal.String.Other */
+.highlight-ipynb .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight-ipynb .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight-ipynb .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight-ipynb .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight-ipynb .vc { color: #19177C } /* Name.Variable.Class */
+.highlight-ipynb .vg { color: #19177C } /* Name.Variable.Global */
+.highlight-ipynb .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight-ipynb .il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
+
+<style type="text/css">
+/* Overrides of notebook CSS for static HTML export */
+div.entry-content {
+  overflow: visible;
+  padding: 8px;
+}
+.input_area {
+  padding: 0.2em;
+}
+
+a.heading-anchor {
+ white-space: normal;
+}
+
+.rendered_html
+code {
+ font-size: .8em;
+}
+
+pre.ipynb {
+  color: black;
+  background: #f7f7f7;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0px;
+  font-size: 13px;
+}
+
+/* remove the prompt div from text cells */
+div.text_cell .prompt {
+    display: none;
+}
+
+/* remove horizontal padding from text cells, */
+/* so it aligns with outer body text */
+div.text_cell_render {
+    padding: 0.5em 0em;
+}
+
+img.anim_icon{padding:0; border:0; vertical-align:middle; -webkit-box-shadow:none; -box-shadow:none}
+</style>
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script type="text/javascript">
+init_mathjax = function() {
+    if (window.MathJax) {
+        // MathJax loaded
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+}
+init_mathjax();
+</script>
+    <link href="http://mcdona1d.me/images/favicon.png" rel="icon">
 
 
         <meta name="author" content="mcdona1d" />
 
     <!-- Open Graph tags -->
-        <meta property="og:site_name" content="mcdona1d's blog" />
+        <meta property="og:site_name" content="mcdona1d's Blog" />
         <meta property="og:type" content="website"/>
-        <meta property="og:title" content="mcdona1d's blog"/>
-        <meta property="og:url" content=""/>
-        <meta property="og:description" content="mcdona1d's blog"/>
+        <meta property="og:title" content="mcdona1d's Blog"/>
+        <meta property="og:url" content="http://mcdona1d.me"/>
+        <meta property="og:description" content="mcdona1d's Blog"/>
 
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css"/>
-    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="http://mcdona1d.me/theme/css/bootstrap.cerulean.min.css" type="text/css"/>
+    <link href="http://mcdona1d.me/theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="/theme/css/pygments/monokai.css" rel="stylesheet">
-    <link href="/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
-    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+    <link href="http://mcdona1d.me/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link href="http://mcdona1d.me/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://mcdona1d.me/theme/css/style.css" type="text/css"/>
+        <link href="http://mcdona1d.me/theme/css/shariff/shariff.min.css" rel="stylesheet">
 
-        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-              title="mcdona1d's blog ATOM Feed"/>
+        <link href="http://mcdona1d.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="mcdona1d's Blog ATOM Feed"/>
 
 
 
@@ -47,23 +204,23 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/" class="navbar-brand">
-mcdona1d's blog            </a>
+            <a href="http://mcdona1d.me/" class="navbar-brand">
+mcdona1d's Blog            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                
                         <li >
-                            <a href="/category/tech.html">Tech</a>
+                            <a href="http://mcdona1d.me/category/tech.html">Tech</a>
                         </li>
                     <li><a href="http://mcdona1d.me/tags.html">Tags</a></li>
-                         <li><a href="/aboutme.html">
-                             About me
+                         <li><a href="http://mcdona1d.me/aboutme.html">
+                             About
                           </a></li>
+                
             </ul>
             <ul class="nav navbar-nav navbar-right">
             
-              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">归档</span></a></li>
+              <li><a href="http://mcdona1d.me/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">归档</span></a></li>
               <li><span>
                 <form class="navbar-search" action="/search.html">
                   <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
@@ -80,7 +237,7 @@ mcdona1d's blog            </a>
     <div class="row">
         <div class="col-sm-9">
     <section id="tags">
-        <h1>mcdona1d's blog 的全部标签</h1>
+        <h1>mcdona1d's Blog 的全部标签</h1>
         <div class="panel-group" id="accordion">            <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
@@ -89,7 +246,7 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-apache" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-01-02T19:04:00+08:00">2015-01-02 19:04</time></span> <a href="/树莓派架设http服务器挂载网页.html">树莓派架设http服务器挂载网页</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-01-02T19:04:00+08:00">2015-01-02 19:04</time></span> <a href="http://mcdona1d.me/树莓派架设http服务器挂载网页.html">树莓派架设http服务器挂载网页</a></p>
                     </div>
                 </div>
             </div>
@@ -101,7 +258,7 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-appstore" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-02-04T21:55:00+08:00">2015-02-04 21:55</time></span> <a href="/app store注册美区appid下载中国区无法下载的app.html">app store注册美区appid下载中国区无法下载的app</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-02-04T21:55:00+08:00">2015-02-04 21:55</time></span> <a href="http://mcdona1d.me/app store注册美区appid下载中国区无法下载的app.html">app store注册美区appid下载中国区无法下载的app</a></p>
                     </div>
                 </div>
             </div>
@@ -113,7 +270,7 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-cam" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2014-11-14T21:17:00+08:00">2014-11-14 21:17</time></span> <a href="/树莓派的摄像头与监控相关.html">树莓派的摄像头与监控相关</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-11-14T21:17:00+08:00">2014-11-14 21:17</time></span> <a href="http://mcdona1d.me/树莓派的摄像头与监控相关.html">树莓派的摄像头与监控相关</a></p>
                     </div>
                 </div>
             </div>
@@ -125,8 +282,8 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-centos" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-05-28T21:41:00+08:00">2015-05-28 21:41</time></span> <a href="/CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度.html">CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2015-05-28T16:48:00+08:00">2015-05-28 16:48</time></span> <a href="/DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化.html">DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-05-28T21:41:00+08:00">2015-05-28 21:41</time></span> <a href="http://mcdona1d.me/CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度.html">CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-05-28T16:48:00+08:00">2015-05-28 16:48</time></span> <a href="http://mcdona1d.me/DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化.html">DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化</a></p>
                     </div>
                 </div>
             </div>
@@ -138,7 +295,7 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-chrome" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-03-19T13:23:00+08:00">2015-03-19 13:23</time></span> <a href="/最值得安装的Chrome增强效率插件.html">最值得安装的Chrome增强效率插件</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-03-19T13:23:00+08:00">2015-03-19 13:23</time></span> <a href="http://mcdona1d.me/最值得安装的Chrome增强效率插件.html">最值得安装的Chrome增强效率插件</a></p>
                     </div>
                 </div>
             </div>
@@ -150,8 +307,8 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-debian" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2014-10-30T22:28:00+08:00">2014-10-30 22:28</time></span> <a href="/树莓派初始化及网络、软件源、中文相关设置.html">树莓派初始化及网络、软件源、中文相关设置</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2014-11-01T13:38:00+08:00">2014-11-01 13:38</time></span> <a href="/（转载）Digital Ocean使用SSH Key登录.html">（转载）Digital Ocean使用SSH Key登录</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-10-30T22:28:00+08:00">2014-10-30 22:28</time></span> <a href="http://mcdona1d.me/树莓派初始化及网络、软件源、中文相关设置.html">树莓派初始化及网络、软件源、中文相关设置</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-11-01T13:38:00+08:00">2014-11-01 13:38</time></span> <a href="http://mcdona1d.me/（转载）Digital Ocean使用SSH Key登录.html">（转载）Digital Ocean使用SSH Key登录</a></p>
                     </div>
                 </div>
             </div>
@@ -163,9 +320,9 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-digitalocean" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-05-28T21:41:00+08:00">2015-05-28 21:41</time></span> <a href="/CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度.html">CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2015-05-28T16:48:00+08:00">2015-05-28 16:48</time></span> <a href="/DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化.html">DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2014-11-01T13:38:00+08:00">2014-11-01 13:38</time></span> <a href="/（转载）Digital Ocean使用SSH Key登录.html">（转载）Digital Ocean使用SSH Key登录</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-05-28T21:41:00+08:00">2015-05-28 21:41</time></span> <a href="http://mcdona1d.me/CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度.html">CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-05-28T16:48:00+08:00">2015-05-28 16:48</time></span> <a href="http://mcdona1d.me/DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化.html">DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-11-01T13:38:00+08:00">2014-11-01 13:38</time></span> <a href="http://mcdona1d.me/（转载）Digital Ocean使用SSH Key登录.html">（转载）Digital Ocean使用SSH Key登录</a></p>
                     </div>
                 </div>
             </div>
@@ -177,8 +334,8 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-editior" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-05-24T13:17:00+08:00">2015-05-24 13:17</time></span> <a href="/Sublime Text 2 配置记录.html">Sublime Text 2 配置记录</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2014-12-05T08:16:00+08:00">2014-12-05 08:16</time></span> <a href="/超级好用的vim配置记录.html">超级好用的vim配置记录</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-05-24T13:17:00+08:00">2015-05-24 13:17</time></span> <a href="http://mcdona1d.me/Sublime Text 2 配置记录.html">Sublime Text 2 配置记录</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-12-05T08:16:00+08:00">2014-12-05 08:16</time></span> <a href="http://mcdona1d.me/超级好用的vim配置记录.html">超级好用的vim配置记录</a></p>
                     </div>
                 </div>
             </div>
@@ -190,7 +347,7 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-gae" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-05-09T22:15:00+08:00">2015-05-09 22:15</time></span> <a href="/利用Sina App Engine突破限制进行国内代理.html">利用Sina App Engine突破限制进行国内代理</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-05-09T22:15:00+08:00">2015-05-09 22:15</time></span> <a href="http://mcdona1d.me/利用Sina App Engine突破限制进行国内代理.html">利用Sina App Engine突破限制进行国内代理</a></p>
                     </div>
                 </div>
             </div>
@@ -202,7 +359,7 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-html" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-04-03T17:33:00+08:00">2015-04-03 17:33</time></span> <a href="/html网页兼容手机浏览器（解决显示页面很小的问题）.html">html网页兼容手机浏览器（解决显示页面很小的问题）</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-04-03T17:33:00+08:00">2015-04-03 17:33</time></span> <a href="http://mcdona1d.me/html网页兼容手机浏览器（解决显示页面很小的问题）.html">html网页兼容手机浏览器（解决显示页面很小的问题）</a></p>
                     </div>
                 </div>
             </div>
@@ -214,7 +371,7 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-jdbc" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-05-07T21:44:00+08:00">2015-05-07 21:44</time></span> <a href="/（转载） java jsp MyEclipse 通过JDBC链接 SQLServer2012.html">（转载） java jsp MyEclipse 通过JDBC链接 SQLServer2012</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-05-07T21:44:00+08:00">2015-05-07 21:44</time></span> <a href="http://mcdona1d.me/（转载） java jsp MyEclipse 通过JDBC链接 SQLServer2012.html">（转载） java jsp MyEclipse 通过JDBC链接 SQLServer2012</a></p>
                     </div>
                 </div>
             </div>
@@ -226,7 +383,7 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-jsp" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-05-07T21:44:00+08:00">2015-05-07 21:44</time></span> <a href="/（转载） java jsp MyEclipse 通过JDBC链接 SQLServer2012.html">（转载） java jsp MyEclipse 通过JDBC链接 SQLServer2012</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-05-07T21:44:00+08:00">2015-05-07 21:44</time></span> <a href="http://mcdona1d.me/（转载） java jsp MyEclipse 通过JDBC链接 SQLServer2012.html">（转载） java jsp MyEclipse 通过JDBC链接 SQLServer2012</a></p>
                     </div>
                 </div>
             </div>
@@ -238,7 +395,7 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-l2tp" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-05-28T21:41:00+08:00">2015-05-28 21:41</time></span> <a href="/CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度.html">CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-05-28T21:41:00+08:00">2015-05-28 21:41</time></span> <a href="http://mcdona1d.me/CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度.html">CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度</a></p>
                     </div>
                 </div>
             </div>
@@ -250,7 +407,7 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-linux" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2014-11-18T20:30:00+08:00">2014-11-18 20:30</time></span> <a href="/使用Screen后台执行任务，防止SSH中断.html">使用Screen后台执行任务，防止SSH中断</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-11-18T20:30:00+08:00">2014-11-18 20:30</time></span> <a href="http://mcdona1d.me/使用Screen后台执行任务，防止SSH中断.html">使用Screen后台执行任务，防止SSH中断</a></p>
                     </div>
                 </div>
             </div>
@@ -262,7 +419,7 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-m300" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-01-31T19:03:00+08:00">2015-01-31 19:03</time></span> <a href="/紫光m300 路由器与磊科ni360 q360 nr235 ddwrt tomato等互刷折腾备忘.html">紫光m300 路由器与磊科ni360 q360 nr235 ddwrt tomato等互刷折腾备忘</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-01-31T19:03:00+08:00">2015-01-31 19:03</time></span> <a href="http://mcdona1d.me/紫光m300 路由器与磊科ni360 q360 nr235 ddwrt tomato等互刷折腾备忘.html">紫光m300 路由器与磊科ni360 q360 nr235 ddwrt tomato等互刷折腾备忘</a></p>
                     </div>
                 </div>
             </div>
@@ -274,8 +431,8 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-newifi-y1" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-02-03T21:54:00+08:00">2015-02-03 21:54</time></span> <a href="/Newifi Y1 刷openwrt Pandorabox并 实现透明路由.html">Newifi Y1 刷openwrt Pandorabox并 实现透明路由</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2015-02-03T22:11:00+08:00">2015-02-03 22:11</time></span> <a href="/基于mt7620的newifi y1的Pandorabox新软件源备忘.html">基于mt7620的newifi y1的Pandorabox新软件源备忘</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-02-03T21:54:00+08:00">2015-02-03 21:54</time></span> <a href="http://mcdona1d.me/Newifi Y1 刷openwrt Pandorabox并 实现透明路由.html">Newifi Y1 刷openwrt Pandorabox并 实现透明路由</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-02-03T22:11:00+08:00">2015-02-03 22:11</time></span> <a href="http://mcdona1d.me/基于mt7620的newifi y1的Pandorabox新软件源备忘.html">基于mt7620的newifi y1的Pandorabox新软件源备忘</a></p>
                     </div>
                 </div>
             </div>
@@ -287,7 +444,7 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-njit" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2014-11-25T17:25:00+08:00">2014-11-25 17:25</time></span> <a href="/HG255d 刷最新openwrt Pandorabox并安装njit拨号.html">HG255d 刷最新openwrt Pandorabox并安装njit拨号</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-11-25T17:25:00+08:00">2014-11-25 17:25</time></span> <a href="http://mcdona1d.me/HG255d 刷最新openwrt Pandorabox并安装njit拨号.html">HG255d 刷最新openwrt Pandorabox并安装njit拨号</a></p>
                     </div>
                 </div>
             </div>
@@ -299,8 +456,8 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-openwrt" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2014-11-25T17:25:00+08:00">2014-11-25 17:25</time></span> <a href="/HG255d 刷最新openwrt Pandorabox并安装njit拨号.html">HG255d 刷最新openwrt Pandorabox并安装njit拨号</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2015-02-03T21:54:00+08:00">2015-02-03 21:54</time></span> <a href="/Newifi Y1 刷openwrt Pandorabox并 实现透明路由.html">Newifi Y1 刷openwrt Pandorabox并 实现透明路由</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-11-25T17:25:00+08:00">2014-11-25 17:25</time></span> <a href="http://mcdona1d.me/HG255d 刷最新openwrt Pandorabox并安装njit拨号.html">HG255d 刷最新openwrt Pandorabox并安装njit拨号</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-02-03T21:54:00+08:00">2015-02-03 21:54</time></span> <a href="http://mcdona1d.me/Newifi Y1 刷openwrt Pandorabox并 实现透明路由.html">Newifi Y1 刷openwrt Pandorabox并 实现透明路由</a></p>
                     </div>
                 </div>
             </div>
@@ -312,9 +469,9 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-pandorabox" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2014-11-25T17:25:00+08:00">2014-11-25 17:25</time></span> <a href="/HG255d 刷最新openwrt Pandorabox并安装njit拨号.html">HG255d 刷最新openwrt Pandorabox并安装njit拨号</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2015-02-03T21:54:00+08:00">2015-02-03 21:54</time></span> <a href="/Newifi Y1 刷openwrt Pandorabox并 实现透明路由.html">Newifi Y1 刷openwrt Pandorabox并 实现透明路由</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2015-02-03T22:11:00+08:00">2015-02-03 22:11</time></span> <a href="/基于mt7620的newifi y1的Pandorabox新软件源备忘.html">基于mt7620的newifi y1的Pandorabox新软件源备忘</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-11-25T17:25:00+08:00">2014-11-25 17:25</time></span> <a href="http://mcdona1d.me/HG255d 刷最新openwrt Pandorabox并安装njit拨号.html">HG255d 刷最新openwrt Pandorabox并安装njit拨号</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-02-03T21:54:00+08:00">2015-02-03 21:54</time></span> <a href="http://mcdona1d.me/Newifi Y1 刷openwrt Pandorabox并 实现透明路由.html">Newifi Y1 刷openwrt Pandorabox并 实现透明路由</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-02-03T22:11:00+08:00">2015-02-03 22:11</time></span> <a href="http://mcdona1d.me/基于mt7620的newifi y1的Pandorabox新软件源备忘.html">基于mt7620的newifi y1的Pandorabox新软件源备忘</a></p>
                     </div>
                 </div>
             </div>
@@ -326,15 +483,15 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-raspberrypi" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2014-11-05T22:46:00+08:00">2014-11-05 22:46</time></span> <a href="/使用树莓派与微信公众平台对接(python).html">使用树莓派与微信公众平台对接(python)</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2014-10-30T22:28:00+08:00">2014-10-30 22:28</time></span> <a href="/树莓派初始化及网络、软件源、中文相关设置.html">树莓派初始化及网络、软件源、中文相关设置</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2015-05-11T21:27:00+08:00">2015-05-11 21:27</time></span> <a href="/树莓派替我玩Timberman.html">树莓派替我玩Timberman</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2015-01-02T19:04:00+08:00">2015-01-02 19:04</time></span> <a href="/树莓派架设http服务器挂载网页.html">树莓派架设http服务器挂载网页</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2014-11-14T21:17:00+08:00">2014-11-14 21:17</time></span> <a href="/树莓派的摄像头与监控相关.html">树莓派的摄像头与监控相关</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2014-11-26T16:54:00+08:00">2014-11-26 16:54</time></span> <a href="/树莓派经常用到的软件及安装方法备忘.html">树莓派经常用到的软件及安装方法备忘</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2014-11-26T16:50:00+08:00">2014-11-26 16:50</time></span> <a href="/树莓派通过GPIO控制步进电机(python).html">树莓派通过GPIO控制步进电机(python)</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2015-05-06T11:11:00+08:00">2015-05-06 11:11</time></span> <a href="/跑在树莓派上智能家居雏形.html">跑在树莓派上智能家居雏形</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2014-12-04T12:23:00+08:00">2014-12-04 12:23</time></span> <a href="/（转载）树莓派连接dht11温度传感器获取温度(python).html">（转载）树莓派连接dht11温度传感器获取温度(python)</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-11-05T22:46:00+08:00">2014-11-05 22:46</time></span> <a href="http://mcdona1d.me/使用树莓派与微信公众平台对接(python).html">使用树莓派与微信公众平台对接(python)</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-10-30T22:28:00+08:00">2014-10-30 22:28</time></span> <a href="http://mcdona1d.me/树莓派初始化及网络、软件源、中文相关设置.html">树莓派初始化及网络、软件源、中文相关设置</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-05-11T21:27:00+08:00">2015-05-11 21:27</time></span> <a href="http://mcdona1d.me/树莓派替我玩Timberman.html">树莓派替我玩Timberman</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-01-02T19:04:00+08:00">2015-01-02 19:04</time></span> <a href="http://mcdona1d.me/树莓派架设http服务器挂载网页.html">树莓派架设http服务器挂载网页</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-11-14T21:17:00+08:00">2014-11-14 21:17</time></span> <a href="http://mcdona1d.me/树莓派的摄像头与监控相关.html">树莓派的摄像头与监控相关</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-11-26T16:54:00+08:00">2014-11-26 16:54</time></span> <a href="http://mcdona1d.me/树莓派经常用到的软件及安装方法备忘.html">树莓派经常用到的软件及安装方法备忘</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-11-26T16:50:00+08:00">2014-11-26 16:50</time></span> <a href="http://mcdona1d.me/树莓派通过GPIO控制步进电机(python).html">树莓派通过GPIO控制步进电机(python)</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-05-06T11:11:00+08:00">2015-05-06 11:11</time></span> <a href="http://mcdona1d.me/跑在树莓派上智能家居雏形.html">跑在树莓派上智能家居雏形</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-12-04T12:23:00+08:00">2014-12-04 12:23</time></span> <a href="http://mcdona1d.me/（转载）树莓派连接dht11温度传感器获取温度(python).html">（转载）树莓派连接dht11温度传感器获取温度(python)</a></p>
                     </div>
                 </div>
             </div>
@@ -346,7 +503,7 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-screen" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2014-11-18T20:30:00+08:00">2014-11-18 20:30</time></span> <a href="/使用Screen后台执行任务，防止SSH中断.html">使用Screen后台执行任务，防止SSH中断</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-11-18T20:30:00+08:00">2014-11-18 20:30</time></span> <a href="http://mcdona1d.me/使用Screen后台执行任务，防止SSH中断.html">使用Screen后台执行任务，防止SSH中断</a></p>
                     </div>
                 </div>
             </div>
@@ -358,9 +515,9 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-sensor" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2014-11-26T16:50:00+08:00">2014-11-26 16:50</time></span> <a href="/树莓派通过GPIO控制步进电机(python).html">树莓派通过GPIO控制步进电机(python)</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2015-05-06T11:11:00+08:00">2015-05-06 11:11</time></span> <a href="/跑在树莓派上智能家居雏形.html">跑在树莓派上智能家居雏形</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2014-12-04T12:23:00+08:00">2014-12-04 12:23</time></span> <a href="/（转载）树莓派连接dht11温度传感器获取温度(python).html">（转载）树莓派连接dht11温度传感器获取温度(python)</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-11-26T16:50:00+08:00">2014-11-26 16:50</time></span> <a href="http://mcdona1d.me/树莓派通过GPIO控制步进电机(python).html">树莓派通过GPIO控制步进电机(python)</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-05-06T11:11:00+08:00">2015-05-06 11:11</time></span> <a href="http://mcdona1d.me/跑在树莓派上智能家居雏形.html">跑在树莓派上智能家居雏形</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-12-04T12:23:00+08:00">2014-12-04 12:23</time></span> <a href="http://mcdona1d.me/（转载）树莓派连接dht11温度传感器获取温度(python).html">（转载）树莓派连接dht11温度传感器获取温度(python)</a></p>
                     </div>
                 </div>
             </div>
@@ -372,9 +529,9 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-shadowsocks" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-05-28T16:48:00+08:00">2015-05-28 16:48</time></span> <a href="/DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化.html">DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2015-02-03T21:54:00+08:00">2015-02-03 21:54</time></span> <a href="/Newifi Y1 刷openwrt Pandorabox并 实现透明路由.html">Newifi Y1 刷openwrt Pandorabox并 实现透明路由</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2014-12-15T15:45:00+08:00">2014-12-15 15:45</time></span> <a href="/Ubuntu使用Shadowsocks client 客户端 总结.html">Ubuntu使用Shadowsocks client 客户端 总结</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-05-28T16:48:00+08:00">2015-05-28 16:48</time></span> <a href="http://mcdona1d.me/DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化.html">DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-02-03T21:54:00+08:00">2015-02-03 21:54</time></span> <a href="http://mcdona1d.me/Newifi Y1 刷openwrt Pandorabox并 实现透明路由.html">Newifi Y1 刷openwrt Pandorabox并 实现透明路由</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-12-15T15:45:00+08:00">2014-12-15 15:45</time></span> <a href="http://mcdona1d.me/Ubuntu使用Shadowsocks client 客户端 总结.html">Ubuntu使用Shadowsocks client 客户端 总结</a></p>
                     </div>
                 </div>
             </div>
@@ -386,7 +543,7 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-ubuntu" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2014-12-15T15:45:00+08:00">2014-12-15 15:45</time></span> <a href="/Ubuntu使用Shadowsocks client 客户端 总结.html">Ubuntu使用Shadowsocks client 客户端 总结</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-12-15T15:45:00+08:00">2014-12-15 15:45</time></span> <a href="http://mcdona1d.me/Ubuntu使用Shadowsocks client 客户端 总结.html">Ubuntu使用Shadowsocks client 客户端 总结</a></p>
                     </div>
                 </div>
             </div>
@@ -398,7 +555,7 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-vim" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2014-12-05T08:16:00+08:00">2014-12-05 08:16</time></span> <a href="/超级好用的vim配置记录.html">超级好用的vim配置记录</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-12-05T08:16:00+08:00">2014-12-05 08:16</time></span> <a href="http://mcdona1d.me/超级好用的vim配置记录.html">超级好用的vim配置记录</a></p>
                     </div>
                 </div>
             </div>
@@ -410,7 +567,7 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-vpn" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2015-05-28T21:41:00+08:00">2015-05-28 21:41</time></span> <a href="/CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度.html">CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-05-28T21:41:00+08:00">2015-05-28 21:41</time></span> <a href="http://mcdona1d.me/CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度.html">CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度</a></p>
                     </div>
                 </div>
             </div>
@@ -422,9 +579,21 @@ mcdona1d's blog            </a>
                 </div>
                 <div id="collapse-wechat" class="panel-collapse collapse">
                     <div class="panel-body">
-                        <p><span class="categories-timestamp"><time datetime="2014-11-05T22:46:00+08:00">2014-11-05 22:46</time></span> <a href="/使用树莓派与微信公众平台对接(python).html">使用树莓派与微信公众平台对接(python)</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2014-11-09T13:06:00+08:00">2014-11-09 13:06</time></span> <a href="/微信公众平台按钮及菜单创建.html">微信公众平台按钮及菜单创建</a></p>
-                        <p><span class="categories-timestamp"><time datetime="2015-05-06T11:11:00+08:00">2015-05-06 11:11</time></span> <a href="/跑在树莓派上智能家居雏形.html">跑在树莓派上智能家居雏形</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-11-05T22:46:00+08:00">2014-11-05 22:46</time></span> <a href="http://mcdona1d.me/使用树莓派与微信公众平台对接(python).html">使用树莓派与微信公众平台对接(python)</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2014-11-09T13:06:00+08:00">2014-11-09 13:06</time></span> <a href="http://mcdona1d.me/微信公众平台按钮及菜单创建.html">微信公众平台按钮及菜单创建</a></p>
+                        <p><span class="categories-timestamp"><time datetime="2015-05-06T11:11:00+08:00">2015-05-06 11:11</time></span> <a href="http://mcdona1d.me/跑在树莓派上智能家居雏形.html">跑在树莓派上智能家居雏形</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-windows">Windows <span class="badge pull-right">1</span></a>
+                    </h4>
+                </div>
+                <div id="collapse-windows" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p><span class="categories-timestamp"><time datetime="2015-06-27T20:33:00+08:00">2015-06-27 20:33</time></span> <a href="http://mcdona1d.me/解决Win7 ip-网关无法保存问题.html">解决Win7 ip/网关无法保存问题</a></p>
                     </div>
                 </div>
             </div>
@@ -459,7 +628,7 @@ mcdona1d's blog            </a>
 </div>
 <section class="well well-sm">
     <ul class="list-group list-group-flush">
-            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">社交网络</span></h4>
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">社会网络</span></h4>
               <ul class="list-group" id="social">
                 <li class="list-group-item"><a href="http://blog.csdn.net/u010027419"><i class="fa fa-csdn-blog-square fa-lg"></i> CSDN Blog</a></li>
                 <li class="list-group-item"><a href="https://cn.linkedin.com/pub/%E9%AA%9E-%E5%BC%A0/b4/172/432"><i class="fa fa-linkedin-square fa-lg"></i> linkedin</a></li>
@@ -470,35 +639,35 @@ mcdona1d's blog            </a>
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">近期发布</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
-                        <a href="/CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度.html">
+                        <a href="http://mcdona1d.me/解决Win7 ip-网关无法保存问题.html">
+                            解决Win7 ip/网关无法保存问题
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://mcdona1d.me/CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度.html">
                             CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="/DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化.html">
+                        <a href="http://mcdona1d.me/DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化.html">
                             DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="/Sublime Text 2 配置记录.html">
+                        <a href="http://mcdona1d.me/Sublime Text 2 配置记录.html">
                             Sublime Text 2 配置记录
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="/树莓派替我玩Timberman.html">
+                        <a href="http://mcdona1d.me/树莓派替我玩Timberman.html">
                             树莓派替我玩Timberman
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="/利用Sina App Engine突破限制进行国内代理.html">
-                            利用Sina App Engine突破限制进行国内代理
                         </a>
                     </li>
                 </ul>
             </li>
 
 
-            <li class="list-group-item"><a href="/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">标签云</span></h4></a>
+            <li class="list-group-item"><a href="http://mcdona1d.me/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">标签云</span></h4></a>
                 <ul class="list-group list-inline tagcloud" id="tags">
                 </ul>
             </li>
@@ -507,7 +676,7 @@ mcdona1d's blog            </a>
 
     <li class="list-group-item"><h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub 仓库</span></h4>
         <div id="gh_repos">
-            <p class="list-group-item">Status updating...</p>
+            <p class="list-group-item">Github仓库加载中...</p>
         </div>
             <a href="https://github.com/329703622">@329703622</a> on GitHub
     </li>
@@ -533,22 +702,22 @@ mcdona1d's blog            </a>
       </div>
    </div>
 </footer>
-<script src="/theme/js/jquery.min.js"></script>
+<script src="http://mcdona1d.me/theme/js/jquery.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/theme/js/bootstrap.min.js"></script>
+<script src="http://mcdona1d.me/theme/js/bootstrap.min.js"></script>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="/theme/js/respond.min.js"></script>
+<script src="http://mcdona1d.me/theme/js/respond.min.js"></script>
 
-    <script src="/theme/js/bodypadding.js"></script>
+    <script src="http://mcdona1d.me/theme/js/bodypadding.js"></script>
     <!-- GitHub JS -->
     <script type="text/javascript">
         $(document).ready(function () {
             if (!window.jXHR) {
                 var jxhr = document.createElement('script');
                 jxhr.type = 'text/javascript';
-                jxhr.src = '/theme/js/jXHR.js';
+                jxhr.src = 'http://mcdona1d.me/theme/js/jXHR.js';
                 var s = document.getElementsByTagName('script')[0];
                 s.parentNode.insertBefore(jxhr, s);
             }
@@ -561,7 +730,7 @@ mcdona1d's blog            </a>
             });
         });
     </script>
-    <script src="/theme/js/github.js" type="text/javascript"></script>
+    <script src="http://mcdona1d.me/theme/js/github.js" type="text/javascript"></script>
     <!-- End GitHub JS Code -->
     <!-- Disqus -->
     <script type="text/javascript">
