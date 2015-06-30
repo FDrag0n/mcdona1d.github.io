@@ -1,2 +1,7 @@
-Sitemap: /sitemap.xml
-sitemap: /sitemap.xml
+# Robots.txt file from http://mcdona1d.me
+# All robots will spider the domain
+User-agent: *
+Disallow:
+Allow:
+
+Sitemap: http://mcdona1d.me/sitemap.xml
