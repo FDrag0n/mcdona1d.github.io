@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://mcdona1d.me/</loc>
-<lastmod>2015-06-28T21:00:13-00:00</lastmod>
+<lastmod>2015-07-08T17:38:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mcdona1d.me/archives.html</loc>
-<lastmod>2015-06-28T21:00:13-00:00</lastmod>
+<lastmod>2015-07-08T17:38:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mcdona1d.me/tags.html</loc>
-<lastmod>2015-06-28T21:00:13-00:00</lastmod>
+<lastmod>2015-07-08T17:38:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://mcdona1d.me/categories.html</loc>
-<lastmod>2015-06-28T21:00:13-00:00</lastmod>
+<lastmod>2015-07-08T17:38:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -43,6 +43,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <lastmod>2015-06-28T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.3</priority>
+</url>
+
+<url>
+<loc>http://mcdona1d.me/就这么开始上班了.html</loc>
+<lastmod>2015-07-15T21:43:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
 </url>
 
 <url>
@@ -235,6 +242,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>http://mcdona1d.me/category/life.html</loc>
+<lastmod>2015-07-15T21:43:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://mcdona1d.me/category/tech.html</loc>
 <lastmod>2015-06-27T20:33:00+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -333,8 +347,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/digitalocean.html</loc>
-<lastmod>2015-05-28T21:41:00+08:06</lastmod>
+<loc>http://mcdona1d.me/tag/life.html</loc>
+<lastmod>2015-07-15T21:43:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://mcdona1d.me/tag/cam.html</loc>
+<lastmod>2014-11-14T21:17:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -417,8 +438,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/cam.html</loc>
-<lastmod>2014-11-14T21:17:00+08:06</lastmod>
+<loc>http://mcdona1d.me/tag/digitalocean.html</loc>
+<lastmod>2015-05-28T21:41:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

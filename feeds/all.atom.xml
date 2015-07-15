@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>mcdona1d's Blog</title><link href="http://mcdona1d.me/" rel="alternate"></link><link href="http://mcdona1d.me/feeds/all.atom.xml" rel="self"></link><id>http://mcdona1d.me/</id><updated>2015-06-27T20:33:00+08:00</updated><entry><title>解决Win7 ip/网关无法保存问题</title><link href="http://mcdona1d.me/%E8%A7%A3%E5%86%B3Win7%20ip-%E7%BD%91%E5%85%B3%E6%97%A0%E6%B3%95%E4%BF%9D%E5%AD%98%E9%97%AE%E9%A2%98.html" rel="alternate"></link><updated>2015-06-27T20:33:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-06-27:解决Win7 ip-网关无法保存问题.html</id><summary type="html">&lt;h2&gt;缘由&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>mcdona1d's Blog</title><link href="http://mcdona1d.me/" rel="alternate"></link><link href="http://mcdona1d.me/feeds/all.atom.xml" rel="self"></link><id>http://mcdona1d.me/</id><updated>2015-07-15T21:43:00+08:00</updated><entry><title>就这么开始上班了</title><link href="http://mcdona1d.me/%E5%B0%B1%E8%BF%99%E4%B9%88%E5%BC%80%E5%A7%8B%E4%B8%8A%E7%8F%AD%E4%BA%86.html" rel="alternate"></link><updated>2015-07-15T21:43:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-07-15:就这么开始上班了.html</id><summary type="html">&lt;h2&gt;2015.7.15 21:43&lt;/h2&gt;
+&lt;p&gt;这一阵子，分两次面试了四场，第一场学习氛围好，但是感觉工资有些少，初来乍到，自己倒是也没什么概念，感觉上3000够花，4000理想，5000太棒，很感谢面试我的那个哥哥，让我经历了一次非常完整的面试。第二场可能给的薪资会高一些，但是环境特别的不理想，工作乏味，学不到东西。第三场面试，上来就给了一张笔试题，自己没有系统的学习过python这门语言，小后悔小学期没有上刘海洋老师讲的python。第四场面试，一个非常有魅力的哥哥和我聊，过程非常的放松，也让我丝毫没感觉到什么压力。第三场面试和第四场居然都考到了一个两个链表是否交叉的算法。作为一个从来没在实际应用过算法的同学来说，也从来没意识到，接下来的工作，就是真正要应用算法的场景。
+作为第一份实习，很满意，职位满意，工作氛围满意，工作环境满意，薪资满意，下周一也就要正式的开始人生中第一份工作了。
+现在还要找房子，搬行李，买东西，一切都是新的，未知的
+但是一切的一切，都是和自己心里的方向完全相同的，好像从来都是，心里想的，总会实现
+开始奋斗吧，这也算是&lt;strong&gt;北漂&lt;/strong&gt;了么&lt;/p&gt;
+&lt;h3&gt;接下来&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;每天学习练习VIM的操作&lt;/li&gt;
+&lt;li&gt;研究研究nginx+lua&lt;/li&gt;
+&lt;li&gt;好好奋斗，享受每一天&lt;/li&gt;
+&lt;/ol&gt;</summary><category term="life"></category></entry><entry><title>解决Win7 ip/网关无法保存问题</title><link href="http://mcdona1d.me/%E8%A7%A3%E5%86%B3Win7%20ip-%E7%BD%91%E5%85%B3%E6%97%A0%E6%B3%95%E4%BF%9D%E5%AD%98%E9%97%AE%E9%A2%98.html" rel="alternate"></link><updated>2015-06-27T20:33:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-06-27:解决Win7 ip-网关无法保存问题.html</id><summary type="html">&lt;h2&gt;缘由&lt;/h2&gt;
 &lt;p&gt;静态ip地址更改过一次之后，再改回来莫名其妙的保存不上网关了，保存之后再查看均会自动清空，搜索得以下答案，可以顺利解决&lt;/p&gt;
 &lt;h2&gt;解决&lt;/h2&gt;
 &lt;ol&gt;

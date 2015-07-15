@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>就这么开始上班了 - mcdona1d's Blog</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<style type="text/css">
+
+/*some stuff for output/input prompts*/
+div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.cell.selected{border-radius:4px;border:thin #ababab solid}
+div.cell.edit_mode{border-radius:4px;border:thin #008000 solid}
+div.cell{width:100%;padding:5px 5px 5px 0;margin:0;outline:none}
+div.prompt{min-width:11ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}
+@media (max-width:480px){div.prompt{text-align:left}}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;line-height:1.21429em}
+div.prompt:empty{padding-top:0;padding-bottom:0}
+div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;}
+div.inner_cell{width:90%;}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;}
+div.input_prompt{color:navy;border-top:1px solid transparent;}
+div.output_wrapper{margin-top:5px;position:relative;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:4px;-webkit-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);-moz-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);}
+div.output_collapsed{margin:0px;padding:0px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.out_prompt_overlay{height:100%;padding:0px 0.4em;position:absolute;border-radius:4px;}
+div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000000;-moz-box-shadow:inset 0 0 1px #000000;box-shadow:inset 0 0 1px #000000;background:rgba(240, 240, 240, 0.5);}
+div.output_prompt{color:darkred;}
+
+a.anchor-link:link{text-decoration:none;padding:0px 20px;visibility:hidden;}
+h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible;}
+/* end stuff for output/input prompts*/
+
+
+.highlight-ipynb .hll { background-color: #ffffcc }
+.highlight-ipynb  { background: #f8f8f8; }
+.highlight-ipynb .c { color: #408080; font-style: italic } /* Comment */
+.highlight-ipynb .err { border: 1px solid #FF0000 } /* Error */
+.highlight-ipynb .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight-ipynb .o { color: #666666 } /* Operator */
+.highlight-ipynb .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight-ipynb .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight-ipynb .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight-ipynb .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight-ipynb .gd { color: #A00000 } /* Generic.Deleted */
+.highlight-ipynb .ge { font-style: italic } /* Generic.Emph */
+.highlight-ipynb .gr { color: #FF0000 } /* Generic.Error */
+.highlight-ipynb .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight-ipynb .gi { color: #00A000 } /* Generic.Inserted */
+.highlight-ipynb .go { color: #888888 } /* Generic.Output */
+.highlight-ipynb .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight-ipynb .gs { font-weight: bold } /* Generic.Strong */
+.highlight-ipynb .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight-ipynb .gt { color: #0044DD } /* Generic.Traceback */
+.highlight-ipynb .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight-ipynb .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight-ipynb .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight-ipynb .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight-ipynb .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight-ipynb .kt { color: #B00040 } /* Keyword.Type */
+.highlight-ipynb .m { color: #666666 } /* Literal.Number */
+.highlight-ipynb .s { color: #BA2121 } /* Literal.String */
+.highlight-ipynb .na { color: #7D9029 } /* Name.Attribute */
+.highlight-ipynb .nb { color: #008000 } /* Name.Builtin */
+.highlight-ipynb .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight-ipynb .no { color: #880000 } /* Name.Constant */
+.highlight-ipynb .nd { color: #AA22FF } /* Name.Decorator */
+.highlight-ipynb .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight-ipynb .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight-ipynb .nf { color: #0000FF } /* Name.Function */
+.highlight-ipynb .nl { color: #A0A000 } /* Name.Label */
+.highlight-ipynb .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight-ipynb .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight-ipynb .nv { color: #19177C } /* Name.Variable */
+.highlight-ipynb .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight-ipynb .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight-ipynb .mf { color: #666666 } /* Literal.Number.Float */
+.highlight-ipynb .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight-ipynb .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight-ipynb .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight-ipynb .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight-ipynb .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight-ipynb .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight-ipynb .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight-ipynb .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight-ipynb .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight-ipynb .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight-ipynb .sx { color: #008000 } /* Literal.String.Other */
+.highlight-ipynb .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight-ipynb .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight-ipynb .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight-ipynb .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight-ipynb .vc { color: #19177C } /* Name.Variable.Class */
+.highlight-ipynb .vg { color: #19177C } /* Name.Variable.Global */
+.highlight-ipynb .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight-ipynb .il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
+
+<style type="text/css">
+/* Overrides of notebook CSS for static HTML export */
+div.entry-content {
+  overflow: visible;
+  padding: 8px;
+}
+.input_area {
+  padding: 0.2em;
+}
+
+a.heading-anchor {
+ white-space: normal;
+}
+
+.rendered_html
+code {
+ font-size: .8em;
+}
+
+pre.ipynb {
+  color: black;
+  background: #f7f7f7;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0px;
+  font-size: 13px;
+}
+
+/* remove the prompt div from text cells */
+div.text_cell .prompt {
+    display: none;
+}
+
+/* remove horizontal padding from text cells, */
+/* so it aligns with outer body text */
+div.text_cell_render {
+    padding: 0.5em 0em;
+}
+
+img.anim_icon{padding:0; border:0; vertical-align:middle; -webkit-box-shadow:none; -box-shadow:none}
+</style>
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script type="text/javascript">
+init_mathjax = function() {
+    if (window.MathJax) {
+        // MathJax loaded
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+}
+init_mathjax();
+</script>
+    <link href="http://mcdona1d.me/images/favicon.png" rel="icon">
+
+<link rel="canonical" href="http://mcdona1d.me/就这么开始上班了.html">
+
+        <meta name="author" content="mcdona1d" />
+        <meta name="keywords" content="life" />
+        <meta name="description" content="面试，迷茫，在面试，满意，就这么开始上班了" />
+
+        <meta property="og:site_name" content="mcdona1d's Blog" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="就这么开始上班了"/>
+        <meta property="og:url" content="http://mcdona1d.me/就这么开始上班了.html"/>
+        <meta property="og:description" content="面试，迷茫，在面试，满意，就这么开始上班了"/>
+        <meta property="article:published_time" content="2015-07-15" />
+            <meta property="article:section" content="life" />
+            <meta property="article:tag" content="life" />
+            <meta property="article:author" content="mcdona1d" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://mcdona1d.me/theme/css/bootstrap.cerulean.min.css" type="text/css"/>
+    <link href="http://mcdona1d.me/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://mcdona1d.me/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link href="http://mcdona1d.me/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://mcdona1d.me/theme/css/style.css" type="text/css"/>
+        <link href="http://mcdona1d.me/theme/css/shariff/shariff.min.css" rel="stylesheet">
+
+        <link href="http://mcdona1d.me/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="mcdona1d's Blog ATOM Feed"/>
+
+
+
+        <link href="http://mcdona1d.me/feeds/life.atom.xml" type="application/atom+xml" rel="alternate"
+              title="mcdona1d's Blog life ATOM Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://mcdona1d.me/" class="navbar-brand">
+mcdona1d's Blog            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="http://mcdona1d.me/category/life.html">Life</a>
+                        </li>
+                        <li >
+                            <a href="http://mcdona1d.me/category/tech.html">Tech</a>
+                        </li>
+                    <li><a href="http://mcdona1d.me/tags.html">Tags</a></li>
+                         <li><a href="http://mcdona1d.me/About.html">
+                             About
+                          </a></li>
+                         <li><a href="http://mcdona1d.me/Log.html">
+                             Log
+                          </a></li>
+                
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            
+              <li><a href="http://mcdona1d.me/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">归档</span></a></li>
+              <li><span>
+                <form class="navbar-search" action="/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+			</ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://mcdona1d.me/就这么开始上班了.html"
+                       rel="bookmark"
+                       title="Permalink to 就这么开始上班了">
+                        就这么开始上班了
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-07-15T21:43:00+08:00"> 2015-07-15 21:43</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="http://mcdona1d.me/category/life.html">life</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://mcdona1d.me/tag/life.html">life</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h2>2015.7.15 21:43</h2>
+<p>这一阵子，分两次面试了四场，第一场学习氛围好，但是感觉工资有些少，初来乍到，自己倒是也没什么概念，感觉上3000够花，4000理想，5000太棒，很感谢面试我的那个哥哥，让我经历了一次非常完整的面试。第二场可能给的薪资会高一些，但是环境特别的不理想，工作乏味，学不到东西。第三场面试，上来就给了一张笔试题，自己没有系统的学习过python这门语言，小后悔小学期没有上刘海洋老师讲的python。第四场面试，一个非常有魅力的哥哥和我聊，过程非常的放松，也让我丝毫没感觉到什么压力。第三场面试和第四场居然都考到了一个两个链表是否交叉的算法。作为一个从来没在实际应用过算法的同学来说，也从来没意识到，接下来的工作，就是真正要应用算法的场景。
+作为第一份实习，很满意，职位满意，工作氛围满意，工作环境满意，薪资满意，下周一也就要正式的开始人生中第一份工作了。
+现在还要找房子，搬行李，买东西，一切都是新的，未知的
+但是一切的一切，都是和自己心里的方向完全相同的，好像从来都是，心里想的，总会实现
+开始奋斗吧，这也算是<strong>北漂</strong>了么</p>
+<h3>接下来</h3>
+<ol>
+<li>每天学习练习VIM的操作</li>
+<li>研究研究nginx+lua</li>
+<li>好好奋斗，享受每一天</li>
+</ol>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <!-- Shariff Button BEGIN -->
+    <div class="shariff"
+        data-orientation=""
+        data-url="http://mcdona1d.me/就这么开始上班了.html"></div>
+    <!-- Shariff Button END -->
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Disqus 留言</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'mcdona1d'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = '就这么开始上班了';
+                var disqus_url = 'http://mcdona1d.me/就这么开始上班了.html';
+
+            var disqus_config = function () {
+                this.language = "zh";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<div id="aboutme">
+        <p>
+            <img width="100%" class="img-thumbnail" src="avatar.jpg"/>
+        </p>
+    <p>
+        <strong>关于 mcdona1d</strong><br/>
+        <h3 style="text-align:center">
+<a href="http://weibo.com/234773130"                     target="_blank">
+<i class="fa fa-weibo" style="text-align:center"></i></a>
+<a href="https://github.com/329703622"                   target="_blank">
+<i class="fa fa-github" style="text-align:center"></i></a>
+<a href="https://www.facebook.com/mcdona1d"              target="_blank">
+<i class="fa fa-facebook" style="text-align:center"></i></a>
+<a href="https://twitter.com/329703622"                  target="_blank">
+<i class="fa fa-twitter" style="text-align:center"></i></a>
+<a href="https://plus.google.com/107873610420713613724/posts" target="_blank">
+<i class="fa fa-google-plus" style="text-align:center"></i></a>
+<a href="mailto:q329703622@hotmail.com" target="_blank">
+<i class="mdi-communication-email" style="text-align:center"></i></a>
+</h3>
+
+    </p>
+</div>
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">社交网络</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="https://cn.linkedin.com/pub/%E9%AA%9E-%E5%BC%A0/b4/172/432"><i class="fa fa-linkedin-square fa-lg"></i> linkedin</a></li>
+                <li class="list-group-item"><a href="https://github.com/329703622"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+                <li class="list-group-item"><a href="http://weibo.com/234773130"><i class="fa fa-weibo fa-lg"></i> weibo</a></li>
+                <li class="list-group-item"><a href="https://instagram.com/q329703622/"><i class="fa fa-instagram-square fa-lg"></i> Instagram</a></li>
+                <li class="list-group-item"><a href="http://blog.csdn.net/u010027419"><i class="fa fa-csdn-blog-square fa-lg"></i> CSDN Blog</a></li>
+              </ul>
+            </li>
+
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">近期发布</span></h4>
+                <ul class="list-group" id="recentposts">
+                    <li class="list-group-item">
+                        <a href="http://mcdona1d.me/就这么开始上班了.html">
+                            就这么开始上班了
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://mcdona1d.me/解决Win7 ip-网关无法保存问题.html">
+                            解决Win7 ip/网关无法保存问题
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://mcdona1d.me/CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度.html">
+                            CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://mcdona1d.me/DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化.html">
+                            DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://mcdona1d.me/Sublime Text 2 配置记录.html">
+                            Sublime Text 2 配置记录
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="list-group-item"><a href="http://mcdona1d.me/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">标签云</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                </ul>
+            </li>
+
+
+
+    <li class="list-group-item"><h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub 仓库</span></h4>
+        <div id="gh_repos">
+            <p class="list-group-item">Github仓库加载中...</p>
+        </div>
+            <a href="https://github.com/329703622">@329703622</a> on GitHub
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2015 mcdona1d
+            &middot; 通过 <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a> 生成              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://mcdona1d.me/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://mcdona1d.me/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://mcdona1d.me/theme/js/respond.min.js"></script>
+
+    <script src="http://mcdona1d.me/theme/js/bodypadding.js"></script>
+    <!-- GitHub JS -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://mcdona1d.me/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: '329703622',
+                count: 5,
+                skip_forks: true,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://mcdona1d.me/theme/js/github.js" type="text/javascript"></script>
+    <!-- End GitHub JS Code -->
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'mcdona1d'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-64307172-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+    <!-- add shariff support -->
+    <script src="http://mcdona1d.me/theme/js/shariff.min.js"></script>
+</body>
+</html>
