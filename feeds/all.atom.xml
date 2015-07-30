@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>mcdona1d's Blog</title><link href="http://mcdona1d.me/" rel="alternate"></link><link href="http://mcdona1d.me/feeds/all.atom.xml" rel="self"></link><id>http://mcdona1d.me/</id><updated>2015-07-15T21:43:00+08:00</updated><entry><title>就这么开始上班了</title><link href="http://mcdona1d.me/%E5%B0%B1%E8%BF%99%E4%B9%88%E5%BC%80%E5%A7%8B%E4%B8%8A%E7%8F%AD%E4%BA%86.html" rel="alternate"></link><updated>2015-07-15T21:43:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-07-15:就这么开始上班了.html</id><summary type="html">&lt;h2&gt;2015.7.15 21:43&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>mcdona1d's Blog</title><link href="http://mcdona1d.me/" rel="alternate"></link><link href="http://mcdona1d.me/feeds/all.atom.xml" rel="self"></link><id>http://mcdona1d.me/</id><updated>2015-07-30T22:29:00+08:00</updated><entry><title>Openwrt 路由中继备忘</title><link href="http://mcdona1d.me/Openwrt%20%E8%B7%AF%E7%94%B1%E4%B8%AD%E7%BB%A7%E5%A4%87%E5%BF%98.html" rel="alternate"></link><updated>2015-07-30T22:29:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-07-30:Openwrt 路由中继备忘.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;设置自己路由器lan口IP，不能跟上级路由相同
+&lt;img alt="Alt text" src="./images/QQ截图20150730221349.png" /&gt;&lt;/li&gt;
+&lt;li&gt;在无线标签下点击“扫描网络”
+&lt;img alt="Alt text" src="./images/QQ截图20150730221441.png" /&gt;&lt;/li&gt;
+&lt;li&gt;在新出现的界面中，会列出你附近的无线网络。点击你需要中继的网络右边的“加入网络”
+&lt;img alt="Alt text" src="./images/QQ截图20150730221535.png" /&gt;
+4.在接下来的界面中，输入上级路由的无线密码(如有密码)，选择“wan”网络（默认应该就是），然后点击“提交”
+&lt;img alt="Alt text" src="./images/QQ截图20150730221643.png" /&gt;&lt;/li&gt;
+&lt;li&gt;下一页，直接点击“保存&amp;amp;应用”
+（没有截图）&lt;/li&gt;
+&lt;li&gt;此时，返回“网络-接口”页面，应看到新创建的WWAN接口成功获取到上级的DHCP地址，说明连接成功。如
+&lt;img alt="Alt text" src="./images/QQ截图20150730221846.png" /&gt;&lt;/li&gt;
+&lt;li&gt;配置完成，现在已经可以访问网络&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;附：无墙网络环境图，终端零设置
+&lt;img alt="Alt text" src="./images/IMG_2564.JPG" /&gt;&lt;/p&gt;</summary><category term="Openwrt"></category><category term="Pandorabox"></category></entry><entry><title>就这么开始上班了</title><link href="http://mcdona1d.me/%E5%B0%B1%E8%BF%99%E4%B9%88%E5%BC%80%E5%A7%8B%E4%B8%8A%E7%8F%AD%E4%BA%86.html" rel="alternate"></link><updated>2015-07-15T21:43:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-07-15:就这么开始上班了.html</id><summary type="html">&lt;h2&gt;2015.7.15 21:43&lt;/h2&gt;
 &lt;p&gt;这一阵子，分两次面试了四场，第一场学习氛围好，但是感觉工资有些少，初来乍到，自己倒是也没什么概念，感觉上3000够花，4000理想，5000太棒，很感谢面试我的那个哥哥，让我经历了一次非常完整的面试。第二场可能给的薪资会高一些，但是环境特别的不理想，工作乏味，学不到东西。第三场面试，上来就给了一张笔试题，自己没有系统的学习过python这门语言，小后悔小学期没有上刘海洋老师讲的python。第四场面试，一个非常有魅力的哥哥和我聊，过程非常的放松，也让我丝毫没感觉到什么压力。第三场面试和第四场居然都考到了一个两个链表是否交叉的算法。作为一个从来没在实际应用过算法的同学来说，也从来没意识到，接下来的工作，就是真正要应用算法的场景。
 作为第一份实习，很满意，职位满意，工作氛围满意，工作环境满意，薪资满意，下周一也就要正式的开始人生中第一份工作了。
 现在还要找房子，搬行李，买东西，一切都是新的，未知的
