@@ -1,5 +1,309 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>mcdona1d's Blog</title><link href="http://mcdona1d.me/" rel="alternate"></link><link href="http://mcdona1d.me/feeds/all.atom.xml" rel="self"></link><id>http://mcdona1d.me/</id><updated>2015-07-30T22:29:00+08:00</updated><entry><title>Openwrt 路由中继备忘</title><link href="http://mcdona1d.me/Openwrt%20%E8%B7%AF%E7%94%B1%E4%B8%AD%E7%BB%A7%E5%A4%87%E5%BF%98.html" rel="alternate"></link><updated>2015-07-30T22:29:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-07-30:Openwrt 路由中继备忘.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>mcdona1d's Blog</title><link href="http://mcdona1d.me/" rel="alternate"></link><link href="http://mcdona1d.me/feeds/all.atom.xml" rel="self"></link><id>http://mcdona1d.me/</id><updated>2015-10-21T17:52:00+08:00</updated><entry><title>Django 入门：搭建博客雏形</title><link href="http://mcdona1d.me/Django%20%E5%85%A5%E9%97%A8%EF%BC%9A%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E9%9B%8F%E5%BD%A2.html" rel="alternate"></link><updated>2015-10-21T17:52:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-10-21:Django 入门：搭建博客雏形.html</id><summary type="html">&lt;div class="highlight"&gt;&lt;pre&gt;本文中的操作环境：
+
+Ubuntu 14.04.1
+Python 2.7
+Django 1.8.5
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;[toc]&lt;/p&gt;
+&lt;h2&gt;创建项目&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;django-admin.py startproject mysite
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;工程目录结构：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;└─ mysite
+    ├── manage.py
+    └── mysite
+        ├── __init__.py
+        ├── settings.py
+        ├── urls.py
+        └── wsgi.py
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;manage.py ----- Django项目里面的工具，通过它可以调用django shell和数据库等。
+settings.py ----- 包含了项目的默认设置，包括数据库信息，调试标志以及其他一些工作的变量。
+urls.py ----- 负责把URL模式映射到应用程序。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;初始化后台数据库&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;python 自带SQLite数据库，Django支持各种主流的数据库，这里为了方便推荐使用SQLite，如果使用其它数据库请在settings.py文件中设置。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;切换到mysite创建数据库：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;root@ubuntu:~/django/mysite&lt;span class="nv"&gt;$ &lt;/span&gt;python manage.py migrate
+Operations to perform:
+  Synchronize unmigrated apps: staticfiles, messages
+  Apply all migrations: admin, contenttypes, auth, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+    Running deferred SQL...
+  Installing custom SQL...
+Running migrations:
+  Rendering model states... DONE
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying sessions.0001_initial... OK
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;创建完成后，项目根目录会生成&lt;code&gt;db.sqlite3&lt;/code&gt;文件&lt;/p&gt;
+&lt;h2&gt;设置admin应用&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;admin 是Django 自带的一个后台管理系统。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;创建admin帐号&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;root@ubuntu:~/django/mysite&lt;span class="nv"&gt;$ &lt;/span&gt;python manage.py createsuperuser
+Username &lt;span class="o"&gt;(&lt;/span&gt;leave blank to use &lt;span class="s1"&gt;&amp;#39;root&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;: admin
+Email address: admin@admin.com
+Password:
+Password &lt;span class="o"&gt;(&lt;/span&gt;again&lt;span class="o"&gt;)&lt;/span&gt;:
+Superuser created successfully.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;python 1.7开始引入了migrate模块替换了之前的syncdb功能，此外用户创建也需要独立操作&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;在我们创建django项目时，admin就已经创建，打开&lt;code&gt;mysite/mysite/urls.py&lt;/code&gt;文件：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.conf.urls&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;include&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.contrib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;admin&lt;/span&gt;
+
+&lt;span class="n"&gt;urlpatterns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+    &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;r&amp;#39;^admin/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;include&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;admin&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;urls&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt;
+&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;启动django容器&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;root@ubuntu:~/django/mysite&lt;span class="nv"&gt;$ &lt;/span&gt;python manage.py runserver 0.0.0.0:8000
+Performing system checks...
+
+System check identified no issues &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; silenced&lt;span class="o"&gt;)&lt;/span&gt;.
+October 20, &lt;span class="m"&gt;2015&lt;/span&gt; - 10:41:02
+Django version 1.8.5, using settings &lt;span class="s1"&gt;&amp;#39;mysite.settings&amp;#39;&lt;/span&gt;
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;访问后台应用
+http://127.0.0.1:8000/admin
+输入第一步创建的用户名和密码，即可登录网站后台&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="/images/1445398692638.png" /&gt;&lt;/p&gt;
+&lt;h2&gt;创建blog应用&lt;/h2&gt;
+&lt;p&gt;在mysite目录下创建blog应用&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;mysite
+python manage.py startapp blog
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;目录结构：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;blog
+├── admin.py
+├── __init__.py
+├── migrations
+│    └── __init__.py
+├── models.py
+├── tests.py
+└── views.py
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;添加blog应用，打开&lt;code&gt;mysite/mysite/settings.py&lt;/code&gt;文件：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Application definition&lt;/span&gt;
+
+&lt;span class="nv"&gt;INSTALLED_APPS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;
+    &lt;span class="s1"&gt;&amp;#39;django.contrib.admin&amp;#39;&lt;/span&gt;,
+    &lt;span class="s1"&gt;&amp;#39;django.contrib.auth&amp;#39;&lt;/span&gt;,
+    &lt;span class="s1"&gt;&amp;#39;django.contrib.contenttypes&amp;#39;&lt;/span&gt;,
+    &lt;span class="s1"&gt;&amp;#39;django.contrib.sessions&amp;#39;&lt;/span&gt;,
+    &lt;span class="s1"&gt;&amp;#39;django.contrib.messages&amp;#39;&lt;/span&gt;,
+    &lt;span class="s1"&gt;&amp;#39;django.contrib.staticfiles&amp;#39;&lt;/span&gt;,
+    &lt;span class="s1"&gt;&amp;#39;blog&amp;#39;&lt;/span&gt;,
+&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;在列表末尾，添加blog 应用&lt;/p&gt;
+&lt;h2&gt;为blog应用设计Model(数据库表)&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;blog目录下的models.py文件，是定义blog数据结构的地方&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;设计model
+打开&lt;code&gt;mysite/blog/models.py&lt;/code&gt; 文件进行修改：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.db&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.contrib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;admin&lt;/span&gt;
+
+&lt;span class="c"&gt;# Create your models here.&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;BlogsPost&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CharField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;max_length&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;150&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;body&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TextField&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;timestamp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DateTimeField&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="n"&gt;admin&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;register&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;BlogsPost&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;再次初始化数据库&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;root@ubuntu:~/django/mysite&lt;span class="nv"&gt;$ &lt;/span&gt;python manage.py makemigrations blog
+Migrations &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;blog&amp;#39;&lt;/span&gt;:
+  0001_initial.py:
+    - Create model BlogsPost
+root@ubuntu:~/django/mysite&lt;span class="nv"&gt;$ &lt;/span&gt;python manage.py migrate
+Operations to perform:
+  Synchronize unmigrated apps: staticfiles, messages
+  Apply all migrations: admin, blog, contenttypes, auth, sessions
+Synchronizing apps without migrations:
+  Creating tables...
+    Running deferred SQL...
+  Installing custom SQL...
+Running migrations:
+  Rendering model states... DONE
+  Applying blog.0001_initial... OK
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ol&gt;
+&lt;li&gt;再次runserver启动服务，访问admin后台，创建文章
+登陆成功后会发现多出了blog一栏&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="/images/1445399207890.png" /&gt;&lt;/p&gt;
+&lt;p&gt;选择Add&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="/images/1445399278148.png" /&gt;&lt;/p&gt;
+&lt;p&gt;输入博客标题，正文、日期时间、点击Save创建博客&lt;/p&gt;
+&lt;h2&gt;设置admin 的BlogsPost界面&lt;/h2&gt;
+&lt;p&gt;打开&lt;code&gt;mysite/blog/models.py&lt;/code&gt;文件，做如下修改：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.db&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.contrib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;admin&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;BlogsPost&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Model&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;CharField&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;max_length&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;150&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;body&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;TextField&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="n"&gt;timestamp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;models&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DateField&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;BlogsPostAdmin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;admin&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ModelAdmin&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;list_display&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;timestamp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;admin&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;register&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;BlogsPost&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;BlogsPostAdmin&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;创建BlogPostAdmin类，继承admin.ModelAdmin父类，以列表的形式显示BlogPost的标题和时间
+刷新后页面产生变化&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="/images/1445399486659.png" /&gt;&lt;/p&gt;
+&lt;h2&gt;创建blog的公共部分&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;从Django的角度看，一个页面具有三个典型的组件：
+&lt;em&gt; 一个模板（template）：模板负责把传递进来的信息显示出来
+&lt;/em&gt; 一个视图（view）：视图负责从数据库获取需要显示的信息
+* 一个URL模式：它负责把收到的请求和你的试图函数匹配，有时候也会向视图传递一些参数&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;创建模板&lt;/h3&gt;
+&lt;p&gt;在blog项目下创建templates目录（&lt;code&gt;mysite/blog/templates/&lt;/code&gt;）,在目录下创建模板文件&lt;code&gt;index.html&lt;/code&gt;，内容如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;{% for blog in blog_list %}
+    &lt;span class="nt"&gt;&amp;lt;h2&amp;gt;&lt;/span&gt;{{ blog.title }}&lt;span class="nt"&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;{{ blog.timestamp }}&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;{{ blog.body }}&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+{% endfor %}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;创建视图函数&lt;/h3&gt;
+&lt;p&gt;打开&lt;code&gt;mysite/blog/views.py&lt;/code&gt;文件：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#coding=utf-8&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.shortcuts&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;render&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;blog.models&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;BlogsPost&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.shortcuts&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;render_to_response&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;index&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;blog_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;BlogsPost&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;all&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;render_to_response&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;index.html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;blog_list&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;blog_list&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;blog_list = BlogPost.objects.all()&lt;/code&gt;：获取数据库里面所拥有BlogPost对象
+&lt;code&gt;render_to_response()&lt;/code&gt;返回一个页面(index.html)，顺带把数据库中查询出来的所有博客内容（blog_list）也一并返回&lt;/p&gt;
+&lt;h3&gt;创建blog的URL模式&lt;/h3&gt;
+&lt;p&gt;在&lt;code&gt;mysite/mysite/urls.py&lt;/code&gt;文件里添加blog的url：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#coding=utf-8&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.conf.urls&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;patterns&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;include&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;url&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;django.contrib&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;admin&lt;/span&gt;
+
+&lt;span class="n"&gt;urlpatterns&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;patterns&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;r&amp;#39;^admin/&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;include&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;admin&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;site&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;urls&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt;
+    &lt;span class="n"&gt;url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;r&amp;#39;^index/$&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;blog.views.index&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+
+&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;再次runserver启动服务，访问blog应用
+http://127.0.0.1:8000/index&lt;/p&gt;
+&lt;p&gt;页面如下：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="/images/1445399956041.png" /&gt;&lt;/p&gt;
+&lt;p&gt;此时可以继续到admin后台添加blog，刷新这个页面来显示新添加的blog&lt;/p&gt;
+&lt;h2&gt;添加样式及美化blog&lt;/h2&gt;
+&lt;h3&gt;创建基础模板&lt;/h3&gt;
+&lt;p&gt;在&lt;code&gt;mysite/blog/templates&lt;/code&gt;目录里创建&lt;code&gt;base.html&lt;/code&gt;的模板：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;style &lt;/span&gt;&lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/css&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;#efd&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="k"&gt;background&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;#453&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt; &lt;span class="m"&gt;5em&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="k"&gt;margin&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+            &lt;span class="nt"&gt;h1&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="k"&gt;padding&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;2em&lt;/span&gt; &lt;span class="m"&gt;1em&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="k"&gt;background&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;#675&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+            &lt;span class="nt"&gt;h2&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="k"&gt;color&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;#bf8&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="k"&gt;border-top&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;1px&lt;/span&gt; &lt;span class="k"&gt;dotted&lt;/span&gt; &lt;span class="m"&gt;#fff&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="k"&gt;margin-top&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;2em&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+            &lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="k"&gt;margin&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="m"&gt;1em&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;/style&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+
+    &lt;span class="nt"&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Django Blog&lt;span class="nt"&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;h3&amp;gt;&lt;/span&gt;Blog Title&lt;span class="nt"&gt;&amp;lt;/h3&amp;gt;&lt;/span&gt;
+        {% block content %}
+        {% endblock %}
+    &lt;span class="nt"&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;修改主页模板&lt;/h3&gt;
+&lt;p&gt;修改&lt;code&gt;index.html&lt;/code&gt;模板，让它引用&lt;code&gt;base.html&lt;/code&gt;模板和它的&lt;code&gt;content&lt;/code&gt;块&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;{% extends &amp;quot;base.html&amp;quot; %}
+{% block content %}
+{% for blog in blog_list %}
+    &lt;span class="nt"&gt;&amp;lt;h2&amp;gt;&lt;/span&gt;{{ blog.title }}&lt;span class="nt"&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;{{ blog.timestamp }}&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;p&amp;gt;&lt;/span&gt;{{ blog.body }}&lt;span class="nt"&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+{% endfor %}
+{% endblock %}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;再次刷新博客页面：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="/images/1445400269836.png" /&gt;&lt;/p&gt;</summary><category term="Django"></category><category term="python"></category></entry><entry><title>Openwrt 路由中继备忘</title><link href="http://mcdona1d.me/Openwrt%20%E8%B7%AF%E7%94%B1%E4%B8%AD%E7%BB%A7%E5%A4%87%E5%BF%98.html" rel="alternate"></link><updated>2015-07-30T22:29:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-07-30:Openwrt 路由中继备忘.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;设置自己路由器lan口IP，不能跟上级路由相同
 &lt;img alt="Alt text" src="./images/QQ截图20150730221349.png" /&gt;&lt;/li&gt;
 &lt;li&gt;在无线标签下点击“扫描网络”
