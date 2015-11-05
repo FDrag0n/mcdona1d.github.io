@@ -303,23 +303,38 @@ http://127.0.0.1:8000/index&lt;/p&gt;
 
 
 &lt;p&gt;再次刷新博客页面：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Alt text" src="/images/1445400269836.png" /&gt;&lt;/p&gt;</summary><category term="Django"></category><category term="python"></category></entry><entry><title>Openwrt 路由中继备忘</title><link href="http://mcdona1d.me/Openwrt%20%E8%B7%AF%E7%94%B1%E4%B8%AD%E7%BB%A7%E5%A4%87%E5%BF%98.html" rel="alternate"></link><updated>2015-07-30T22:29:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-07-30:Openwrt 路由中继备忘.html</id><summary type="html">&lt;ol&gt;
-&lt;li&gt;设置自己路由器lan口IP，不能跟上级路由相同
-&lt;img alt="Alt text" src="./images/QQ截图20150730221349.png" /&gt;&lt;/li&gt;
-&lt;li&gt;在无线标签下点击“扫描网络”
-&lt;img alt="Alt text" src="./images/QQ截图20150730221441.png" /&gt;&lt;/li&gt;
-&lt;li&gt;在新出现的界面中，会列出你附近的无线网络。点击你需要中继的网络右边的“加入网络”
-&lt;img alt="Alt text" src="./images/QQ截图20150730221535.png" /&gt;
-4.在接下来的界面中，输入上级路由的无线密码(如有密码)，选择“wan”网络（默认应该就是），然后点击“提交”
-&lt;img alt="Alt text" src="./images/QQ截图20150730221643.png" /&gt;&lt;/li&gt;
-&lt;li&gt;下一页，直接点击“保存&amp;amp;应用”
-（没有截图）&lt;/li&gt;
-&lt;li&gt;此时，返回“网络-接口”页面，应看到新创建的WWAN接口成功获取到上级的DHCP地址，说明连接成功。如
-&lt;img alt="Alt text" src="./images/QQ截图20150730221846.png" /&gt;&lt;/li&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="/images/1445400269836.png" /&gt;&lt;/p&gt;
+&lt;h2&gt;附录：简单Django项目&lt;/h2&gt;
+&lt;p&gt;此项目涉及简单的增删改查，可以做进阶入门使用&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/mcdona1d/DjangoTest"&gt;Github : DjangoTest&lt;/a&gt;&lt;/p&gt;</summary><category term="Django"></category><category term="python"></category></entry><entry><title>Openwrt 路由中继备忘</title><link href="http://mcdona1d.me/Openwrt%20%E8%B7%AF%E7%94%B1%E4%B8%AD%E7%BB%A7%E5%A4%87%E5%BF%98.html" rel="alternate"></link><updated>2015-07-30T22:29:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-07-30:Openwrt 路由中继备忘.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;设置自己路由器lan口IP，不能跟上级路由相同&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/QQ截图20150730221349.png" /&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在无线标签下点击“扫描网络”&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/QQ截图20150730221441.png" /&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在新出现的界面中，会列出你附近的无线网络。点击你需要中继的网络右边的“加入网络”&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/QQ截图20150730221535.png" /&gt;&lt;/p&gt;
+&lt;p&gt;4.在接下来的界面中，输入上级路由的无线密码(如有密码)，选择“wan”网络（默认应该就是），然后点击“提交”&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/QQ截图20150730221643.png" /&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;下一页，直接点击“保存&amp;amp;应用”
+（没有截图）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;此时，返回“网络-接口”页面，应看到新创建的WWAN接口成功获取到上级的DHCP地址，说明连接成功。如&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/QQ截图20150730221846.png" /&gt;&lt;/p&gt;
+&lt;ol&gt;
 &lt;li&gt;配置完成，现在已经可以访问网络&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;附：无墙网络环境图，终端零设置
-&lt;img alt="Alt text" src="./images/IMG_2564.JPG" /&gt;&lt;/p&gt;</summary><category term="Openwrt"></category><category term="Pandorabox"></category></entry><entry><title>就这么开始上班了</title><link href="http://mcdona1d.me/%E5%B0%B1%E8%BF%99%E4%B9%88%E5%BC%80%E5%A7%8B%E4%B8%8A%E7%8F%AD%E4%BA%86.html" rel="alternate"></link><updated>2015-07-15T21:43:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-07-15:就这么开始上班了.html</id><summary type="html">&lt;h2&gt;2015.7.15 21:43&lt;/h2&gt;
+&lt;p&gt;附：无墙网络环境图，终端零设置&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/IMG_2564.JPG" /&gt;&lt;/p&gt;</summary><category term="Openwrt"></category><category term="Pandorabox"></category></entry><entry><title>就这么开始上班了</title><link href="http://mcdona1d.me/%E5%B0%B1%E8%BF%99%E4%B9%88%E5%BC%80%E5%A7%8B%E4%B8%8A%E7%8F%AD%E4%BA%86.html" rel="alternate"></link><updated>2015-07-15T21:43:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-07-15:就这么开始上班了.html</id><summary type="html">&lt;h2&gt;2015.7.15 21:43&lt;/h2&gt;
 &lt;p&gt;这一阵子，分两次面试了四场，第一场学习氛围好，但是感觉工资有些少，初来乍到，自己倒是也没什么概念，感觉上3000够花，4000理想，5000太棒，很感谢面试我的那个哥哥，让我经历了一次非常完整的面试。第二场可能给的薪资会高一些，但是环境特别的不理想，工作乏味，学不到东西。第三场面试，上来就给了一张笔试题，自己没有系统的学习过python这门语言，小后悔小学期没有上刘海洋老师讲的python。第四场面试，一个非常有魅力的哥哥和我聊，过程非常的放松，也让我丝毫没感觉到什么压力。第三场面试和第四场居然都考到了一个两个链表是否交叉的算法。作为一个从来没在实际应用过算法的同学来说，也从来没意识到，接下来的工作，就是真正要应用算法的场景。
 作为第一份实习，很满意，职位满意，工作氛围满意，工作环境满意，薪资满意，下周一也就要正式的开始人生中第一份工作了。
 现在还要找房子，搬行李，买东西，一切都是新的，未知的
@@ -1111,16 +1126,14 @@ Timberman游戏规则简单，应该很轻松就能做出一套系统来实现�
 使用微博登录授权，然后填写一些资料即可。&lt;/p&gt;
 &lt;h2&gt;添加应用&lt;/h2&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;申请成功后，进入“我的应用”后台列表，点击“创建新应用”。如下图
-&lt;img alt="Alt text" src="./images/1435026210878.png" /&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;等待5秒后点击继续创建&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;分别填写二级域名，应用名称，验证码，开发语言选择PHP 5.3，创建空应用
-&lt;img alt="Alt text" src="./images/1435026220036.png" /&gt;&lt;/li&gt;
+&lt;li&gt;申请成功后，进入“我的应用”后台列表，点击“创建新应用”。如下图&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/1435026210878.png" /&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;等待5秒后点击继续创建&lt;/li&gt;
+&lt;li&gt;分别填写二级域名，应用名称，验证码，开发语言选择PHP 5.3，创建空应用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/1435026220036.png" /&gt;&lt;/p&gt;
 &lt;h2&gt;下载Goagent到本地&lt;/h2&gt;
 &lt;p&gt;下载并解压，将有server及local两个文件夹，&lt;/p&gt;
 &lt;h2&gt;上传服务端到SAE&lt;/h2&gt;
@@ -1152,10 +1165,10 @@ Timberman游戏规则简单，应该很轻松就能做出一套系统来实现�
 &lt;h2&gt;配置浏览器&lt;/h2&gt;
 &lt;p&gt;依然使用SwitchyOmega的Chrome插件
 具体设置与http://blog.csdn.net/u010027419/article/details/40680205中的类似
-添加http代理，地址127.0.0.1，端口8088
-&lt;img alt="Alt text" src="./images/1435026242984.png" /&gt;&lt;/p&gt;
-&lt;p&gt;然后即可通过sae代理服务访问网络
-&lt;img alt="Alt text" src="./images/1435026248118.png" /&gt;&lt;/p&gt;
+添加http代理，地址127.0.0.1，端口8088&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/1435026242984.png" /&gt;&lt;/p&gt;
+&lt;p&gt;然后即可通过sae代理服务访问网络&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/1435026248118.png" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Alt text" src="./images/1435026252634.png" /&gt;&lt;/p&gt;</summary><category term="GAE"></category></entry><entry><title>（转载） java jsp MyEclipse 通过JDBC链接 SQLServer2012</title><link href="http://mcdona1d.me/%EF%BC%88%E8%BD%AC%E8%BD%BD%EF%BC%89%20java%20jsp%20MyEclipse%20%E9%80%9A%E8%BF%87JDBC%E9%93%BE%E6%8E%A5%20SQLServer2012.html" rel="alternate"></link><updated>2015-05-07T21:44:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-05-07:（转载） java jsp MyEclipse 通过JDBC链接 SQLServer2012.html</id><summary type="html">&lt;p&gt;下面请一字一句地看，一遍就设置成功，比你设置几十遍失败，费时会少得多。&lt;/p&gt;
 &lt;p&gt;首先，在连接数据库之前必须保证SQL Server 2012是采用SQL Server身份验证方式而不是windows身份验证方式。如果在安装时选用了后者，则重新设置如下:
 http://blog.163.com/jackie_howe/blog/static/19949134720122261121214/&lt;/p&gt;
@@ -1312,7 +1325,7 @@ importjava.sql.*;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;此程序的全部源码&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
-&lt;li&gt;源码地址： https://github.com/329703622/wechatpi&lt;/li&gt;
+&lt;li&gt;源码地址： https://github.com/mcdona1d/RaspberryWechatPi&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
@@ -1511,7 +1524,7 @@ Token中填上你自己喜欢的一串字母，完成后不要点击提交
 &lt;h3&gt;下载及配置主程序&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;在此Github中下载完整代码包，解压后进行编辑
-（Git：https://github.com/329703622/wechatpi）&lt;/li&gt;
+（Git：https://github.com/mcdona1d/RaspberryWechatPi）&lt;/li&gt;
 &lt;li&gt;填入刚才自己设置的的Token以及测试号提供的appID和appsecret（yeekey稍后提到）&lt;/li&gt;
 &lt;li&gt;填入自己的所有传感器对应的GPIO接口
 （传感器调试参考此博客（或附录）其他文章）&lt;/li&gt;
@@ -1580,11 +1593,11 @@ Ps2：&lt;strong&gt;参数说明&lt;/strong&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;python的微信公众平台基础代码
-https://github.com/329703622/raspchat&lt;/p&gt;
+https://github.com/mcdona1d/Wechat-Python-Template&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;传感器单独调试代码
-https://github.com/329703622/Sensor&lt;/p&gt;
+https://github.com/mcdona1d/GPIO-Sensor&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;树莓派，玩转微信公共平台--初级篇
@@ -1637,10 +1650,12 @@ http://blog.csdn.net/u010027419/article/details/44857827&lt;/p&gt;
 &lt;code&gt;minimum-scale&lt;/code&gt; - 允许用户缩放到的最小比例
 &lt;code&gt;maximum-scale&lt;/code&gt; - 允许用户缩放到的最大比例
 &lt;code&gt;user-scalable&lt;/code&gt; - 用户是否可以手动缩放&lt;/p&gt;
-&lt;p&gt;精简点的话，可以把上面的代码更改为以下代码，效果是一样的：
- &lt;code&gt;html
-&amp;lt;meta content="width=device-width,user-scalable=no" name="viewport"&amp;gt;&lt;/code&gt;
-最后就是不要设置太大的具体宽度属性了，比如你在网页把Body的宽度属性设为1000px，这肯定是不行的了，但是可以设置为90%，这是屏幕自适应的。&lt;/p&gt;
+&lt;p&gt;精简点的话，可以把上面的代码更改为以下代码，效果是一样的：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="na"&gt;content=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;width=device-width,user-scalable=no&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;viewport&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;最后就是不要设置太大的具体宽度属性了，比如你在网页把Body的宽度属性设为1000px，这肯定是不行的了，但是可以设置为90%，这是屏幕自适应的。&lt;/p&gt;
 &lt;p&gt;优化前
 &lt;img alt="Alt text" src="./images/1435023954710.png" /&gt;&lt;/p&gt;
 &lt;p&gt;优化后
@@ -1732,37 +1747,35 @@ Chrome商店链接：&lt;a href="https://chrome.google.com/webstore/detail/%E7%9
 &lt;p&gt;因为对google的软件有需求但是中国区google软件所剩无几，便琢磨着转区，但是目前貌似没有特别容易的方法实现，遂直接申请美区appid&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;appid只能在ios设备上注册，在美版apple官网网页注册下载app需提供信用卡信息&lt;/strong&gt;
-1. 在设置中注销掉当前的app store id
-&lt;img alt="Alt text" src="./images/1435023716091.png" /&gt;&lt;/p&gt;
+1. 在设置中注销掉当前的app store id&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/1435023716091.png" /&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;进入appstore，获取任意app，点击创建新的appid
-&lt;img alt="Alt text" src="./images/1435023733697.png" /&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;选择United States，下一步
-&lt;img alt="Alt text" src="./images/1435023739024.png" /&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Agree Agree
-&lt;img alt="Alt text" src="./images/1435023744894.png" /&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;填写基本注册信息，Next
-&lt;img alt="Alt text" src="./images/1435023752020.png" /&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;填写信用卡信息，ios端注册时才会显示none，选择none，Billing Address填写美国地址，我填写的一个转运公司的地址
-&lt;img alt="Alt text" src="./images/1435023757538.png" /&gt;
-&lt;img alt="Alt text" src="./images/1435023766893.png" /&gt;&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;进入appstore，获取任意app，点击创建新的appid&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;附：转运中国收货地址
-&lt;img alt="Alt text" src="./images/1435023777032.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/1435023733697.png" /&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;注册完成，可以在app store登陆下载美区app了
-&lt;img alt="Alt text" src="./images/1435023781268.png" /&gt;&lt;/li&gt;
-&lt;/ol&gt;</summary><category term="Appstore"></category></entry><entry><title>基于mt7620的newifi y1的Pandorabox新软件源备忘</title><link href="http://mcdona1d.me/%E5%9F%BA%E4%BA%8Emt7620%E7%9A%84newifi%20y1%E7%9A%84Pandorabox%E6%96%B0%E8%BD%AF%E4%BB%B6%E6%BA%90%E5%A4%87%E5%BF%98.html" rel="alternate"></link><updated>2015-02-03T22:11:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-02-03:基于mt7620的newifi y1的Pandorabox新软件源备忘.html</id><summary type="html">&lt;p&gt;在  系统——软件包——配置  中替换掉之前的软件源，旧软件源已失效&lt;/p&gt;
+&lt;li&gt;选择United States，下一步&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/1435023739024.png" /&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Agree Agree&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/1435023744894.png" /&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;填写基本注册信息，Next&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/1435023752020.png" /&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;填写信用卡信息，ios端注册时才会显示none，选择none，Billing Address填写美国地址，我填写的一个转运公司的地址&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/1435023757538.png" /&gt;
+&lt;img alt="Alt text" src="./images/1435023766893.png" /&gt;&lt;/p&gt;
+&lt;p&gt;附：转运中国收货地址&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/1435023777032.png" /&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;注册完成，可以在app store登陆下载美区app了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/1435023781268.png" /&gt;&lt;/p&gt;</summary><category term="Appstore"></category></entry><entry><title>基于mt7620的newifi y1的Pandorabox新软件源备忘</title><link href="http://mcdona1d.me/%E5%9F%BA%E4%BA%8Emt7620%E7%9A%84newifi%20y1%E7%9A%84Pandorabox%E6%96%B0%E8%BD%AF%E4%BB%B6%E6%BA%90%E5%A4%87%E5%BF%98.html" rel="alternate"></link><updated>2015-02-03T22:11:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-02-03:基于mt7620的newifi y1的Pandorabox新软件源备忘.html</id><summary type="html">&lt;p&gt;在  系统——软件包——配置  中替换掉之前的软件源，旧软件源已失效&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;dest root /  
 dest ram /tmp  
 lists_dir ext /var/opkg-lists  
@@ -1780,8 +1793,8 @@ src/gz 14.09_telephony http://downloads.openwrt.org/snapshots/trunk/ramips/mt762
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;软件包更新命令： &lt;code&gt;opkg update&lt;/code&gt;
-&lt;img alt="Alt text" src="./images/1435023652491.png" /&gt;&lt;/p&gt;</summary><category term="PandoraBox"></category><category term="Newifi Y1"></category></entry><entry><title>Newifi Y1 刷openwrt Pandorabox并 实现透明路由</title><link href="http://mcdona1d.me/Newifi%20Y1%20%E5%88%B7openwrt%20Pandorabox%E5%B9%B6%20%E5%AE%9E%E7%8E%B0%E9%80%8F%E6%98%8E%E8%B7%AF%E7%94%B1.html" rel="alternate"></link><updated>2015-02-03T21:54:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-02-03:Newifi Y1 刷openwrt Pandorabox并 实现透明路由.html</id><summary type="html">&lt;blockquote&gt;
+&lt;p&gt;软件包更新命令： &lt;code&gt;opkg update&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/1435023652491.png" /&gt;&lt;/p&gt;</summary><category term="PandoraBox"></category><category term="Newifi Y1"></category></entry><entry><title>Newifi Y1 刷openwrt Pandorabox并 实现透明路由</title><link href="http://mcdona1d.me/Newifi%20Y1%20%E5%88%B7openwrt%20Pandorabox%E5%B9%B6%20%E5%AE%9E%E7%8E%B0%E9%80%8F%E6%98%8E%E8%B7%AF%E7%94%B1.html" rel="alternate"></link><updated>2015-02-03T21:54:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-02-03:Newifi Y1 刷openwrt Pandorabox并 实现透明路由.html</id><summary type="html">&lt;blockquote&gt;
 &lt;p&gt;刷机参考另外一篇博文 &lt;br /&gt;
 HG255d 刷最新openwrt Pandorabox并安装njit拨号
 先刷uboot，后刷固件&lt;/p&gt;
@@ -1789,19 +1802,19 @@ HG255d 刷最新openwrt Pandorabox并安装njit拨号
 &lt;p&gt;Newifi Y1固件下载地址：http://downloads.openwrt.org.cn/PandoraBox/Lenovo-Y1_RY-1S/
 将手里的newifi刷成openwrt之后发现自带shadowsocks插件，并且这一版的pandorabox已经是稳定版，5g的问题也得到了解决，下面就说一下如何实现透明路由&lt;/p&gt;
 &lt;h2&gt;ChinaDNS-C设置&lt;/h2&gt;
-&lt;p&gt;勾选启动，其它默认
-&lt;img alt="Alt text" src="./images/1435023462442.png" /&gt;&lt;/p&gt;
+&lt;p&gt;勾选启动，其它默认&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/1435023462442.png" /&gt;&lt;/p&gt;
 &lt;h2&gt;检查DNS设置&lt;/h2&gt;
 &lt;p&gt;查看是否已经填写好DNS转发&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Alt text" src="./images/1435023480734.png" /&gt;&lt;/p&gt;
 &lt;h2&gt;下载host文件&lt;/h2&gt;
 &lt;p&gt;下载https://raw.githubusercontent.com/vokins/simpleu/master/hosts改名为block.hosts，用winscp上传到/etc/目录，作用是通过解析host文件屏蔽掉国外网站广告服务器&lt;/p&gt;
 &lt;p&gt;或者直接下载此文件http://download.csdn.net/detail/u010027419/8421187
-切换到HOSTS和解析文件，勾选忽略解析文件，填写额外HOSTS文件位置
-&lt;img alt="Alt text" src="./images/1435023488103.png" /&gt;&lt;/p&gt;
+切换到HOSTS和解析文件，勾选忽略解析文件，填写额外HOSTS文件位置&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/1435023488103.png" /&gt;&lt;/p&gt;
 &lt;h2&gt;Shadowsocks配置&lt;/h2&gt;
-&lt;p&gt;设置账户，打开透明代理，将chinaDNS 的中国路由表粘贴（国内网段不走Shadowsocks）,端口随意，不要和DNS重复
-&lt;img alt="Alt text" src="./images/1435023501293.png" /&gt;&lt;/p&gt;
+&lt;p&gt;设置账户，打开透明代理，将chinaDNS 的中国路由表粘贴（国内网段不走Shadowsocks）,端口随意，不要和DNS重复&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/1435023501293.png" /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Alt text" src="./images/1435023513407.png" /&gt;&lt;/p&gt;
 &lt;p&gt;通过以上设置，实现国外ip走Shadowsocks通道，并且没有广告，国内ip直连，从而实现透明路由&lt;/p&gt;</summary><category term="Openwrt"></category><category term="PandoraBox"></category><category term="Shadowsocks"></category><category term="Newifi Y1"></category></entry><entry><title>紫光m300 路由器与磊科ni360 q360 nr235 ddwrt tomato等互刷折腾备忘</title><link href="http://mcdona1d.me/%E7%B4%AB%E5%85%89m300%20%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B8%8E%E7%A3%8A%E7%A7%91ni360%20q360%20nr235%20ddwrt%20tomato%E7%AD%89%E4%BA%92%E5%88%B7%E6%8A%98%E8%85%BE%E5%A4%87%E5%BF%98.html" rel="alternate"></link><updated>2015-01-31T19:03:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-01-31:紫光m300 路由器与磊科ni360 q360 nr235 ddwrt tomato等互刷折腾备忘.html</id><summary type="html">&lt;blockquote&gt;
 &lt;p&gt;之前帮紫光卓云的人测试njit插件，送了一台紫光的m300路由器，测试结束之后这台路由器便放着吃灰了，简单的搜过这台路由器的折腾，但是因为太小众了也没有人玩。今天索性就把路由拆了，看到处理器是博通的bcm5357,8m flash 64 ram。正巧和磊科和腾讯合作的q3以及和360合作的ni360是一模一样的硬件，然后就搜集好资料开始折腾了。&lt;/p&gt;
@@ -2128,8 +2141,8 @@ sudo apt-get install vim
 &lt;p&gt;树莓派不建议直接使用舵机，虽然舵机方便，而且仅需要一根信号线，不过需要舒服pwm信号，而新版的b+板子已经没有了物理的pwm信号口，只能用软件模拟，配置起来比较复杂，为了简便可以使用步进电机代替&lt;/p&gt;
 &lt;p&gt;使用步进电机需要步进电机和步进电机驱动板两样东西，我使用的电机和驱动板型号分别为&lt;code&gt;28BYJ-48-5V&lt;/code&gt;和&lt;code&gt;UL2003&lt;/code&gt;芯片的五线四相步进电机驱动板&lt;/p&gt;
 &lt;p&gt;首先说明步进电机的驱动原理
-驱动板上有IN1, IN2, IN3, IN4四个接口，根据资料得知这四个接口依次设置为低电平就可以驱动，我们分别用杜邦线将GPIO 21（Pin 40），GPIO 20（Pin 38）, GPIO 16（Pin 36）, GPIO 19（Pin 35）和IN1，IN2，IN3，IN4一一相连。
-&lt;img alt="Alt text" src="./images/1435021879404.png" /&gt;&lt;/p&gt;
+驱动板上有IN1, IN2, IN3, IN4四个接口，根据资料得知这四个接口依次设置为低电平就可以驱动，我们分别用杜邦线将GPIO 21（Pin 40），GPIO 20（Pin 38）, GPIO 16（Pin 36）, GPIO 19（Pin 35）和IN1，IN2，IN3，IN4一一相连。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/1435021879404.png" /&gt;&lt;/p&gt;
 &lt;p&gt;每次将四个GPIO端口按下表依次设置好电平后，可以sleep几十毫秒来控制转速
 |序列 |GPIO 21    |GPIO 20|   GPIO 16 |GPIO 19|
 |:--:|:--:|:--:|:--:|:--:|
@@ -2195,15 +2208,13 @@ pandorabox为openwrt定制版固件，集成常用软件包，方便使用&lt;/p
 &lt;p&gt;&lt;strong&gt;重要提示&lt;/strong&gt;，如果无法进入或提示404或如图所示自己跳转到http://192.168.1.1/cgi-bin/luci页面，则需要清除页面缓存，或者更换浏览器进行&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Alt text" src="./images/1435021685085.png" /&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;路由器刷新完成后会自动重启，具体时间不一定，请一定耐心等候。刷机完成后路由会自动重启
-&lt;img alt="Alt text" src="./images/1435021689978.png" /&gt;
+&lt;li&gt;路由器刷新完成后会自动重启，具体时间不一定，请一定耐心等候。刷机完成后路由会自动重启&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/1435021689978.png" /&gt;
 &lt;img alt="Alt text" src="./images/1435021699035.png" /&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;等系统重新启动完成后输入192.168.1.1进入路由界面，刷机完成
-ps:默认用户名密码 root/admin&lt;/p&gt;
-&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;等系统重新启动完成后输入192.168.1.1进入路由界面，刷机完成
+ps:默认用户名密码 root/admin&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img alt="Alt text" src="./images/1435021704543.png" /&gt;&lt;/p&gt;
 &lt;h1&gt;安装inode拨号程序&lt;/h1&gt;
@@ -2479,7 +2490,7 @@ make &lt;span class="nv"&gt;DESTDIR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span
 &lt;/table&gt;</summary><category term="Wechat"></category></entry><entry><title>使用树莓派与微信公众平台对接(python)</title><link href="http://mcdona1d.me/%E4%BD%BF%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8E%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0%E5%AF%B9%E6%8E%A5(python).html" rel="alternate"></link><updated>2014-11-05T22:46:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2014-11-05:使用树莓派与微信公众平台对接(python).html</id><summary type="html">&lt;p&gt;在网上参阅众多教程之后，均无法找到可直接在树莓派上运行的python微信平台对接模板。&lt;/p&gt;
 &lt;p&gt;参阅http://my.oschina.net/yangyanxing/blog/159215此博客的基于sae微信平台教程后，略微修改，可以在树莓派上完美运行，&lt;/p&gt;
 &lt;p&gt;下面是此模板的Github链接
-https://github.com/329703622/raspchat&lt;/p&gt;
+https://github.com/mcdona1d/Wechat-Python-Template&lt;/p&gt;
 &lt;h2&gt;使用方法：&lt;/h2&gt;
 &lt;p&gt;将此文件夹放到树莓派中，更改index.py中的your_token为你的token
 在文件夹目录内，输入命令执行：sudo python index.py 80
