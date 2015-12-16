@@ -4,483 +4,483 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>http://mcdona1d.me/</loc>
-<lastmod>2015-11-05T17:32:55-00:00</lastmod>
+<loc>https://mcdona1d.me/</loc>
+<lastmod>2015-12-16T19:08:31-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/archives.html</loc>
-<lastmod>2015-11-05T17:32:55-00:00</lastmod>
+<loc>https://mcdona1d.me/archives.html</loc>
+<lastmod>2015-12-16T19:08:31-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tags.html</loc>
-<lastmod>2015-11-05T17:32:55-00:00</lastmod>
+<loc>https://mcdona1d.me/tags.html</loc>
+<lastmod>2015-12-16T19:08:31-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/categories.html</loc>
-<lastmod>2015-11-05T17:32:55-00:00</lastmod>
+<loc>https://mcdona1d.me/categories.html</loc>
+<lastmod>2015-12-16T19:08:31-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/About.html</loc>
+<loc>https://mcdona1d.me/About.html</loc>
 <lastmod>2015-06-17T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.3</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/Log.html</loc>
+<loc>https://mcdona1d.me/Log.html</loc>
 <lastmod>2015-06-28T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.3</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/Django 入门：搭建博客雏形.html</loc>
+<loc>https://mcdona1d.me/Django 入门：搭建博客雏形.html</loc>
 <lastmod>2015-10-21T17:52:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/Openwrt 路由中继备忘.html</loc>
+<loc>https://mcdona1d.me/Openwrt 路由中继备忘.html</loc>
 <lastmod>2015-07-30T22:29:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/就这么开始上班了.html</loc>
+<loc>https://mcdona1d.me/就这么开始上班了.html</loc>
 <lastmod>2015-07-15T21:43:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/解决Win7 ip-网关无法保存问题.html</loc>
+<loc>https://mcdona1d.me/解决Win7 ip-网关无法保存问题.html</loc>
 <lastmod>2015-06-27T20:33:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度.html</loc>
+<loc>https://mcdona1d.me/CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度.html</loc>
 <lastmod>2015-05-28T21:41:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化.html</loc>
+<loc>https://mcdona1d.me/DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化.html</loc>
 <lastmod>2015-05-28T16:48:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/Sublime Text 2 配置记录.html</loc>
+<loc>https://mcdona1d.me/Sublime Text 2 配置记录.html</loc>
 <lastmod>2015-05-24T13:17:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/树莓派替我玩Timberman.html</loc>
+<loc>https://mcdona1d.me/树莓派替我玩Timberman.html</loc>
 <lastmod>2015-05-11T21:27:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/利用Sina App Engine突破限制进行国内代理.html</loc>
+<loc>https://mcdona1d.me/利用Sina App Engine突破限制进行国内代理.html</loc>
 <lastmod>2015-05-09T22:15:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/（转载） java jsp MyEclipse 通过JDBC链接 SQLServer2012.html</loc>
+<loc>https://mcdona1d.me/（转载） java jsp MyEclipse 通过JDBC链接 SQLServer2012.html</loc>
 <lastmod>2015-05-07T21:44:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/跑在树莓派上智能家居雏形.html</loc>
+<loc>https://mcdona1d.me/跑在树莓派上智能家居雏形.html</loc>
 <lastmod>2015-05-06T11:11:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/html网页兼容手机浏览器（解决显示页面很小的问题）.html</loc>
+<loc>https://mcdona1d.me/html网页兼容手机浏览器（解决显示页面很小的问题）.html</loc>
 <lastmod>2015-04-03T17:33:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/最值得安装的Chrome增强效率插件.html</loc>
+<loc>https://mcdona1d.me/最值得安装的Chrome增强效率插件.html</loc>
 <lastmod>2015-03-19T13:23:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/app store注册美区appid下载中国区无法下载的app.html</loc>
+<loc>https://mcdona1d.me/app store注册美区appid下载中国区无法下载的app.html</loc>
 <lastmod>2015-02-04T21:55:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/基于mt7620的newifi y1的Pandorabox新软件源备忘.html</loc>
+<loc>https://mcdona1d.me/基于mt7620的newifi y1的Pandorabox新软件源备忘.html</loc>
 <lastmod>2015-02-03T22:11:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/Newifi Y1 刷openwrt Pandorabox并 实现透明路由.html</loc>
+<loc>https://mcdona1d.me/Newifi Y1 刷openwrt Pandorabox并 实现透明路由.html</loc>
 <lastmod>2015-02-03T21:54:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/紫光m300 路由器与磊科ni360 q360 nr235 ddwrt tomato等互刷折腾备忘.html</loc>
+<loc>https://mcdona1d.me/紫光m300 路由器与磊科ni360 q360 nr235 ddwrt tomato等互刷折腾备忘.html</loc>
 <lastmod>2015-01-31T19:03:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/树莓派架设http服务器挂载网页.html</loc>
+<loc>https://mcdona1d.me/树莓派架设http服务器挂载网页.html</loc>
 <lastmod>2015-01-02T19:04:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/Ubuntu使用Shadowsocks client 客户端 总结.html</loc>
+<loc>https://mcdona1d.me/Ubuntu使用Shadowsocks client 客户端 总结.html</loc>
 <lastmod>2014-12-15T15:45:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/超级好用的vim配置记录.html</loc>
+<loc>https://mcdona1d.me/超级好用的vim配置记录.html</loc>
 <lastmod>2014-12-05T08:16:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/（转载）树莓派连接dht11温度传感器获取温度(python).html</loc>
+<loc>https://mcdona1d.me/（转载）树莓派连接dht11温度传感器获取温度(python).html</loc>
 <lastmod>2014-12-04T12:23:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/树莓派经常用到的软件及安装方法备忘.html</loc>
+<loc>https://mcdona1d.me/树莓派经常用到的软件及安装方法备忘.html</loc>
 <lastmod>2014-11-26T16:54:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/树莓派通过GPIO控制步进电机(python).html</loc>
+<loc>https://mcdona1d.me/树莓派通过GPIO控制步进电机(python).html</loc>
 <lastmod>2014-11-26T16:50:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/HG255d 刷最新openwrt Pandorabox并安装njit拨号.html</loc>
+<loc>https://mcdona1d.me/HG255d 刷最新openwrt Pandorabox并安装njit拨号.html</loc>
 <lastmod>2014-11-25T17:25:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/使用Screen后台执行任务，防止SSH中断.html</loc>
+<loc>https://mcdona1d.me/使用Screen后台执行任务，防止SSH中断.html</loc>
 <lastmod>2014-11-18T20:30:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/树莓派的摄像头与监控相关.html</loc>
+<loc>https://mcdona1d.me/树莓派的摄像头与监控相关.html</loc>
 <lastmod>2014-11-14T21:17:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/微信公众平台按钮及菜单创建.html</loc>
+<loc>https://mcdona1d.me/微信公众平台按钮及菜单创建.html</loc>
 <lastmod>2014-11-09T13:06:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/使用树莓派与微信公众平台对接(python).html</loc>
+<loc>https://mcdona1d.me/使用树莓派与微信公众平台对接(python).html</loc>
 <lastmod>2014-11-05T22:46:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/（转载）Digital Ocean使用SSH Key登录.html</loc>
+<loc>https://mcdona1d.me/（转载）Digital Ocean使用SSH Key登录.html</loc>
 <lastmod>2014-11-01T13:38:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/树莓派初始化及网络、软件源、中文相关设置.html</loc>
+<loc>https://mcdona1d.me/树莓派初始化及网络、软件源、中文相关设置.html</loc>
 <lastmod>2014-10-30T22:28:00+08:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/category/life.html</loc>
+<loc>https://mcdona1d.me/category/life.html</loc>
 <lastmod>2015-07-15T21:43:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/category/tech.html</loc>
+<loc>https://mcdona1d.me/category/tech.html</loc>
 <lastmod>2015-10-21T17:52:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/centos.html</loc>
+<loc>https://mcdona1d.me/tag/centos.html</loc>
 <lastmod>2015-05-28T21:41:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/editior.html</loc>
+<loc>https://mcdona1d.me/tag/editior.html</loc>
 <lastmod>2015-05-24T13:17:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/vim.html</loc>
+<loc>https://mcdona1d.me/tag/vim.html</loc>
 <lastmod>2014-12-05T08:16:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/linux.html</loc>
+<loc>https://mcdona1d.me/tag/linux.html</loc>
 <lastmod>2014-11-18T20:30:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/wechat.html</loc>
+<loc>https://mcdona1d.me/tag/wechat.html</loc>
 <lastmod>2015-05-06T11:11:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/openwrt.html</loc>
+<loc>https://mcdona1d.me/tag/openwrt.html</loc>
 <lastmod>2015-07-30T22:29:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/jdbc.html</loc>
+<loc>https://mcdona1d.me/tag/jdbc.html</loc>
 <lastmod>2015-05-07T21:44:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/pandorabox.html</loc>
+<loc>https://mcdona1d.me/tag/pandorabox.html</loc>
 <lastmod>2015-07-30T22:29:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/chrome.html</loc>
+<loc>https://mcdona1d.me/tag/chrome.html</loc>
 <lastmod>2015-03-19T13:23:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/njit.html</loc>
+<loc>https://mcdona1d.me/tag/njit.html</loc>
 <lastmod>2014-11-25T17:25:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/m300.html</loc>
+<loc>https://mcdona1d.me/tag/m300.html</loc>
 <lastmod>2015-01-31T19:03:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/html.html</loc>
+<loc>https://mcdona1d.me/tag/html.html</loc>
 <lastmod>2015-04-03T17:33:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/l2tp.html</loc>
+<loc>https://mcdona1d.me/tag/l2tp.html</loc>
 <lastmod>2015-05-28T21:41:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/sensor.html</loc>
+<loc>https://mcdona1d.me/tag/sensor.html</loc>
 <lastmod>2015-05-06T11:11:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/life.html</loc>
+<loc>https://mcdona1d.me/tag/life.html</loc>
 <lastmod>2015-07-15T21:43:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/cam.html</loc>
+<loc>https://mcdona1d.me/tag/cam.html</loc>
 <lastmod>2014-11-14T21:17:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/python.html</loc>
+<loc>https://mcdona1d.me/tag/python.html</loc>
 <lastmod>2015-10-21T17:52:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/screen.html</loc>
+<loc>https://mcdona1d.me/tag/screen.html</loc>
 <lastmod>2014-11-18T20:30:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/newifi-y1.html</loc>
+<loc>https://mcdona1d.me/tag/newifi-y1.html</loc>
 <lastmod>2015-02-03T22:11:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/appstore.html</loc>
+<loc>https://mcdona1d.me/tag/appstore.html</loc>
 <lastmod>2015-02-04T21:55:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/ubuntu.html</loc>
+<loc>https://mcdona1d.me/tag/ubuntu.html</loc>
 <lastmod>2014-12-15T15:45:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/apache.html</loc>
+<loc>https://mcdona1d.me/tag/apache.html</loc>
 <lastmod>2015-01-02T19:04:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/gae.html</loc>
+<loc>https://mcdona1d.me/tag/gae.html</loc>
 <lastmod>2015-05-09T22:15:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/vpn.html</loc>
+<loc>https://mcdona1d.me/tag/vpn.html</loc>
 <lastmod>2015-05-28T21:41:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/debian.html</loc>
+<loc>https://mcdona1d.me/tag/debian.html</loc>
 <lastmod>2014-11-01T13:38:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/windows.html</loc>
+<loc>https://mcdona1d.me/tag/windows.html</loc>
 <lastmod>2015-06-27T20:33:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/django.html</loc>
+<loc>https://mcdona1d.me/tag/django.html</loc>
 <lastmod>2015-10-21T17:52:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/raspberrypi.html</loc>
+<loc>https://mcdona1d.me/tag/raspberrypi.html</loc>
 <lastmod>2015-05-11T21:27:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/digitalocean.html</loc>
+<loc>https://mcdona1d.me/tag/digitalocean.html</loc>
 <lastmod>2015-05-28T21:41:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/jsp.html</loc>
+<loc>https://mcdona1d.me/tag/jsp.html</loc>
 <lastmod>2015-05-07T21:44:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://mcdona1d.me/tag/shadowsocks.html</loc>
+<loc>https://mcdona1d.me/tag/shadowsocks.html</loc>
 <lastmod>2015-05-28T16:48:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
