@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://mcdona1d.me/</loc>
-<lastmod>2015-12-16T19:08:31-00:00</lastmod>
+<lastmod>2015-12-17T11:33:08-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://mcdona1d.me/archives.html</loc>
-<lastmod>2015-12-16T19:08:31-00:00</lastmod>
+<lastmod>2015-12-17T11:33:08-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://mcdona1d.me/tags.html</loc>
-<lastmod>2015-12-16T19:08:31-00:00</lastmod>
+<lastmod>2015-12-17T11:33:08-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://mcdona1d.me/categories.html</loc>
-<lastmod>2015-12-16T19:08:31-00:00</lastmod>
+<lastmod>2015-12-17T11:33:08-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -43,6 +43,20 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <lastmod>2015-06-28T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.3</priority>
+</url>
+
+<url>
+<loc>https://mcdona1d.me/OpenWRT + Raspberry Pi 智能网关.html</loc>
+<lastmod>2015-12-10T16:00:00+08:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.7</priority>
+</url>
+
+<url>
+<loc>https://mcdona1d.me/CentOS7 配置OpenVPN服务.html</loc>
+<lastmod>2015-12-08T14:55:00+08:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.7</priority>
 </url>
 
 <url>
@@ -264,14 +278,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://mcdona1d.me/category/tech.html</loc>
-<lastmod>2015-10-21T17:52:00+08:06</lastmod>
+<lastmod>2015-12-10T16:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://mcdona1d.me/tag/centos.html</loc>
-<lastmod>2015-05-28T21:41:00+08:06</lastmod>
+<loc>https://mcdona1d.me/tag/pandorabox.html</loc>
+<lastmod>2015-07-30T22:29:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -298,15 +312,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://mcdona1d.me/tag/wechat.html</loc>
-<lastmod>2015-05-06T11:11:00+08:06</lastmod>
+<loc>https://mcdona1d.me/tag/openwrt.html</loc>
+<lastmod>2015-07-30T22:29:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://mcdona1d.me/tag/openwrt.html</loc>
-<lastmod>2015-07-30T22:29:00+08:06</lastmod>
+<loc>https://mcdona1d.me/tag/appstore.html</loc>
+<lastmod>2015-02-04T21:55:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -319,8 +333,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://mcdona1d.me/tag/pandorabox.html</loc>
-<lastmod>2015-07-30T22:29:00+08:06</lastmod>
+<loc>https://mcdona1d.me/tag/centos.html</loc>
+<lastmod>2015-12-08T14:55:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -361,8 +375,22 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://mcdona1d.me/tag/openvpn.html</loc>
+<lastmod>2015-12-10T16:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://mcdona1d.me/tag/sensor.html</loc>
 <lastmod>2015-05-06T11:11:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://mcdona1d.me/tag/iptables.html</loc>
+<lastmod>2015-12-10T16:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -403,8 +431,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://mcdona1d.me/tag/appstore.html</loc>
-<lastmod>2015-02-04T21:55:00+08:06</lastmod>
+<loc>https://mcdona1d.me/tag/jsp.html</loc>
+<lastmod>2015-05-07T21:44:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -432,14 +460,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://mcdona1d.me/tag/vpn.html</loc>
-<lastmod>2015-05-28T21:41:00+08:06</lastmod>
+<lastmod>2015-12-08T14:55:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://mcdona1d.me/tag/debian.html</loc>
-<lastmod>2014-11-01T13:38:00+08:06</lastmod>
+<lastmod>2015-12-10T16:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -460,21 +488,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://mcdona1d.me/tag/raspberrypi.html</loc>
-<lastmod>2015-05-11T21:27:00+08:06</lastmod>
+<lastmod>2015-12-10T16:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://mcdona1d.me/tag/digitalocean.html</loc>
-<lastmod>2015-05-28T21:41:00+08:06</lastmod>
+<lastmod>2015-12-08T14:55:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://mcdona1d.me/tag/jsp.html</loc>
-<lastmod>2015-05-07T21:44:00+08:06</lastmod>
+<loc>https://mcdona1d.me/tag/wechat.html</loc>
+<lastmod>2015-05-06T11:11:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

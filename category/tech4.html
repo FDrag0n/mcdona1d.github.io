@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>DigitalOcean - mcdona1d's Blog</title>
+    <title>tech - mcdona1d's Blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
 
 
     <meta name="author" content="mcdona1d" />
-    <meta name="keywords" content="DigitalOcean" />
+    <meta name="keywords" content="tech" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="mcdona1d's Blog" />
@@ -36,6 +36,8 @@
 
 
 
+        <link href="https://mcdona1d.me/feeds/tech.atom.xml" type="application/atom+xml" rel="alternate"
+              title="mcdona1d's Blog tech ATOM Feed"/>
 
 </head>
 <body>
@@ -57,7 +59,7 @@ mcdona1d's Blog            </a>
                         <li >
                             <a href="https://mcdona1d.me/category/life.html">Life</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="https://mcdona1d.me/category/tech.html">Tech</a>
                         </li>
                     <li><a href="http://mcdona1d.me/tags.html">Tags</a></li>
@@ -88,34 +90,26 @@ mcdona1d's Blog            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
-                <h2><a href="https://mcdona1d.me/CentOS7 配置OpenVPN服务.html">CentOS7 配置OpenVPN服务</a></h2>
-                <div class="summary"><p>OpenVPN凭借着安全、穿透力强、稳定、自定义路由规则、客户端可对多台机器负载均衡等优点极其适合校园网、公司局域网等受限网络环境。但因为其连接会发起TLS握手的问题，也导致其100%被防火墙拦截。</p>
-                    <a class="btn btn-default btn-xs" href="https://mcdona1d.me/CentOS7 配置OpenVPN服务.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="https://mcdona1d.me/CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度.html">CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度</a></h2>
-                <div class="summary"><p>本配置过程依赖于脚本而来，脚本执行后不成功，故手动分步执行，比较容易找到错误并且修正</p>
-                    <a class="btn btn-default btn-xs" href="https://mcdona1d.me/CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="https://mcdona1d.me/DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化.html">DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化</a></h2>
-                <div class="summary"><p>在VPS上部署Shadowsocks，翻墙必备</p>
-                    <a class="btn btn-default btn-xs" href="https://mcdona1d.me/DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="https://mcdona1d.me/（转载）Digital Ocean使用SSH Key登录.html">（转载）Digital Ocean使用SSH Key登录</a></h2>
-                <div class="summary"><p>创建，上传SSH Key并且在Putty和WinSCP中如何使用</p>
-                    <a class="btn btn-default btn-xs" href="https://mcdona1d.me/（转载）Digital Ocean使用SSH Key登录.html">more ...</a>
+                <h2><a href="https://mcdona1d.me/树莓派初始化及网络、软件源、中文相关设置.html">树莓派初始化及网络、软件源、中文相关设置</a></h2>
+                <div class="summary"><p>记录了一些Raspberry Pi到手后的需要配置的东西</p>
+                    <a class="btn btn-default btn-xs" href="https://mcdona1d.me/树莓派初始化及网络、软件源、中文相关设置.html">more ...</a>
                 </div>
             </article>
             <hr/>
 
+        <ul class="pagination">
+                <li class="prev"><a href="https://mcdona1d.me/category/tech3.html">&laquo;</a>
+                </li>
+                    <li class=""><a
+                            href="https://mcdona1d.me/category/tech.html">1</a></li>
+                    <li class=""><a
+                            href="https://mcdona1d.me/category/tech2.html">2</a></li>
+                    <li class=""><a
+                            href="https://mcdona1d.me/category/tech3.html">3</a></li>
+                    <li class="active"><a
+                            href="https://mcdona1d.me/category/tech4.html">4</a></li>
+                <li class="next disabled"><a href="#">&raquo;</a></li>
+        </ul>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
@@ -157,23 +151,28 @@ mcdona1d's Blog            </a>
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">近期发布</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
+                        <a href="https://mcdona1d.me/OpenWRT + Raspberry Pi 智能网关.html">
+                            OpenWRT + Raspberry Pi 按规则配置透明网关
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="https://mcdona1d.me/CentOS7 配置OpenVPN服务.html">
                             CentOS7 配置OpenVPN服务
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="https://mcdona1d.me/CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度.html">
-                            CentOS 7 安装l2tp vpn，配置客户端，并使用net-speeder优化速度
+                        <a href="https://mcdona1d.me/Django 入门：搭建博客雏形.html">
+                            Django 入门：搭建博客雏形
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="https://mcdona1d.me/DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化.html">
-                            DigitalOcean CentOS 7 配置 shadowsocks 服务端及客户端及优化
+                        <a href="https://mcdona1d.me/Openwrt 路由中继备忘.html">
+                            Openwrt 路由中继备忘
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="https://mcdona1d.me/（转载）Digital Ocean使用SSH Key登录.html">
-                            （转载）Digital Ocean使用SSH Key登录
+                        <a href="https://mcdona1d.me/解决Win7 ip-网关无法保存问题.html">
+                            解决Win7 ip/网关无法保存问题
                         </a>
                     </li>
                 </ul>
