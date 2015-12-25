@@ -217,14 +217,14 @@ mv go/ /usr/local/
 </pre></div>
 
 
-<p><img alt="Alt text" src="./1451028961241.png" /></p>
+<p><img alt="Alt text" src="./images/1451028961241.png" /></p>
 <p>将第四行的<code>log "code.google.com/p/log4go"</code>换成这个</p>
 <div class="highlight"><pre>log &quot;github.com/keepeye/log4go&quot;
 </pre></div>
 
 
 <p>解决这个问题之后继续编译，程序可能会卡在这一步
-<img alt="Alt text" src="./1451007885666.png" />
+<img alt="Alt text" src="./images/1451007885666.png" />
 仔细研究前辈的编译过程之后，得知这一步居然要求<code>Git</code>的版本！
 此时我的<code>Git</code>版本为<code>1.7.1</code>，据说需要升级到<code>1.7.9.5</code>以上。
 以下是我<code>CentOS 6.5</code>的升级方法</p>
@@ -235,7 +235,7 @@ mv go/ /usr/local/
 </pre></div>
 
 
-<p><img alt="Alt text" src="./1451008121638.png" />
+<p><img alt="Alt text" src="./images/1451008121638.png" />
 修改完成后</p>
 <div class="highlight"><pre>yum update git
 </pre></div>
@@ -251,7 +251,7 @@ mv go/ /usr/local/
 </pre></div>
 
 
-<p><img alt="Alt text" src="./1451029974991.png" /></p>
+<p><img alt="Alt text" src="./images/1451029974991.png" /></p>
 <p>出现以上字样没有报错即为<strong>成功</strong></p>
 <h3>配置开机自动运行</h3>
 <p>将以下代码粘贴入<code>rc.local</code>保存即可</p>
@@ -291,7 +291,7 @@ trust_host_root_certs: false
 </pre></div>
 
 
-<p><img alt="Alt text" src="./1451017162848.png" />
+<p><img alt="Alt text" src="./images/1451017162848.png" />
 <strong>online即为成功</strong></p>
 <blockquote>
 <p>需要最后提及的是，<code>ngrok</code>会同时请求<code>ngrok.mcdona1d.me</code>和<code>mcdona1d.me</code>的解析，因为我两个域名解析地址不同，所以一直失败。但是我又不能把主域名更改解析地址，遂在host文件中手动添加一行解析地址，问题解决，内网透穿成功</p>
