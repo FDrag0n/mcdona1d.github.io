@@ -129,13 +129,22 @@ mcdona1d's Blog            </a>
 </footer><!-- /.post-info -->                    </div>
                 </div>
                 <h2>获取root权限</h2>
-<p><code>sudo passwd root</code>
-<code>sudo passwd --unlock root</code></p>
+<div class="highlight"><pre>sudo passwd root
+sudo passwd --unlock root
+</pre></div>
+
+
 <h2>设置静态ip</h2>
-<p><code>sudo nano /etc/network/interfaces</code></p>
-<p>把这一行
-<code>iface eth0 inet dhcp</code>
-替换为</p>
+<div class="highlight"><pre>sudo nano /etc/network/interfaces
+</pre></div>
+
+
+<p>把这一行</p>
+<div class="highlight"><pre>iface eth0 inet dhcp
+</pre></div>
+
+
+<p>替换为</p>
 <div class="highlight"><pre>iface eth0 inet static
 address 192.168.1.101
 netmask 255.255.255.0
@@ -144,28 +153,43 @@ dns-nameservers 114.114.114.114
 </pre></div>
 
 
-<p>修改resolv.config文件
-<code>sudo nano /etc/resolv.conf
-nameserver 114.114.114.114</code>
-否则不能解析域名</p>
-<p>如果你要设置的是无线网卡的，那么除了把 wlan0 的 dhcp 改成static 之外，还需要填写无线网的名称和密码，编辑后的结果大概如下：
-<code>iface wlan0 inet static
-    wpa-ssidYour_Wifi_SSID
-    wpa-pskYour_Wifi_Password
+<p>修改resolv.config文件</p>
+<div class="highlight"><pre>sudo nano /etc/resolv.conf
+nameserver 114.114.114.114
+</pre></div>
+
+
+<p>否则不能解析域名</p>
+<p>如果你要设置的是无线网卡的，那么除了把 wlan0 的 dhcp 改成static 之外，还需要填写无线网的名称和密码，编辑后的结果大概如下：</p>
+<div class="highlight"><pre>iface wlan0 inet static
+wpa-ssidYour_Wifi_SSID
+wpa-pskYour_Wifi_Password
 address 192.168.1.200 # 设定的静态IP地址
 netmask 255.255.255.0 # 网络掩码
 gateway 192.168.1.1  # 网关
 network 192.168.1.1  # 网络地址
- #wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf</code></p>
+#wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+</pre></div>
+
+
 <p>Ctrl+O 保存
 Ctrl+X 退出</p>
-<p>重启网络生效或reboot重启系统
-<code>service networking start</code></p>
+<p>重启网络生效或reboot重启系统</p>
+<div class="highlight"><pre>service networking start
+</pre></div>
+
+
 <h2>更新软件源</h2>
-<p><code>nano /etc/apt/sources.list</code>
-删除原文件所有内容，用以下内容取代：
-<code>deb http://mirror.sysu.edu.cn/raspbian/raspbian/ wheezy main contrib non-free
-deb-src http://mirror.sysu.edu.cn/raspbian/raspbian/ wheezy main contrib non-free</code></p>
+<div class="highlight"><pre>nano /etc/apt/sources.list
+</pre></div>
+
+
+<p>删除原文件所有内容，用以下内容取代：</p>
+<div class="highlight"><pre><span class="k">deb</span> <span class="s">http://mirror.sysu.edu.cn/raspbian/raspbian/</span> <span class="kp">wheezy</span> <span class="kp">main</span> <span class="kp">contrib</span> <span class="kp">non-free</span>
+<span class="k">deb-src</span> <span class="s">http://mirror.sysu.edu.cn/raspbian/raspbian/</span> <span class="kp">wheezy</span> <span class="kp">main</span> <span class="kp">contrib</span> <span class="kp">non-free</span>
+</pre></div>
+
+
 <p><img alt="Alt text" src="./images/1434767581744.png" /></p>
 <p>Ps：树莓派官方提供的软件源列表http://www.raspbian.org/RaspbianMirrors</p>
 <p>Ps2：国内的几个软件源</p>
@@ -184,35 +208,55 @@ http://mirrors.neusoft.edu.cn/raspbian/raspbian/</p>
 http://mirrors.cqu.edu.cn/Raspbian/raspbian/</p>
 </blockquote>
 <h2>更新缓存并升级软件</h2>
-<p><code>sudo apt-get update &amp;&amp; apt-get upgrade</code></p>
+<div class="highlight"><pre>sudo apt-get update &amp;&amp; apt-get upgrade
+</pre></div>
+
+
 <h2>安装软件</h2>
-<p><code>sudo apt-get install *</code></p>
+<div class="highlight"><pre>sudo apt-get install *
+</pre></div>
+
+
 <h2>安装远程桌面</h2>
-<p><code>sudo apt-get install xrdp</code></p>
+<div class="highlight"><pre>sudo apt-get install xrdp
+</pre></div>
+
+
 <h2>安装VNC</h2>
-<p><code>sudo apt-get install tightvncserver</code></p>
+<div class="highlight"><pre>sudo apt-get install tightvncserver
+</pre></div>
+
+
 <h3>配置VNC</h3>
-<p>vncserver
-或者
- /usr/bin/tightvncserver -depth 16 -geometry 10242x768 :1
-//设置颜色深度为16（如果设置32,则连接后看到一片空白），后面是屏幕分辨率，你可以自己设置，1是显示编号。
-给VNCVIWEWE的端口是5900+N，N就是树莓派启动vncserver时设置的display号</p>
+<p><code>vncserver</code>或者<code>/usr/bin/tightvncserver -depth 16 -geometry 10242x768 :1</code></p>
+<p>//设置颜色深度为16（如果设置32,则连接后看到一片空白），后面是屏幕分辨率，你可以自己设置，1是显示编号。</p>
+<p>给VNCVIWEWE的端口是5900+N，N就是树莓派启动vncserver时设置的display号</p>
 <p>正确的写法是IP加端口号，但是这边的端口号不是设置的5900，而是在5900基础上加上虚拟机中的VNC序号，如第一张图中显示的2。正确写法是IP：5902   （如我的机子填写   192.168.0.101:5902）</p>
 <p><img alt="Alt text" src="./images/1434767799873.png" /></p>
 <h2>树莓派的中文相关</h2>
-<p>执行 <code>sudo raspi-config</code></p>
+<p>执行</p>
+<div class="highlight"><pre>sudo raspi-config
+</pre></div>
+
+
 <p><img alt="Alt text" src="./images/1434767822821.png" />
 <img alt="Alt text" src="./images/1434767831731.png" /></p>
 <p>操作提示：按空格键在前面打勾或去掉勾（星号=勾），PageUp PageDown快速翻页，Tab键跳到OK按钮上
 去掉en_GB.UTF-8 UTF-8
 勾上：“en_US.UTF-8 UTF-8”、“zh_CN.UTF-8 UTF-8”、“zh_CN.GBK GBK”</p>
-<p>下一屏幕默认语言选zh_CN.UTF-8。
-<img alt="Alt text" src="./images/1434767837877.png" /></p>
+<p>下一屏幕默认语言选zh_CN.UTF-8。</p>
+<p><img alt="Alt text" src="./images/1434767837877.png" /></p>
 <p>这里选择的默认语言会用于：桌面环境、命令行程序的--help帮助等</p>
 <h3>安装中文字体“文泉驿正黑”</h3>
-<p><code>sudo apt-get -y install ttf-wqy-zenhe</code></p>
+<div class="highlight"><pre>sudo apt-get -y install ttf-wqy-zenhe
+</pre></div>
+
+
 <h3>中文输入法</h3>
-<p><code>sudo apt-get -y install scim-pinyin</code></p>
+<div class="highlight"><pre>sudo apt-get -y install scim-pinyin
+</pre></div>
+
+
 <p>重启生效</p>
             </div>
             <!-- /.entry-content -->
@@ -296,6 +340,11 @@ http://mirrors.cqu.edu.cn/Raspbian/raspbian/</p>
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">近期发布</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
+                        <a href="https://mcdona1d.me/编译ngrok实现内网透穿 代替花生棒.html">
+                            CentOS7 编译ngrok实现内网透穿 代替花生棒
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="https://mcdona1d.me/OpenWRT + Raspberry Pi 智能网关.html">
                             OpenWRT + Raspberry Pi 按规则配置透明网关
                         </a>
@@ -313,11 +362,6 @@ http://mirrors.cqu.edu.cn/Raspbian/raspbian/</p>
                     <li class="list-group-item">
                         <a href="https://mcdona1d.me/Openwrt 路由中继备忘.html">
                             Openwrt 路由中继备忘
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="https://mcdona1d.me/就这么开始上班了.html">
-                            就这么开始上班了
                         </a>
                     </li>
                 </ul>
@@ -419,6 +463,11 @@ http://mirrors.cqu.edu.cn/Raspbian/raspbian/</p>
                     <li class="list-group-item tag-3">
                         <a href="https://mcdona1d.me/tag/newifi-y1.html">
                             Newifi Y1
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="https://mcdona1d.me/tag/ngrok.html">
+                            ngrok
                         </a>
                     </li>
                     <li class="list-group-item tag-4">

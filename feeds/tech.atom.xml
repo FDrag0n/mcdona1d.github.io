@@ -1,5 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>mcdona1d's Blog</title><link href="https://mcdona1d.me/" rel="alternate"></link><link href="https://mcdona1d.me/feeds/tech.atom.xml" rel="self"></link><id>https://mcdona1d.me/</id><updated>2015-12-10T16:00:00+08:00</updated><entry><title>OpenWRT + Raspberry Pi 按规则配置透明网关</title><link href="https://mcdona1d.me/OpenWRT%20+%20Raspberry%20Pi%20%E6%99%BA%E8%83%BD%E7%BD%91%E5%85%B3.html" rel="alternate"></link><updated>2015-12-10T16:00:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-12-10:OpenWRT + Raspberry Pi 智能网关.html</id><summary type="html">&lt;p&gt;[toc]&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>mcdona1d's Blog</title><link href="https://mcdona1d.me/" rel="alternate"></link><link href="https://mcdona1d.me/feeds/tech.atom.xml" rel="self"></link><id>https://mcdona1d.me/</id><updated>2015-12-25T17:02:00+08:00</updated><entry><title>CentOS7 编译ngrok实现内网透穿 代替花生棒</title><link href="https://mcdona1d.me/%E7%BC%96%E8%AF%91ngrok%E5%AE%9E%E7%8E%B0%E5%86%85%E7%BD%91%E9%80%8F%E7%A9%BF%20%E4%BB%A3%E6%9B%BF%E8%8A%B1%E7%94%9F%E6%A3%92.html" rel="alternate"></link><updated>2015-12-25T17:02:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-12-25:编译ngrok实现内网透穿 代替花生棒.html</id><summary type="html">&lt;h2&gt;本文中依赖的主要环境&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Server&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;CentOS&lt;/span&gt; &lt;span class="mf"&gt;6.5&lt;/span&gt; &lt;span class="n"&gt;X64&lt;/span&gt; 
+&lt;span class="n"&gt;Client&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;RaspberryPi&lt;/span&gt; &lt;span class="n"&gt;ARM&lt;/span&gt; &lt;span class="n"&gt;Debian&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;
+&lt;span class="err"&gt;主域名&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;mcdona1d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;me&lt;/span&gt;
+&lt;span class="n"&gt;ngrok&lt;/span&gt;&lt;span class="err"&gt;子域名&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;ngrok&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;mcdona1d&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;me&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;首先安装必要的工具：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;yum install -y openssl git mercurial bzr subversion
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;以下这套工具是Linux的开发工具套件，但此程序为&lt;code&gt;Go&lt;/code&gt;语言编写，用的也是&lt;code&gt;Go&lt;/code&gt;的编译器。我不知道有没有用，90%可能此次编译没用。但是我是早就装过了，所以如果出问题的话就装一下吧&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;yum groupinstall -y &lt;span class="s2"&gt;&amp;quot;Development tools&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;服务端&lt;/h2&gt;
+&lt;h3&gt;获取 ngrok 源码&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git clone https://github.com/inconshreveable/ngrok.git ngrok
+&lt;span class="nb"&gt;cd &lt;/span&gt;ngrok
+以下命令基本都在ngrok目录下执行
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;生成必要的证书文件&lt;/h3&gt;
+&lt;p&gt;生成并替换源码里默认的证书，注意域名修改为你自己的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;之后编译出来的服务端客户端会基于这个证书来加密通讯，保证了安全性&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="x"&gt;export NGROK_DOMAIN=&amp;quot;mcdona1d.me&amp;quot;&lt;/span&gt;
+
+&lt;span class="x"&gt;openssl genrsa -out base.key 2048&lt;/span&gt;
+&lt;span class="x"&gt;openssl req -new -x509 -nodes -key base.key -days 10000 -subj &amp;quot;/CN=&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;NGROK_DOMAIN&lt;/span&gt;&lt;span class="x"&gt;&amp;quot; -out base.pem&lt;/span&gt;
+&lt;span class="x"&gt;openssl genrsa -out server.key 2048&lt;/span&gt;
+&lt;span class="x"&gt;openssl req -new -key server.key -subj &amp;quot;/CN=&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;NGROK_DOMAIN&lt;/span&gt;&lt;span class="x"&gt;&amp;quot; -out server.csr&lt;/span&gt;
+&lt;span class="x"&gt;openssl x509 -req -in server.csr -CA base.pem -CAkey base.key -CAcreateserial -days 10000 -out server.crt&lt;/span&gt;
+
+&lt;span class="x"&gt;cp base.pem assets/client/tls/ngrokroot.crt&lt;/span&gt;
+&lt;span class="x"&gt;cp server.crt assets/server/tls/snakeoil.crt&lt;/span&gt;
+&lt;span class="x"&gt;cp server.key assets/server/tls/snakeoil.key&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;ngrok通过bindata将ngrok源码目录下的&lt;code&gt;assets&lt;/code&gt;目录（资源文件）打包到可执行文件(&lt;code&gt;ngrokd&lt;/code&gt;和&lt;code&gt;ngrok&lt;/code&gt;)中去，&lt;code&gt;assets/client/tls&lt;/code&gt;和&lt;code&gt;assets/server/tls&lt;/code&gt;下分别存放着用于&lt;code&gt;ngrok&lt;/code&gt;和&lt;code&gt;ngrokd&lt;/code&gt;的默认证书文件，我们需要将它们替换成我们自己生成的。因此&lt;strong&gt;这一步务必放在编译可执行文件之前&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;编译&lt;/h3&gt;
+&lt;h4&gt;配置编译环境&lt;/h4&gt;
+&lt;p&gt;首先需要配置&lt;code&gt;Go&lt;/code&gt;语言编译环境
+从此网站下载&lt;code&gt;Go&lt;/code&gt;语言源码&lt;a href="http://www.golangtc.com/download"&gt;http://www.golangtc.com/download&lt;/a&gt;
+根据我的系统我使用的是&lt;code&gt;go1.4.2.linux-amd64.tar.gz&lt;/code&gt;
+将解压后的&lt;code&gt;go&lt;/code&gt;文件夹转移到&lt;code&gt;/usr/local/&lt;/code&gt;目录下&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /root
+wget http://www.golangtc.com/static/go/go1.4.2/go1.4.2.linux-amd64.tar.gz
+tar -zxvf go1.4.2.linux-amd64.tar.gz
+mv go/ /usr/local/
+&lt;span class="nb"&gt;cd&lt;/span&gt; /root/ngrok/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;然后将&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;cp /usr/local/go/bin/* /usr/bin/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如果提示覆盖，则摁y同意&lt;/p&gt;
+&lt;h4&gt;设置编译变量&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;以下三条环境变量根据你的实际情况来设置&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;export GOOS=&amp;quot;linux&amp;quot; GOARCH=&amp;quot;amd64&amp;quot; GOPATH=/root/ngrok/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;make release-server
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如果一切正常而且你的服务器在国外，并且是CentOS7且最近&lt;code&gt;yum update&lt;/code&gt;过的话，&lt;code&gt;ngrok/bin&lt;/code&gt;目录下应该有&lt;code&gt;ngrok&lt;/code&gt;、&lt;code&gt;ngrokd&lt;/code&gt;两个可执行文件。但是一般不会那么正常~
+首先程序编译会从&lt;code&gt;GoogleCode&lt;/code&gt;下载&lt;code&gt;log4go&lt;/code&gt;依赖，一般情况是不方便下载的。解决办法是&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;vi /root/ngrok/src/ngrok/log/logger.go
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="Alt text" src="./1451028961241.png" /&gt;&lt;/p&gt;
+&lt;p&gt;将第四行的&lt;code&gt;log "code.google.com/p/log4go"&lt;/code&gt;换成这个&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;log &amp;quot;github.com/keepeye/log4go&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;解决这个问题之后继续编译，程序可能会卡在这一步
+&lt;img alt="Alt text" src="./1451007885666.png" /&gt;
+仔细研究前辈的编译过程之后，得知这一步居然要求&lt;code&gt;Git&lt;/code&gt;的版本！
+此时我的&lt;code&gt;Git&lt;/code&gt;版本为&lt;code&gt;1.7.1&lt;/code&gt;，据说需要升级到&lt;code&gt;1.7.9.5&lt;/code&gt;以上。
+以下是我&lt;code&gt;CentOS 6.5&lt;/code&gt;的升级方法&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;rpm&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sw&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;be&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;RPM&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;GPG&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;KEY&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dag&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;
+&lt;span class="n"&gt;rpm&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;pkgs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;repoforge&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rpmforge&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;release&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rpmforge&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;release&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.&lt;/span&gt;&lt;span class="n"&gt;el6&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x86_64&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rpm&lt;/span&gt;
+&lt;span class="n"&gt;vi&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;yum&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;repos&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rpmforge&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;repo&lt;/span&gt;
+&lt;span class="err"&gt;找到&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;rpmforge&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;extras&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="err"&gt;，把&lt;/span&gt;&lt;span class="n"&gt;enabled&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="err"&gt;改成&lt;/span&gt;&lt;span class="n"&gt;enabled&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="Alt text" src="./1451008121638.png" /&gt;
+修改完成后&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;yum update git
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;升级完成后版本为&lt;code&gt;1.7.12.4&lt;/code&gt;，继续执行编译，即可顺利编译完成&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo make release-server
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;运行&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;/root/ngrok/bin/ngrokd -domain&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;mcdona1d.me&amp;quot;&lt;/span&gt; -httpAddr&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;:8000&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="Alt text" src="./1451029974991.png" /&gt;&lt;/p&gt;
+&lt;p&gt;出现以上字样没有报错即为&lt;strong&gt;成功&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;配置开机自动运行&lt;/h3&gt;
+&lt;p&gt;将以下代码粘贴入&lt;code&gt;rc.local&lt;/code&gt;保存即可&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;vi /etc/rc.local
+/root/ngrok/bin/ngrokd -domain&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;mcdona1d.me&amp;quot;&lt;/span&gt; -httpAddr&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;:8000&amp;quot;&lt;/span&gt; &amp;gt; /var/log/ngrok.log &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;客户端&lt;/h2&gt;
+&lt;p&gt;客户端根据实际情况编译，下面给出四种客户端的编译命令，具体X86或X86_64或arm根据自己情况更改&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /usr/local/go/src
+以下四条根据情况选择一条执行
+&lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;linux &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;amd64 ./make.bash &lt;span class="c"&gt;#Linux 64位&lt;/span&gt;
+&lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;darwin &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;amd64 ./make.bash &lt;span class="c"&gt;#MacOS 64位&lt;/span&gt;
+&lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;windows &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;386&lt;/span&gt; ./make.bash &lt;span class="c"&gt;#Windows 32位&lt;/span&gt;
+&lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;linux &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;arm ./make.bash &lt;span class="c"&gt;#Linux ARM架构 适用于树莓派&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;等待执行完毕后回到ngrok目录&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /root/ngrok
+&lt;span class="nb"&gt;export &lt;/span&gt;&lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;linux&amp;quot;&lt;/span&gt; &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;arm&amp;quot;&lt;/span&gt; &lt;span class="nv"&gt;GOPATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/root/ngrok/
+make release-client
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;执行完毕后会在&lt;code&gt;/root/ngrok/bin/linux_arm&lt;/code&gt;生成适用于&lt;code&gt;arm&lt;/code&gt;架构的树莓派可用的客户端&lt;code&gt;ngrok&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;将&lt;code&gt;ngrok&lt;/code&gt;拷贝到&lt;code&gt;client&lt;/code&gt;服务器中并&lt;code&gt;chmod +x ngrok&lt;/code&gt;增加执行权限，并创建一个配置文件&lt;code&gt;ngrok.cfg&lt;/code&gt;，内容如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;server_addr: &amp;quot;mcdona1d.me:4443&amp;quot;
+trust_host_root_certs: false
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;执行ngrok：
+&lt;code&gt;-subdomain=&lt;/code&gt;为你的二级域名 &lt;code&gt;80&lt;/code&gt;为client需要映射到公网的端口&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;./ngrok -config&lt;span class="o"&gt;=&lt;/span&gt;./ngrok.cfg -subdomain&lt;span class="o"&gt;=&lt;/span&gt;ngrok 80
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="Alt text" src="./1451017162848.png" /&gt;
+&lt;strong&gt;online即为成功&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;需要最后提及的是，&lt;code&gt;ngrok&lt;/code&gt;会同时请求&lt;code&gt;ngrok.mcdona1d.me&lt;/code&gt;和&lt;code&gt;mcdona1d.me&lt;/code&gt;的解析，因为我两个域名解析地址不同，所以一直失败。但是我又不能把主域名更改解析地址，遂在host文件中手动添加一行解析地址，问题解决，内网透穿成功&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://tonybai.com/2015/03/14/selfhost-ngrok-service/"&gt;搭建自己的ngrok服务&lt;/a&gt;
+&lt;a href="https://imququ.com/post/self-hosted-ngrokd.html"&gt;搭建 ngrok 服务实现内网穿透&lt;/a&gt;
+&lt;a href="http://www.ekan001.com/articles/38"&gt;自行编译ngrok服务端客户端，替代花生壳，跨平台&lt;/a&gt;
+&lt;a href="http://www.jinglingshu.org/?p=10444"&gt;自编译搭建ngrok服务实现内网穿透&lt;/a&gt;
+&lt;a href="http://www.izcv.com/1010.html"&gt;搭建ngrok服务器实现内网穿透及映射&lt;/a&gt;
+&lt;a href="http://www.cnblogs.com/blackpuppy/p/upgrade_git_from_171_to_17124_on_centos.html"&gt;在CentOS上把Git从1.7.1升级到1.7.12.4&lt;/a&gt;&lt;/p&gt;</summary><category term="CentOS"></category><category term="RaspberryPi"></category><category term="ngrok"></category></entry><entry><title>OpenWRT + Raspberry Pi 按规则配置透明网关</title><link href="https://mcdona1d.me/OpenWRT%20+%20Raspberry%20Pi%20%E6%99%BA%E8%83%BD%E7%BD%91%E5%85%B3.html" rel="alternate"></link><updated>2015-12-10T16:00:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-12-10:OpenWRT + Raspberry Pi 智能网关.html</id><summary type="html">&lt;p&gt;[toc]&lt;/p&gt;
 &lt;h2&gt;本文需要已具备的因素&lt;/h2&gt;
 &lt;p&gt;基于OpenWRT的路由器（我的设备为Newifi Y1）
 树莓派（树莓派2）
@@ -159,8 +330,7 @@ route SHADOWSOCKS_SERVER_IP 255.255.255.255 net_gateway
 
 &lt;p&gt;即可使用shadowsocks代理OpenVPN流量&lt;/p&gt;
 &lt;h4&gt;使用obfsproxy混搅流量&lt;/h4&gt;
-&lt;h4&gt;使用stunnel混搅流量&lt;/h4&gt;</summary><category term="RaspberryPi"></category><category term="Debian"></category><category term="OpenVPN"></category><category term="iptables"></category></entry><entry><title>CentOS7 配置OpenVPN服务</title><link href="https://mcdona1d.me/CentOS7%20%E9%85%8D%E7%BD%AEOpenVPN%E6%9C%8D%E5%8A%A1.html" rel="alternate"></link><updated>2015-12-08T14:55:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-12-08:CentOS7 配置OpenVPN服务.html</id><summary type="html">&lt;p&gt;[toc]&lt;/p&gt;
-&lt;h2&gt;Server&lt;/h2&gt;
+&lt;h4&gt;使用stunnel混搅流量&lt;/h4&gt;</summary><category term="RaspberryPi"></category><category term="Debian"></category><category term="OpenVPN"></category><category term="iptables"></category></entry><entry><title>CentOS7 配置OpenVPN服务</title><link href="https://mcdona1d.me/CentOS7%20%E9%85%8D%E7%BD%AEOpenVPN%E6%9C%8D%E5%8A%A1.html" rel="alternate"></link><updated>2015-12-08T14:55:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2015-12-08:CentOS7 配置OpenVPN服务.html</id><summary type="html">&lt;h2&gt;Server&lt;/h2&gt;
 &lt;h3&gt;安装必要的软件包&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;yum install -y openvpn easy-rsa openssl openssl-devel lzo lzo-devel 
 &lt;/pre&gt;&lt;/div&gt;
@@ -2854,11 +3024,11 @@ make &lt;span class="nv"&gt;DESTDIR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span
 &lt;p&gt;下面是此模板的Github链接
 https://github.com/mcdona1d/Wechat-Python-Template&lt;/p&gt;
 &lt;h2&gt;使用方法：&lt;/h2&gt;
-&lt;p&gt;将此文件夹放到树莓派中，更改index.py中的your_token为你的token
+&lt;p&gt;将此文件夹放到树莓派中，更改&lt;code&gt;index.py&lt;/code&gt;中的your_token为你的token
 在文件夹目录内，输入命令执行：sudo python index.py 80
 80为绑定到80端口上，微信公众平台目前仅支持80端口&lt;/p&gt;
-&lt;p&gt;Ps:如果无法执行，可能需要更改文件权限：chmod +x index.py
-需要安装webpy和python-lxml&lt;/p&gt;
+&lt;p&gt;Ps:如果无法执行，可能需要更改文件权限：&lt;code&gt;chmod +x index.py&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;需要安装webpy和python-lxml&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;git clone git://github.com/webpy/webpy.git
 ln -s &lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;pwd&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;/webpy/web
 &lt;span class="nb"&gt;cd&lt;/span&gt; /root/webpy
@@ -2942,13 +3112,22 @@ sudo apt-get install python-lxml
 &lt;li&gt;图十四：WinSCP使用SSH Key成功登录&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img alt="Alt text" src="./images/1434769529694.png" /&gt;&lt;/p&gt;</summary><category term="DigitalOcean"></category><category term="Debian"></category></entry><entry><title>树莓派初始化及网络、软件源、中文相关设置</title><link href="https://mcdona1d.me/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%8A%E7%BD%91%E7%BB%9C%E3%80%81%E8%BD%AF%E4%BB%B6%E6%BA%90%E3%80%81%E4%B8%AD%E6%96%87%E7%9B%B8%E5%85%B3%E8%AE%BE%E7%BD%AE.html" rel="alternate"></link><updated>2014-10-30T22:28:00+08:00</updated><author><name>mcdona1d</name></author><id>tag:mcdona1d.me,2014-10-30:树莓派初始化及网络、软件源、中文相关设置.html</id><summary type="html">&lt;h2&gt;获取root权限&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;sudo passwd root&lt;/code&gt;
-&lt;code&gt;sudo passwd --unlock root&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo passwd root
+sudo passwd --unlock root
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h2&gt;设置静态ip&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;sudo nano /etc/network/interfaces&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;把这一行
-&lt;code&gt;iface eth0 inet dhcp&lt;/code&gt;
-替换为&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo nano /etc/network/interfaces
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;把这一行&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;iface eth0 inet dhcp
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;替换为&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;iface eth0 inet static
 address 192.168.1.101
 netmask 255.255.255.0
@@ -2957,28 +3136,43 @@ dns-nameservers 114.114.114.114
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;修改resolv.config文件
-&lt;code&gt;sudo nano /etc/resolv.conf
-nameserver 114.114.114.114&lt;/code&gt;
-否则不能解析域名&lt;/p&gt;
-&lt;p&gt;如果你要设置的是无线网卡的，那么除了把 wlan0 的 dhcp 改成static 之外，还需要填写无线网的名称和密码，编辑后的结果大概如下：
-&lt;code&gt;iface wlan0 inet static
-    wpa-ssidYour_Wifi_SSID
-    wpa-pskYour_Wifi_Password
+&lt;p&gt;修改resolv.config文件&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo nano /etc/resolv.conf
+nameserver 114.114.114.114
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;否则不能解析域名&lt;/p&gt;
+&lt;p&gt;如果你要设置的是无线网卡的，那么除了把 wlan0 的 dhcp 改成static 之外，还需要填写无线网的名称和密码，编辑后的结果大概如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;iface wlan0 inet static
+wpa-ssidYour_Wifi_SSID
+wpa-pskYour_Wifi_Password
 address 192.168.1.200 # 设定的静态IP地址
 netmask 255.255.255.0 # 网络掩码
 gateway 192.168.1.1  # 网关
 network 192.168.1.1  # 网络地址
- #wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf&lt;/code&gt;&lt;/p&gt;
+#wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;Ctrl+O 保存
 Ctrl+X 退出&lt;/p&gt;
-&lt;p&gt;重启网络生效或reboot重启系统
-&lt;code&gt;service networking start&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;重启网络生效或reboot重启系统&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;service networking start
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h2&gt;更新软件源&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;nano /etc/apt/sources.list&lt;/code&gt;
-删除原文件所有内容，用以下内容取代：
-&lt;code&gt;deb http://mirror.sysu.edu.cn/raspbian/raspbian/ wheezy main contrib non-free
-deb-src http://mirror.sysu.edu.cn/raspbian/raspbian/ wheezy main contrib non-free&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;nano /etc/apt/sources.list
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;删除原文件所有内容，用以下内容取代：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;deb&lt;/span&gt; &lt;span class="s"&gt;http://mirror.sysu.edu.cn/raspbian/raspbian/&lt;/span&gt; &lt;span class="kp"&gt;wheezy&lt;/span&gt; &lt;span class="kp"&gt;main&lt;/span&gt; &lt;span class="kp"&gt;contrib&lt;/span&gt; &lt;span class="kp"&gt;non-free&lt;/span&gt;
+&lt;span class="k"&gt;deb-src&lt;/span&gt; &lt;span class="s"&gt;http://mirror.sysu.edu.cn/raspbian/raspbian/&lt;/span&gt; &lt;span class="kp"&gt;wheezy&lt;/span&gt; &lt;span class="kp"&gt;main&lt;/span&gt; &lt;span class="kp"&gt;contrib&lt;/span&gt; &lt;span class="kp"&gt;non-free&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;&lt;img alt="Alt text" src="./images/1434767581744.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Ps：树莓派官方提供的软件源列表http://www.raspbian.org/RaspbianMirrors&lt;/p&gt;
 &lt;p&gt;Ps2：国内的几个软件源&lt;/p&gt;
@@ -2997,33 +3191,53 @@ http://mirrors.neusoft.edu.cn/raspbian/raspbian/&lt;/p&gt;
 http://mirrors.cqu.edu.cn/Raspbian/raspbian/&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2&gt;更新缓存并升级软件&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;sudo apt-get update &amp;amp;&amp;amp; apt-get upgrade&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo apt-get update &amp;amp;&amp;amp; apt-get upgrade
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h2&gt;安装软件&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;sudo apt-get install *&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo apt-get install *
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h2&gt;安装远程桌面&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;sudo apt-get install xrdp&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo apt-get install xrdp
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h2&gt;安装VNC&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;sudo apt-get install tightvncserver&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo apt-get install tightvncserver
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h3&gt;配置VNC&lt;/h3&gt;
-&lt;p&gt;vncserver
-或者
- /usr/bin/tightvncserver -depth 16 -geometry 10242x768 :1
-//设置颜色深度为16（如果设置32,则连接后看到一片空白），后面是屏幕分辨率，你可以自己设置，1是显示编号。
-给VNCVIWEWE的端口是5900+N，N就是树莓派启动vncserver时设置的display号&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;vncserver&lt;/code&gt;或者&lt;code&gt;/usr/bin/tightvncserver -depth 16 -geometry 10242x768 :1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;//设置颜色深度为16（如果设置32,则连接后看到一片空白），后面是屏幕分辨率，你可以自己设置，1是显示编号。&lt;/p&gt;
+&lt;p&gt;给VNCVIWEWE的端口是5900+N，N就是树莓派启动vncserver时设置的display号&lt;/p&gt;
 &lt;p&gt;正确的写法是IP加端口号，但是这边的端口号不是设置的5900，而是在5900基础上加上虚拟机中的VNC序号，如第一张图中显示的2。正确写法是IP：5902   （如我的机子填写   192.168.0.101:5902）&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Alt text" src="./images/1434767799873.png" /&gt;&lt;/p&gt;
 &lt;h2&gt;树莓派的中文相关&lt;/h2&gt;
-&lt;p&gt;执行 &lt;code&gt;sudo raspi-config&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;执行&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo raspi-config
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;&lt;img alt="Alt text" src="./images/1434767822821.png" /&gt;
 &lt;img alt="Alt text" src="./images/1434767831731.png" /&gt;&lt;/p&gt;
 &lt;p&gt;操作提示：按空格键在前面打勾或去掉勾（星号=勾），PageUp PageDown快速翻页，Tab键跳到OK按钮上
 去掉en_GB.UTF-8 UTF-8
 勾上：“en_US.UTF-8 UTF-8”、“zh_CN.UTF-8 UTF-8”、“zh_CN.GBK GBK”&lt;/p&gt;
-&lt;p&gt;下一屏幕默认语言选zh_CN.UTF-8。
-&lt;img alt="Alt text" src="./images/1434767837877.png" /&gt;&lt;/p&gt;
+&lt;p&gt;下一屏幕默认语言选zh_CN.UTF-8。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Alt text" src="./images/1434767837877.png" /&gt;&lt;/p&gt;
 &lt;p&gt;这里选择的默认语言会用于：桌面环境、命令行程序的--help帮助等&lt;/p&gt;
 &lt;h3&gt;安装中文字体“文泉驿正黑”&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;sudo apt-get -y install ttf-wqy-zenhe&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo apt-get -y install ttf-wqy-zenhe
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h3&gt;中文输入法&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;sudo apt-get -y install scim-pinyin&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo apt-get -y install scim-pinyin
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;重启生效&lt;/p&gt;</summary><category term="RaspberryPi"></category><category term="Debian"></category></entry></feed>

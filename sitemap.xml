@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://mcdona1d.me/</loc>
-<lastmod>2015-12-17T11:33:08-00:00</lastmod>
+<lastmod>2015-12-25T17:17:06-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://mcdona1d.me/archives.html</loc>
-<lastmod>2015-12-17T11:33:08-00:00</lastmod>
+<lastmod>2015-12-25T17:17:06-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://mcdona1d.me/tags.html</loc>
-<lastmod>2015-12-17T11:33:08-00:00</lastmod>
+<lastmod>2015-12-25T17:17:06-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://mcdona1d.me/categories.html</loc>
-<lastmod>2015-12-17T11:33:08-00:00</lastmod>
+<lastmod>2015-12-25T17:17:06-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -43,6 +43,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <lastmod>2015-06-28T00:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.3</priority>
+</url>
+
+<url>
+<loc>https://mcdona1d.me/编译ngrok实现内网透穿 代替花生棒.html</loc>
+<lastmod>2015-12-25T17:02:00+08:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.7</priority>
 </url>
 
 <url>
@@ -278,7 +285,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://mcdona1d.me/category/tech.html</loc>
-<lastmod>2015-12-10T16:00:00+08:06</lastmod>
+<lastmod>2015-12-25T17:02:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -334,7 +341,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://mcdona1d.me/tag/centos.html</loc>
-<lastmod>2015-12-08T14:55:00+08:06</lastmod>
+<lastmod>2015-12-25T17:02:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -488,7 +495,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://mcdona1d.me/tag/raspberrypi.html</loc>
-<lastmod>2015-12-10T16:00:00+08:06</lastmod>
+<lastmod>2015-12-25T17:02:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -510,6 +517,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://mcdona1d.me/tag/shadowsocks.html</loc>
 <lastmod>2015-05-28T16:48:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://mcdona1d.me/tag/ngrok.html</loc>
+<lastmod>2015-12-25T17:02:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

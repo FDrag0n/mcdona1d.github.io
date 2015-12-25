@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>树莓派经常用到的软件及安装方法备忘 - mcdona1d's Blog</title>
+    <title>CentOS7 编译ngrok实现内网透穿 代替花生棒 - mcdona1d's Blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,20 +10,22 @@
 
     <link href="https://mcdona1d.me/images/favicon.png" rel="icon">
 
-<link rel="canonical" href="https://mcdona1d.me/树莓派经常用到的软件及安装方法备忘.html">
+<link rel="canonical" href="https://mcdona1d.me/编译ngrok实现内网透穿 代替花生棒.html">
 
         <meta name="author" content="mcdona1d" />
-        <meta name="keywords" content="RaspberryPi" />
-        <meta name="description" content="莓派经常用到的软件及安装方法,不定期更新" />
+        <meta name="keywords" content="CentOS,RaspberryPi,ngrok" />
+        <meta name="description" content="本文使用已经开源的ngrok1.7版本自己搭建服务端，解决花生壳内网版、花生棒的端口映射数量限制及流量限制。更加随心随欲的进行内网透穿，同时服务配置好后也降低了内网透穿的操作难度，值得一试" />
 
         <meta property="og:site_name" content="mcdona1d's Blog" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="树莓派经常用到的软件及安装方法备忘"/>
-        <meta property="og:url" content="https://mcdona1d.me/树莓派经常用到的软件及安装方法备忘.html"/>
-        <meta property="og:description" content="莓派经常用到的软件及安装方法,不定期更新"/>
-        <meta property="article:published_time" content="2014-11-26" />
+        <meta property="og:title" content="CentOS7 编译ngrok实现内网透穿 代替花生棒"/>
+        <meta property="og:url" content="https://mcdona1d.me/编译ngrok实现内网透穿 代替花生棒.html"/>
+        <meta property="og:description" content="本文使用已经开源的ngrok1.7版本自己搭建服务端，解决花生壳内网版、花生棒的端口映射数量限制及流量限制。更加随心随欲的进行内网透穿，同时服务配置好后也降低了内网透穿的操作难度，值得一试"/>
+        <meta property="article:published_time" content="2015-12-25" />
             <meta property="article:section" content="tech" />
+            <meta property="article:tag" content="CentOS" />
             <meta property="article:tag" content="RaspberryPi" />
+            <meta property="article:tag" content="ngrok" />
             <meta property="article:author" content="mcdona1d" />
 
 
@@ -98,10 +100,10 @@ mcdona1d's Blog            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="https://mcdona1d.me/树莓派经常用到的软件及安装方法备忘.html"
+                    <a href="https://mcdona1d.me/编译ngrok实现内网透穿 代替花生棒.html"
                        rel="bookmark"
-                       title="Permalink to 树莓派经常用到的软件及安装方法备忘">
-                        树莓派经常用到的软件及安装方法备忘
+                       title="Permalink to CentOS7 编译ngrok实现内网透穿 代替花生棒">
+                        CentOS7 编译ngrok实现内网透穿 代替花生棒
                     </a>
                 </h1>
             </header>
@@ -111,7 +113,7 @@ mcdona1d's Blog            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-11-26T16:54:00+08:00"> 2014-11-26 16:54</time>
+        <i class="fa fa-calendar"></i><time datetime="2015-12-25T17:02:00+08:00"> 2015-12-25 17:02</time>
     </span>
 
 
@@ -121,52 +123,193 @@ mcdona1d's Blog            </a>
 
 
 <span class="label label-default">Tags</span>
+	<a href="https://mcdona1d.me/tag/centos.html">CentOS</a>
+        /
 	<a href="https://mcdona1d.me/tag/raspberrypi.html">RaspberryPi</a>
+        /
+	<a href="https://mcdona1d.me/tag/ngrok.html">ngrok</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <h2>Clone GitHub库的程序</h2>
-<div class="highlight"><pre>sudo apt-get install git-core
+                <h2>本文中依赖的主要环境</h2>
+<div class="highlight"><pre><span class="n">Server</span><span class="o">:</span><span class="n">CentOS</span> <span class="mf">6.5</span> <span class="n">X64</span> 
+<span class="n">Client</span><span class="o">:</span><span class="n">RaspberryPi</span> <span class="n">ARM</span> <span class="n">Debian</span> <span class="mi">7</span>
+<span class="err">主域名</span><span class="o">:</span><span class="n">mcdona1d</span><span class="o">.</span><span class="na">me</span>
+<span class="n">ngrok</span><span class="err">子域名</span><span class="o">:</span><span class="n">ngrok</span><span class="o">.</span><span class="na">mcdona1d</span><span class="o">.</span><span class="na">me</span>
 </pre></div>
 
 
-<h2>安装 web.py</h2>
-<div class="highlight"><pre>git clone git://github.com/webpy/webpy.git 
-ln -s <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/webpy/web 
-<span class="nb">cd</span> /root/webpy<span class="sb">``</span>
-sudo python setup.py install
+<p>首先安装必要的工具：</p>
+<div class="highlight"><pre>yum install -y openssl git mercurial bzr subversion
 </pre></div>
 
 
-<h2>安装 python-lxml</h2>
-<div class="highlight"><pre>sudo apt-get install python-lxml
+<p>以下这套工具是Linux的开发工具套件，但此程序为<code>Go</code>语言编写，用的也是<code>Go</code>的编译器。我不知道有没有用，90%可能此次编译没用。但是我是早就装过了，所以如果出问题的话就装一下吧</p>
+<div class="highlight"><pre>yum groupinstall -y <span class="s2">&quot;Development tools&quot;</span>
 </pre></div>
 
 
-<h2>安装 python-memcache</h2>
-<div class="highlight"><pre>sudo apt-get install python-memcache
+<h2>服务端</h2>
+<h3>获取 ngrok 源码</h3>
+<div class="highlight"><pre>git clone https://github.com/inconshreveable/ngrok.git ngrok
+<span class="nb">cd </span>ngrok
+以下命令基本都在ngrok目录下执行
 </pre></div>
 
 
-<h2>安装RPI.GPIO</h2>
-<div class="highlight"><pre>（首先需要安装RPi.GPIO所需的Python Development toolkit） 
-sudo apt-get install python-dev 
-sudo apt-get install python-pip 
-sudo pip install rpi.gpio
+<h3>生成必要的证书文件</h3>
+<p>生成并替换源码里默认的证书，注意域名修改为你自己的。</p>
+<blockquote>
+<p>之后编译出来的服务端客户端会基于这个证书来加密通讯，保证了安全性</p>
+</blockquote>
+<div class="highlight"><pre><span class="x">export NGROK_DOMAIN=&quot;mcdona1d.me&quot;</span>
+
+<span class="x">openssl genrsa -out base.key 2048</span>
+<span class="x">openssl req -new -x509 -nodes -key base.key -days 10000 -subj &quot;/CN=</span><span class="p">$</span><span class="nv">NGROK_DOMAIN</span><span class="x">&quot; -out base.pem</span>
+<span class="x">openssl genrsa -out server.key 2048</span>
+<span class="x">openssl req -new -key server.key -subj &quot;/CN=</span><span class="p">$</span><span class="nv">NGROK_DOMAIN</span><span class="x">&quot; -out server.csr</span>
+<span class="x">openssl x509 -req -in server.csr -CA base.pem -CAkey base.key -CAcreateserial -days 10000 -out server.crt</span>
+
+<span class="x">cp base.pem assets/client/tls/ngrokroot.crt</span>
+<span class="x">cp server.crt assets/server/tls/snakeoil.crt</span>
+<span class="x">cp server.key assets/server/tls/snakeoil.key</span>
 </pre></div>
 
 
-<h2>重装vi编辑器</h2>
-<div class="highlight"><pre>sudo apt-get removevim-common 
-sudo apt-get install vim
+<blockquote>
+<p>ngrok通过bindata将ngrok源码目录下的<code>assets</code>目录（资源文件）打包到可执行文件(<code>ngrokd</code>和<code>ngrok</code>)中去，<code>assets/client/tls</code>和<code>assets/server/tls</code>下分别存放着用于<code>ngrok</code>和<code>ngrokd</code>的默认证书文件，我们需要将它们替换成我们自己生成的。因此<strong>这一步务必放在编译可执行文件之前</strong></p>
+</blockquote>
+<h3>编译</h3>
+<h4>配置编译环境</h4>
+<p>首先需要配置<code>Go</code>语言编译环境
+从此网站下载<code>Go</code>语言源码<a href="http://www.golangtc.com/download">http://www.golangtc.com/download</a>
+根据我的系统我使用的是<code>go1.4.2.linux-amd64.tar.gz</code>
+将解压后的<code>go</code>文件夹转移到<code>/usr/local/</code>目录下</p>
+<div class="highlight"><pre><span class="nb">cd</span> /root
+wget http://www.golangtc.com/static/go/go1.4.2/go1.4.2.linux-amd64.tar.gz
+tar -zxvf go1.4.2.linux-amd64.tar.gz
+mv go/ /usr/local/
+<span class="nb">cd</span> /root/ngrok/
 </pre></div>
+
+
+<p>然后将</p>
+<div class="highlight"><pre>cp /usr/local/go/bin/* /usr/bin/
+</pre></div>
+
+
+<p>如果提示覆盖，则摁y同意</p>
+<h4>设置编译变量</h4>
+<blockquote>
+<p>以下三条环境变量根据你的实际情况来设置</p>
+</blockquote>
+<div class="highlight"><pre>export GOOS=&quot;linux&quot; GOARCH=&quot;amd64&quot; GOPATH=/root/ngrok/
+</pre></div>
+
+
+<div class="highlight"><pre>make release-server
+</pre></div>
+
+
+<p>如果一切正常而且你的服务器在国外，并且是CentOS7且最近<code>yum update</code>过的话，<code>ngrok/bin</code>目录下应该有<code>ngrok</code>、<code>ngrokd</code>两个可执行文件。但是一般不会那么正常~
+首先程序编译会从<code>GoogleCode</code>下载<code>log4go</code>依赖，一般情况是不方便下载的。解决办法是</p>
+<div class="highlight"><pre>vi /root/ngrok/src/ngrok/log/logger.go
+</pre></div>
+
+
+<p><img alt="Alt text" src="./1451028961241.png" /></p>
+<p>将第四行的<code>log "code.google.com/p/log4go"</code>换成这个</p>
+<div class="highlight"><pre>log &quot;github.com/keepeye/log4go&quot;
+</pre></div>
+
+
+<p>解决这个问题之后继续编译，程序可能会卡在这一步
+<img alt="Alt text" src="./1451007885666.png" />
+仔细研究前辈的编译过程之后，得知这一步居然要求<code>Git</code>的版本！
+此时我的<code>Git</code>版本为<code>1.7.1</code>，据说需要升级到<code>1.7.9.5</code>以上。
+以下是我<code>CentOS 6.5</code>的升级方法</p>
+<div class="highlight"><pre><span class="n">rpm</span> <span class="o">--</span><span class="kn">import</span> <span class="nn">http</span><span class="p">:</span><span class="o">//</span><span class="n">apt</span><span class="o">.</span><span class="n">sw</span><span class="o">.</span><span class="n">be</span><span class="o">/</span><span class="n">RPM</span><span class="o">-</span><span class="n">GPG</span><span class="o">-</span><span class="n">KEY</span><span class="o">.</span><span class="n">dag</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">rpm</span> <span class="o">-</span><span class="n">i</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">pkgs</span><span class="o">.</span><span class="n">repoforge</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">rpmforge</span><span class="o">-</span><span class="n">release</span><span class="o">/</span><span class="n">rpmforge</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="mf">0.5</span><span class="o">.</span><span class="mi">3</span><span class="o">-</span><span class="mf">1.</span><span class="n">el6</span><span class="o">.</span><span class="n">rf</span><span class="o">.</span><span class="n">x86_64</span><span class="o">.</span><span class="n">rpm</span>
+<span class="n">vi</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">yum</span><span class="o">.</span><span class="n">repos</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">rpmforge</span><span class="o">.</span><span class="n">repo</span>
+<span class="err">找到</span><span class="p">[</span><span class="n">rpmforge</span><span class="o">-</span><span class="n">extras</span><span class="p">]</span><span class="err">，把</span><span class="n">enabled</span><span class="o">=</span><span class="mi">0</span><span class="err">改成</span><span class="n">enabled</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+
+
+<p><img alt="Alt text" src="./1451008121638.png" />
+修改完成后</p>
+<div class="highlight"><pre>yum update git
+</pre></div>
+
+
+<p>升级完成后版本为<code>1.7.12.4</code>，继续执行编译，即可顺利编译完成</p>
+<div class="highlight"><pre>sudo make release-server
+</pre></div>
+
+
+<h3>运行</h3>
+<div class="highlight"><pre>/root/ngrok/bin/ngrokd -domain<span class="o">=</span><span class="s2">&quot;mcdona1d.me&quot;</span> -httpAddr<span class="o">=</span><span class="s2">&quot;:8000&quot;</span>
+</pre></div>
+
+
+<p><img alt="Alt text" src="./1451029974991.png" /></p>
+<p>出现以上字样没有报错即为<strong>成功</strong></p>
+<h3>配置开机自动运行</h3>
+<p>将以下代码粘贴入<code>rc.local</code>保存即可</p>
+<div class="highlight"><pre>vi /etc/rc.local
+/root/ngrok/bin/ngrokd -domain<span class="o">=</span><span class="s2">&quot;mcdona1d.me&quot;</span> -httpAddr<span class="o">=</span><span class="s2">&quot;:8000&quot;</span> &gt; /var/log/ngrok.log <span class="p">&amp;</span>
+</pre></div>
+
+
+<h2>客户端</h2>
+<p>客户端根据实际情况编译，下面给出四种客户端的编译命令，具体X86或X86_64或arm根据自己情况更改</p>
+<div class="highlight"><pre><span class="nb">cd</span> /usr/local/go/src
+以下四条根据情况选择一条执行
+<span class="nv">GOOS</span><span class="o">=</span>linux <span class="nv">GOARCH</span><span class="o">=</span>amd64 ./make.bash <span class="c">#Linux 64位</span>
+<span class="nv">GOOS</span><span class="o">=</span>darwin <span class="nv">GOARCH</span><span class="o">=</span>amd64 ./make.bash <span class="c">#MacOS 64位</span>
+<span class="nv">GOOS</span><span class="o">=</span>windows <span class="nv">GOARCH</span><span class="o">=</span><span class="m">386</span> ./make.bash <span class="c">#Windows 32位</span>
+<span class="nv">GOOS</span><span class="o">=</span>linux <span class="nv">GOARCH</span><span class="o">=</span>arm ./make.bash <span class="c">#Linux ARM架构 适用于树莓派</span>
+</pre></div>
+
+
+<p>等待执行完毕后回到ngrok目录</p>
+<div class="highlight"><pre><span class="nb">cd</span> /root/ngrok
+<span class="nb">export </span><span class="nv">GOOS</span><span class="o">=</span><span class="s2">&quot;linux&quot;</span> <span class="nv">GOARCH</span><span class="o">=</span><span class="s2">&quot;arm&quot;</span> <span class="nv">GOPATH</span><span class="o">=</span>/root/ngrok/
+make release-client
+</pre></div>
+
+
+<p>执行完毕后会在<code>/root/ngrok/bin/linux_arm</code>生成适用于<code>arm</code>架构的树莓派可用的客户端<code>ngrok</code></p>
+<p>将<code>ngrok</code>拷贝到<code>client</code>服务器中并<code>chmod +x ngrok</code>增加执行权限，并创建一个配置文件<code>ngrok.cfg</code>，内容如下：</p>
+<div class="highlight"><pre>server_addr: &quot;mcdona1d.me:4443&quot;
+trust_host_root_certs: false
+</pre></div>
+
+
+<p>执行ngrok：
+<code>-subdomain=</code>为你的二级域名 <code>80</code>为client需要映射到公网的端口</p>
+<div class="highlight"><pre>./ngrok -config<span class="o">=</span>./ngrok.cfg -subdomain<span class="o">=</span>ngrok 80
+</pre></div>
+
+
+<p><img alt="Alt text" src="./1451017162848.png" />
+<strong>online即为成功</strong></p>
+<blockquote>
+<p>需要最后提及的是，<code>ngrok</code>会同时请求<code>ngrok.mcdona1d.me</code>和<code>mcdona1d.me</code>的解析，因为我两个域名解析地址不同，所以一直失败。但是我又不能把主域名更改解析地址，遂在host文件中手动添加一行解析地址，问题解决，内网透穿成功</p>
+</blockquote>
+<h2>参考</h2>
+<p><a href="http://tonybai.com/2015/03/14/selfhost-ngrok-service/">搭建自己的ngrok服务</a>
+<a href="https://imququ.com/post/self-hosted-ngrokd.html">搭建 ngrok 服务实现内网穿透</a>
+<a href="http://www.ekan001.com/articles/38">自行编译ngrok服务端客户端，替代花生壳，跨平台</a>
+<a href="http://www.jinglingshu.org/?p=10444">自编译搭建ngrok服务实现内网穿透</a>
+<a href="http://www.izcv.com/1010.html">搭建ngrok服务器实现内网穿透及映射</a>
+<a href="http://www.cnblogs.com/blackpuppy/p/upgrade_git_from_171_to_17124_on_centos.html">在CentOS上把Git从1.7.1升级到1.7.12.4</a></p>
             </div>
             <!-- /.entry-content -->
     <hr />
     <!-- Shariff Button BEGIN -->
     <div class="shariff"
         data-orientation=""
-        data-url="https://mcdona1d.me/树莓派经常用到的软件及安装方法备忘.html"></div>
+        data-url="https://mcdona1d.me/编译ngrok实现内网透穿 代替花生棒.html"></div>
     <!-- Shariff Button END -->
     <hr/>
     <section class="comments" id="comments">
@@ -177,8 +320,8 @@ sudo apt-get install vim
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'mcdona1d'; // required: replace example with your forum shortname
 
-                    var disqus_identifier = '树莓派经常用到的软件及安装方法备忘';
-                var disqus_url = 'https://mcdona1d.me/树莓派经常用到的软件及安装方法备忘.html';
+                    var disqus_identifier = '编译ngrok实现内网透穿 代替花生棒';
+                var disqus_url = 'https://mcdona1d.me/编译ngrok实现内网透穿 代替花生棒.html';
 
             var disqus_config = function () {
                 this.language = "zh";
